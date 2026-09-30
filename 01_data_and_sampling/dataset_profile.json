@@ -1,0 +1,277 @@
+{
+  "database": "C:\\Users\\HP\\Documents\\Claude\\news_data\\news.sqlite",
+  "read_started_utc": "2026-09-08T03:04:47.389533+00:00",
+  "mode": "read-only; sequential statements; not a frozen transactional snapshot",
+  "schema": [
+    {
+      "name": "article",
+      "sql": "CREATE TABLE article (\n    url             TEXT PRIMARY KEY,\n    source          TEXT    NOT NULL,\n    title           TEXT    NOT NULL,\n    pub_date        TEXT    NOT NULL,\n    pub_time        TEXT,\n    time_is_exact   INTEGER NOT NULL DEFAULT 0,\n    channel         TEXT,\n    kw_groups       TEXT    NOT NULL DEFAULT '',\n    is_text_article INTEGER NOT NULL DEFAULT 1,\n    is_relevant     INTEGER NOT NULL DEFAULT 0,\n    is_price_report INTEGER NOT NULL DEFAULT 0,\n    discovered_at   TEXT    NOT NULL,\n    body            TEXT,\n    body_sha256     TEXT,\n    body_chars      INTEGER,\n    -- Grup tema dan flag pelaporan harga yang dihitung ulang dari BODY.\n    -- Disimpan terpisah dari versi berbasis judul karena cakupannya berbeda:\n    -- judul ada untuk semua artikel, body hanya untuk yang berhasil diambil.\n    -- Mencampur keduanya dalam satu fitur akan membuat cakupan tidak konsisten\n    -- di sepanjang deret waktu.\n    kw_groups_body  TEXT,\n    is_price_report_body INTEGER,\n    fetch_status    INTEGER,\n    fetched_at      TEXT\n, kab_scope TEXT NOT NULL DEFAULT '', price_pressure INTEGER NOT NULL DEFAULT 0, kab_scope_body TEXT, price_pressure_body INTEGER)"
+    },
+    {
+      "name": "crawl_log",
+      "sql": "CREATE TABLE crawl_log (\n    source     TEXT NOT NULL,\n    day        TEXT NOT NULL,\n    pages      INTEGER NOT NULL DEFAULT 0,\n    kept       INTEGER NOT NULL DEFAULT 0,\n    dropped    INTEGER NOT NULL DEFAULT 0,\n    status     TEXT    NOT NULL,\n    note       TEXT,\n    updated_at TEXT    NOT NULL,\n    PRIMARY KEY (source, day)\n)"
+    },
+    {
+      "name": "run_meta",
+      "sql": "CREATE TABLE run_meta (\n    started_at TEXT NOT NULL,\n    command    TEXT NOT NULL,\n    params     TEXT NOT NULL\n)"
+    }
+  ],
+  "overview": {
+    "records": 1504980,
+    "first_publication_date": "2021-01-01",
+    "last_publication_date": "2026-05-31",
+    "nonempty_bodies": 133183,
+    "relevance_flagged": 122322,
+    "relevance_flagged_with_body": 121347,
+    "title_price_report_flagged": 34884,
+    "body_price_report_flagged": 26809,
+    "exact_time_flagged": 985101,
+    "body_tag_field_nonnull": 122784,
+    "bodies_with_fetched_at": 133183,
+    "bodies_with_hash": 133183
+  },
+  "sources": [
+    {
+      "source": "kontan",
+      "records": 519217,
+      "nonempty_bodies": 43869
+    },
+    {
+      "source": "kompas_regional",
+      "records": 329961,
+      "nonempty_bodies": 21957
+    },
+    {
+      "source": "kompas_nasional",
+      "records": 195002,
+      "nonempty_bodies": 9788
+    },
+    {
+      "source": "beritajatim",
+      "records": 184962,
+      "nonempty_bodies": 27864
+    },
+    {
+      "source": "kompas_money",
+      "records": 133495,
+      "nonempty_bodies": 18884
+    },
+    {
+      "source": "detik_food",
+      "records": 39490,
+      "nonempty_bodies": 2411
+    },
+    {
+      "source": "detik_news",
+      "records": 39468,
+      "nonempty_bodies": 1625
+    },
+    {
+      "source": "detik_finance",
+      "records": 38307,
+      "nonempty_bodies": 5139
+    },
+    {
+      "source": "bisnis",
+      "records": 25078,
+      "nonempty_bodies": 1646
+    }
+  ],
+  "years": [
+    {
+      "year": "2021",
+      "records": 259320,
+      "nonempty_bodies": 28564
+    },
+    {
+      "year": "2022",
+      "records": 275753,
+      "nonempty_bodies": 22994
+    },
+    {
+      "year": "2023",
+      "records": 268837,
+      "nonempty_bodies": 19988
+    },
+    {
+      "year": "2024",
+      "records": 273917,
+      "nonempty_bodies": 22122
+    },
+    {
+      "year": "2025",
+      "records": 303209,
+      "nonempty_bodies": 27838
+    },
+    {
+      "year": "2026",
+      "records": 123944,
+      "nonempty_bodies": 11677
+    }
+  ],
+  "fetch_status": [
+    {
+      "fetch_status": null,
+      "records": 1370285
+    },
+    {
+      "fetch_status": -2,
+      "records": 3
+    },
+    {
+      "fetch_status": -1,
+      "records": 49
+    },
+    {
+      "fetch_status": 200,
+      "records": 133531
+    },
+    {
+      "fetch_status": 403,
+      "records": 1103
+    },
+    {
+      "fetch_status": 404,
+      "records": 9
+    }
+  ],
+  "tag_counts": {
+    "kw_groups": {
+      "g_jatim": 185349,
+      "d_weather": 25597,
+      "d_disaster": 24282,
+      "t_production": 22504,
+      "t_import_export": 22420,
+      "g_national": 17595,
+      "t_procurement_distribution": 14136,
+      "t_subsidy_assistance": 13364,
+      "t_supply_reserve": 12872,
+      "t_governance_admin": 10257,
+      "c_rice": 9049,
+      "d_logistics": 8591,
+      "c_cooking_oil": 7400,
+      "c_fish": 7203,
+      "c_broad_food": 5426,
+      "c_chili": 2758,
+      "c_sugar": 2680,
+      "c_chicken_eggs": 1865,
+      "c_soybean": 1557,
+      "t_food_safety_quality": 1442,
+      "d_pest_disease": 1409,
+      "c_corn": 1149,
+      "t_price_management": 1093,
+      "t_market_operation": 1090,
+      "c_beef": 879,
+      "c_chicken_meat": 600,
+      "c_shallot": 411,
+      "c_garlic": 397,
+      "c_wheat": 352,
+      "c_buffalo_meat": 321
+    },
+    "kw_groups_body": {
+      "t_production": 50291,
+      "t_procurement_distribution": 40173,
+      "t_supply_reserve": 34384,
+      "t_import_export": 33192,
+      "g_jatim": 31003,
+      "t_governance_admin": 26380,
+      "t_subsidy_assistance": 19924,
+      "g_national": 17389,
+      "c_broad_food": 17163,
+      "c_rice": 16880,
+      "d_weather": 14692,
+      "c_cooking_oil": 13482,
+      "d_disaster": 12362,
+      "c_fish": 11738,
+      "d_logistics": 9746,
+      "t_price_management": 6849,
+      "c_sugar": 6653,
+      "c_chili": 6280,
+      "c_chicken_eggs": 5331,
+      "c_corn": 3934,
+      "t_food_safety_quality": 3794,
+      "c_chicken_meat": 3416,
+      "c_soybean": 3411,
+      "t_market_operation": 3156,
+      "c_shallot": 3149,
+      "c_beef": 2899,
+      "c_garlic": 2821,
+      "d_pest_disease": 2251,
+      "c_wheat": 1825,
+      "c_buffalo_meat": 754
+    }
+  },
+  "title_topic_screen": {
+    "patterns": {
+      "rice": "\\b(?:beras|padi|gabah)\\b",
+      "palm_oil_and_cooking_oil": "\\b(?:sawit|cpo|minyak goreng|minyakita|minyakita)\\b",
+      "fisheries": "\\b(?:ikan|perikanan|nelayan|udang|tambak|akuakultur)\\b",
+      "horticulture": "\\b(?:cabai|cabe|bawang|hortikultura)\\b",
+      "livestock": "\\b(?:sapi|ayam|telur|ternak|peternak|peternakan|susu)\\b",
+      "trade_and_logistics": "\\b(?:ekspor|impor|logistik|pelabuhan|distribusi|rantai pasok)\\b",
+      "monetary_and_macro": "\\b(?:inflasi|deflasi|suku bunga|rupiah|kurs|bank indonesia|pertumbuhan ekonomi|pdb)\\b",
+      "corporate_and_finance": "\\b(?:emiten|saham|dividen|merger|akuisisi|laba|perbankan|kredit|obligasi)\\b",
+      "energy": "\\b(?:bbm|batubara|batu bara|migas|minyak bumi|lpg|elpiji|gas alam|listrik|bensin)\\b",
+      "weather_and_disasters": "\\b(?:banjir|kekeringan|cuaca|el nino|la nina|longsor|bencana)\\b"
+    },
+    "counts": {
+      "rice": {
+        "all_titles": 9049,
+        "titles_with_nonempty_body": 8894
+      },
+      "palm_oil_and_cooking_oil": {
+        "all_titles": 10895,
+        "titles_with_nonempty_body": 8364
+      },
+      "fisheries": {
+        "all_titles": 8225,
+        "titles_with_nonempty_body": 7174
+      },
+      "horticulture": {
+        "all_titles": 3457,
+        "titles_with_nonempty_body": 3062
+      },
+      "livestock": {
+        "all_titles": 13317,
+        "titles_with_nonempty_body": 4433
+      },
+      "trade_and_logistics": {
+        "all_titles": 26072,
+        "titles_with_nonempty_body": 22620
+      },
+      "monetary_and_macro": {
+        "all_titles": 38816,
+        "titles_with_nonempty_body": 1879
+      },
+      "corporate_and_finance": {
+        "all_titles": 93182,
+        "titles_with_nonempty_body": 3150
+      },
+      "energy": {
+        "all_titles": 36257,
+        "titles_with_nonempty_body": 10378
+      },
+      "weather_and_disasters": {
+        "all_titles": 44067,
+        "titles_with_nonempty_body": 7503
+      }
+    },
+    "caveat": "Overlapping literal-keyword screens of titles, not extracted events or validated relevance. Downloaded-body column still matches TITLES, not body text."
+  },
+  "hash_duplicates": {
+    "duplicate_hash_groups": 3098,
+    "records_in_duplicate_groups": 6420,
+    "repeated_records_beyond_first": 3322
+  },
+  "records_at_end": 1504980,
+  "record_count_changed_during_audit": false,
+  "read_finished_utc": "2026-09-08T03:05:56.541980+00:00",
+  "caveats": [
+    "Source IDs may represent channels, not independent publishers.",
+    "Nonempty body does not establish extraction quality or completeness.",
+    "Body retrieval may be selected by scraper relevance rules; missingness is not assumed random.",
+    "Tag counts overlap and title/body tag fields have different coverage.",
+    "Hash duplicates undercount near-copies, syndicated articles, and multiple accounts of one event.",
+    "The count-change flag detects insertions/deletions only; concurrent updates may still change other fields."
+  ]
+}

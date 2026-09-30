@@ -1,0 +1,113 @@
+{
+  "artifacts": {
+    "README.md": {
+      "bytes": 1236,
+      "sha256": "865c2709a49c8f3b4d07f7e0d1d20945a51b820c121f4a08253435bc372aedc9"
+    },
+    "article_queue.jsonl": {
+      "bytes": 8665577,
+      "sha256": "dfa5f1f3b4961e13cddfaf423c7115f435f2208344de5e1c9c88e4b1e7e27fce"
+    },
+    "article_queue.tsv": {
+      "bytes": 3103941,
+      "sha256": "1c04038db8c8c39a15c83979e0d50834776959fe69fce4361e7e2c62de320688"
+    },
+    "hard_candidates.tsv": {
+      "bytes": 2446839,
+      "sha256": "9c0919e60f6cf434ffd2814b52762170013cfd2d618b2ffc4f9a05c59c6d42ba"
+    },
+    "near_duplicate_exclusions.tsv": {
+      "bytes": 320842,
+      "sha256": "1bea4a17b1d76b1bc0478feb7dceacfe804e4917ae97f7fafba6a4ecc9f27fb8"
+    },
+    "response_queries.tsv": {
+      "bytes": 669815,
+      "sha256": "ca6dedcba57205412a7c3cea6322f151e6826dd761fe9c0e45931def5904bae9"
+    }
+  },
+  "counts": {
+    "article_roles": {
+      "disruption_candidate": 1717,
+      "response_query": 400
+    },
+    "clusters_overlapping_existing_pilot": 299,
+    "deduplicated_candidate_pool": 30687,
+    "eligible_disruption_representatives": 11413,
+    "eligible_response_query_representatives": 1902,
+    "exact_duplicate_rows_removed": 149,
+    "existing_pilot_articles_excluded": 300,
+    "multi_article_near_copy_clusters": 533,
+    "near_copy_clusters": 27367,
+    "near_copy_or_existing_exclusion_rows": 1058,
+    "query_articles_with_minimum_hard_candidates": {
+      "test": 187,
+      "train": 637,
+      "validation": 223
+    },
+    "selected_hard_candidate_pairs": {
+      "test": 1200,
+      "train": 2400,
+      "validation": 1200
+    },
+    "selected_query_articles": {
+      "test": 100,
+      "train": 200,
+      "validation": 100
+    },
+    "signal_bearing_or_existing_rows_clustered": 28126,
+    "source_rows_after_east_java_filter": 30836,
+    "unique_extraction_articles": 1952,
+    "unused_deduplicated_pool": 30387
+  },
+  "created_date": "2026-08-15",
+  "dataset_name": "FoodJatim GNN Targeted Expansion Queue v3",
+  "event_time_status": "pending extraction; current eligibility uses strictly prior report time",
+  "hard_candidate_rules": {
+    "candidate_semantics": "unobserved candidates are not verified negatives",
+    "different_near_copy_cluster": true,
+    "different_publisher_family": true,
+    "eligibility": "at least two of specific commodity, location, disruption type; or one structured match plus lexical Jaccard >= 0.08",
+    "not_random": true,
+    "same_day_requires_exact_earlier_timestamp": true,
+    "strictly_prior_report_time": true
+  },
+  "human_verified": false,
+  "independence_proxy": "different normalized publisher family and different near-copy cluster",
+  "inputs": {
+    "database_mtime_ns": 1786774802146396400,
+    "database_path": "C:\\Users\\HP\\Documents\\Claude\\news_data\\news.sqlite",
+    "database_size_bytes": 1348849664,
+    "existing_sources_path": "C:\\Users\\HP\\Documents\\ChatGPT\\News TKG\\data\\annotation\\pilot-candidates.json",
+    "existing_sources_sha256": "1362eaa6751ae5149c4e15afcd8780ca6dfd25c92c0a884e644c6d776755789d",
+    "relevant_deduplicated_pool_sha256": "3e3b70739b733e416ae801682fbea18e887d07700da1bd34b75bb8ca90cb252f"
+  },
+  "label_status": "candidate_unverified",
+  "near_copy_method": {
+    "bottom_k_five_token_shingle_sketch_size": 32,
+    "clusters_touching_existing_pilot_excluded": true,
+    "exact_body_sha256_deduplication": true,
+    "minimum_shared_sketch_hashes": 8,
+    "normalized_exact_title_within_days": 30,
+    "one_representative_per_selected_cluster": true
+  },
+  "price_prediction_target": false,
+  "research_target": "temporal event-relation completion",
+  "seed": "foodjatim-gnn-expansion-v3",
+  "source_independence_verified": false,
+  "split_rule": {
+    "test": "publication_date >= 2026-01-01",
+    "train": "publication_date <= 2024-12-31",
+    "validation": "2025-01-01 <= publication_date <= 2025-12-31"
+  },
+  "targets": {
+    "hard_candidates_per_query": 12,
+    "maximum_lookback_days": 730,
+    "minimum_test_queries": 50,
+    "minimum_validation_queries": 50,
+    "query_articles": {
+      "test": 100,
+      "train": 200,
+      "validation": 100
+    }
+  }
+}

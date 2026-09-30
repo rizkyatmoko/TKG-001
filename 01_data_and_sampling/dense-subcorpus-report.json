@@ -1,0 +1,162 @@
+{
+  "budget_hours": 16.0,
+  "seconds_per_article": 130,
+  "budget_articles": 443,
+  "selected": 443,
+  "already_checkpointed": 124,
+  "selection_rule": "cells of (commodity, district, quarter) with >=4 queued articles and >=2 publisher families, taken densest-first",
+  "cells_used": 79,
+  "top_cells": [
+    {
+      "cell": "broad_food|lumajang|2021Q4",
+      "articles": 16,
+      "publisher_families": 4,
+      "newly_selected": 16,
+      "phase": "commodity"
+    },
+    {
+      "cell": "broad_food|surabaya|2025Q4",
+      "articles": 16,
+      "publisher_families": 3,
+      "newly_selected": 12,
+      "phase": "commodity"
+    },
+    {
+      "cell": "cooking_oil|surabaya|2022Q1",
+      "articles": 15,
+      "publisher_families": 3,
+      "newly_selected": 11,
+      "phase": "commodity"
+    },
+    {
+      "cell": "rice|malang|2023Q4",
+      "articles": 11,
+      "publisher_families": 4,
+      "newly_selected": 11,
+      "phase": "commodity"
+    },
+    {
+      "cell": "rice|_none_|2023Q4",
+      "articles": 10,
+      "publisher_families": 4,
+      "newly_selected": 9,
+      "phase": "commodity"
+    },
+    {
+      "cell": "rice|banyuwangi|2023Q4",
+      "articles": 13,
+      "publisher_families": 3,
+      "newly_selected": 10,
+      "phase": "commodity"
+    },
+    {
+      "cell": "rice|_none_|2023Q3",
+      "articles": 12,
+      "publisher_families": 3,
+      "newly_selected": 11,
+      "phase": "commodity"
+    },
+    {
+      "cell": "broad_food|surabaya|2023Q1",
+      "articles": 9,
+      "publisher_families": 4,
+      "newly_selected": 8,
+      "phase": "commodity"
+    },
+    {
+      "cell": "rice|lumajang|2021Q4",
+      "articles": 9,
+      "publisher_families": 3,
+      "newly_selected": 4,
+      "phase": "commodity"
+    },
+    {
+      "cell": "broad_food|surabaya|2022Q4",
+      "articles": 8,
+      "publisher_families": 3,
+      "newly_selected": 6,
+      "phase": "commodity"
+    },
+    {
+      "cell": "rice|gresik|2021Q2",
+      "articles": 8,
+      "publisher_families": 3,
+      "newly_selected": 4,
+      "phase": "commodity"
+    },
+    {
+      "cell": "cooking_oil|gresik|2022Q1",
+      "articles": 8,
+      "publisher_families": 3,
+      "newly_selected": 3,
+      "phase": "commodity"
+    },
+    {
+      "cell": "rice|surabaya|2023Q1",
+      "articles": 8,
+      "publisher_families": 3,
+      "newly_selected": 1,
+      "phase": "commodity"
+    },
+    {
+      "cell": "broad_food|surabaya|2026Q2",
+      "articles": 7,
+      "publisher_families": 3,
+      "newly_selected": 6,
+      "phase": "commodity"
+    },
+    {
+      "cell": "broad_food|malang|2021Q2",
+      "articles": 7,
+      "publisher_families": 3,
+      "newly_selected": 6,
+      "phase": "commodity"
+    }
+  ],
+  "commodity_mix": {
+    "broad_food": 134,
+    "rice": 132,
+    "sugar": 39,
+    "chili": 37,
+    "cooking_oil": 35,
+    "corn": 22,
+    "shallot": 17,
+    "soybean": 13,
+    "beef": 12,
+    "garlic": 11
+  },
+  "publisher_mix": {
+    "beritajatim": 171,
+    "kompas": 151,
+    "kontan": 77,
+    "detik": 41,
+    "bisnis": 3
+  },
+  "year_mix": {
+    "2021": 153,
+    "2022": 51,
+    "2023": 69,
+    "2024": 17,
+    "2025": 87,
+    "2026": 66
+  },
+  "role_mix": {
+    "disruption_candidate": 355,
+    "disruption_candidate|response_query": 61,
+    "response_query": 27
+  },
+  "density_selected": {
+    "cells": 813,
+    "median_articles_per_cell": 1,
+    "cells_with_>=4": 129,
+    "cells_with_>=8": 32,
+    "max_cell": 49
+  },
+  "density_plain_rice_same_budget": {
+    "cells": 1246,
+    "median_articles_per_cell": 1,
+    "cells_with_>=4": 68,
+    "cells_with_>=8": 8,
+    "max_cell": 11
+  }
+}
