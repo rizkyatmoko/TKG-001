@@ -1,0 +1,37 @@
+{
+  "article_id": "ann_0b34ed522140",
+  "status": "complete",
+  "model": "chatbot-frontier",
+  "extraction_route": "chatbot",
+  "annotation": {
+    "candidate_id": "ann_0b34ed522140",
+    "pub_date": "2026-01-17",
+    "source": "",
+    "title": "",
+    "article_relevance": "yes",
+    "east_java_basis": "specific_occurrence",
+    "llm_confidence_pct": 99,
+    "events": [
+      {
+        "event_slot": 1,
+        "event_kind": "disruption",
+        "event_subtype": "DistributionDisruption",
+        "event_date": "2026-01-15",
+        "event_end_date": "",
+        "date_precision": "day",
+        "location": "Dusun Laok Gunung, Desa Sana Daja, Pasean, Pamekasan, East Java",
+        "commodity": "broad_food",
+        "actor": "40 isolated households",
+        "food_system_stage": "consumption",
+        "evidence_quote": "Selain akses pendidikan, 40 KK di Dusun Laok Gunung, Desa Sana Daja juga mengalami kesulitan mendapatkan makanan.",
+        "confidence_pct": 99,
+        "granularity_basis": "incident",
+        "event_id": "ann_0b34ed522140:llm:event:1"
+      }
+    ],
+    "relations": [],
+    "extraction_model": "chatbot-frontier",
+    "human_verified": false,
+    "review_status": "complete"
+  }
+}

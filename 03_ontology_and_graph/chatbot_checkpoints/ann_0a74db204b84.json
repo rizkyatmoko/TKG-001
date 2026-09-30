@@ -1,0 +1,37 @@
+{
+  "article_id": "ann_0a74db204b84",
+  "status": "complete",
+  "model": "chatbot-frontier",
+  "extraction_route": "chatbot",
+  "annotation": {
+    "candidate_id": "ann_0a74db204b84",
+    "pub_date": "2025-03-28",
+    "source": "",
+    "title": "",
+    "article_relevance": "yes",
+    "east_java_basis": "specific_occurrence",
+    "llm_confidence_pct": 96,
+    "events": [
+      {
+        "event_slot": 1,
+        "event_kind": "response",
+        "event_subtype": "ProcurementAction",
+        "event_date": "2025-03-28",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Kediri, East Java",
+        "commodity": "rice",
+        "actor": "Bulog Kediri",
+        "food_system_stage": "distribution",
+        "evidence_quote": "Hingga akhir Maret 2025, gabah yang diserap dari petani di Nganjuk dan Kediri mencapai 18.394.455 kg atau lebih dari 18 ribu ton.",
+        "confidence_pct": 92,
+        "granularity_basis": "incident",
+        "event_id": "ann_0a74db204b84:llm:event:1"
+      }
+    ],
+    "relations": [],
+    "extraction_model": "chatbot-frontier",
+    "human_verified": false,
+    "review_status": "complete"
+  }
+}

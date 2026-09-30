@@ -1,0 +1,37 @@
+{
+  "article_id": "ann_0cbe685de532",
+  "status": "complete",
+  "model": "chatbot-frontier",
+  "extraction_route": "chatbot",
+  "annotation": {
+    "candidate_id": "ann_0cbe685de532",
+    "pub_date": "2024-04-20",
+    "source": "",
+    "title": "",
+    "article_relevance": "yes",
+    "east_java_basis": "specific_occurrence",
+    "llm_confidence_pct": 94,
+    "events": [
+      {
+        "event_slot": 1,
+        "event_kind": "response",
+        "event_subtype": "ProductionAssistance",
+        "event_date": "2024-04-19",
+        "event_end_date": "",
+        "date_precision": "day",
+        "location": "Lamongan, East Java",
+        "commodity": "rice",
+        "actor": "Kementerian Pertanian and local stakeholders",
+        "food_system_stage": "production",
+        "evidence_quote": "Lamongan (beritajatim.com) – Dandim 0812/Lamongan, Letkol Arm Ketut Wira Purbawan, mendampingi kunjungan kerja Menteri Pertanian, Andi Amran Sulaiman, dalam rangka panen raya dan meninjau pelaksanaan program pompanisasi di Kecamatan Babat dan Kedungpring, pada hari Jumat (19/04/2024).",
+        "confidence_pct": 95,
+        "granularity_basis": "incident",
+        "event_id": "ann_0cbe685de532:llm:event:1"
+      }
+    ],
+    "relations": [],
+    "extraction_model": "chatbot-frontier",
+    "human_verified": false,
+    "review_status": "complete"
+  }
+}

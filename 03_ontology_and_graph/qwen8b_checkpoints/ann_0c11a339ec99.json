@@ -1,0 +1,167 @@
+{
+  "pipeline_version": "foodjatim-expansion-extraction-v3",
+  "prompt_version": "foodjatim-expansion-conditional-schema-v3.4",
+  "validator_version": "foodjatim-expansion-validator-v3.7",
+  "run_id": "expansion_v3_qwen8b",
+  "article_id": "ann_0c11a339ec99",
+  "status": "complete",
+  "blind_payload_sha256": "8f0712e35c9ae195cc88bfb5262c3b905c563590a8175bdc6ae5695af75ed9fb",
+  "prompt_sha256": "6525551c4a384f5c588abf29add27359fefdc289f551c7f95c2cc3982c040837",
+  "schema_sha256": "8dec2154844e3f6827b118080183c412fcadf73e6d81597500fb95cba548f13d",
+  "model": "qwen3:8b",
+  "seed": 20260815,
+  "annotation": {
+    "candidate_id": "ann_0c11a339ec99",
+    "pub_date": "2022-10-20",
+    "source": "beritajatim",
+    "title": "Bersama Pangdam dan Bupati, BUMN Jatim Tinjau Lokasi Banjir Malang",
+    "url": "https://beritajatim.com/bersama-pangdam-dan-bupati-bumn-jatim-tinjau-lokasi-banjir-malang",
+    "article_relevance": "yes",
+    "llm_confidence_pct": 85,
+    "review_status": "complete_with_deterministic_normalization",
+    "review_flags": [
+      "invalid_relation_dropped",
+      "verbose_structured_llm_pass_v3",
+      "within_article_duplicate_event_merged"
+    ],
+    "article_notes": "Verbose-schema structured local-LLM extraction using qwen3:8b.",
+    "events": [
+      {
+        "event_kind": "response",
+        "event_subtype": "FoodAssistance",
+        "event_date": "2022-10-19",
+        "event_end_date": null,
+        "date_precision": "estimated_day",
+        "location": "Desa Sitiarjo, Kecamatan Sumbermanjing Wetan",
+        "commodity": "broad_food",
+        "actor": "Satgas Bencana BUMN Jatim",
+        "food_system_stage": "distribution",
+        "evidence_quote": "Dalam kesempatan itu, Pangdam V/Brawijaya dan BUMN Jatim juga menyerahkan bantuan sembako kepada warga.",
+        "confidence_pct": 85,
+        "notes": "",
+        "event_id": "ann_0c11a339ec99:run:expansion_v3_qwen8b:event:1",
+        "event_slot": 1
+      },
+      {
+        "event_kind": "response",
+        "event_subtype": "DistributionIntervention",
+        "event_date": "2022-10-19",
+        "event_end_date": null,
+        "date_precision": "estimated_day",
+        "location": "Desa Sitiarjo, Kecamatan Sumbermanjing Wetan",
+        "commodity": "broad_food",
+        "actor": "Satgas Bencana BUMN Jatim",
+        "food_system_stage": "distribution",
+        "evidence_quote": "“Kami juga telah dirikan dapur umum, mengirim beras masing-masing kecamatan satu ton, air minum kemasan botol tiap kecamatan seribu botol, matras dan selimut.",
+        "confidence_pct": 85,
+        "notes": "",
+        "event_id": "ann_0c11a339ec99:run:expansion_v3_qwen8b:event:3",
+        "event_slot": 3
+      }
+    ],
+    "relations": [],
+    "extraction_model": "qwen3:8b",
+    "human_verified": false,
+    "extraction_run_id": "expansion_v3_qwen8b"
+  },
+  "generation": {
+    "model": "qwen3:8b",
+    "created_at": "2026-08-15T14:24:25.9296279Z",
+    "total_duration_ns": 224664902400,
+    "load_duration_ns": 286644200,
+    "prompt_eval_count": 2279,
+    "eval_count": 485,
+    "done_reason": "stop",
+    "attempts": 1,
+    "wall_seconds": 224.688
+  },
+  "failure": null,
+  "raw_output": {
+    "article_relevance": "yes",
+    "article_confidence_pct": 85,
+    "events": [
+      {
+        "event_kind": "response",
+        "event_subtype": "FoodAssistance",
+        "event_date": "2022-10-19",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Desa Sitiarjo, Kecamatan Sumbermanjing Wetan",
+        "commodity": "broad_food",
+        "actor": "Satgas Bencana BUMN Jatim",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 5,
+        "confidence_pct": 85
+      },
+      {
+        "event_kind": "response",
+        "event_subtype": "FoodAssistance",
+        "event_date": "2022-10-19",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Desa Sitiarjo, Kecamatan Sumbermanjing Wetan",
+        "commodity": "broad_food",
+        "actor": "Satgas Bencana BUMN Jatim",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 6,
+        "confidence_pct": 85
+      },
+      {
+        "event_kind": "response",
+        "event_subtype": "DistributionIntervention",
+        "event_date": "2022-10-19",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Desa Sitiarjo, Kecamatan Sumbermanjing Wetan",
+        "commodity": "broad_food",
+        "actor": "Satgas Bencana BUMN Jatim",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 22,
+        "confidence_pct": 85
+      }
+    ],
+    "relations": [
+      {
+        "subject_event_slot": 1,
+        "predicate": "respondsTo",
+        "object_event_slot": 0,
+        "policy_id": "",
+        "evidence_sentence_id": 1,
+        "confidence_pct": 85
+      },
+      {
+        "subject_event_slot": 1,
+        "predicate": "respondsTo",
+        "object_event_slot": 0,
+        "policy_id": "",
+        "evidence_sentence_id": 2,
+        "confidence_pct": 85
+      },
+      {
+        "subject_event_slot": 1,
+        "predicate": "respondsTo",
+        "object_event_slot": 0,
+        "policy_id": "",
+        "evidence_sentence_id": 3,
+        "confidence_pct": 85
+      },
+      {
+        "subject_event_slot": 1,
+        "predicate": "respondsTo",
+        "object_event_slot": 0,
+        "policy_id": "",
+        "evidence_sentence_id": 5,
+        "confidence_pct": 85
+      },
+      {
+        "subject_event_slot": 1,
+        "predicate": "respondsTo",
+        "object_event_slot": 0,
+        "policy_id": "",
+        "evidence_sentence_id": 14,
+        "confidence_pct": 85
+      }
+    ]
+  },
+  "human_verified": false
+}

@@ -1,0 +1,37 @@
+{
+  "article_id": "ann_1cda0b1fdb1b",
+  "status": "complete",
+  "model": "chatbot-frontier",
+  "extraction_route": "chatbot",
+  "annotation": {
+    "candidate_id": "ann_1cda0b1fdb1b",
+    "pub_date": "2023-07-24",
+    "source": "",
+    "title": "",
+    "article_relevance": "yes",
+    "east_java_basis": "specific_occurrence",
+    "llm_confidence_pct": 86,
+    "events": [
+      {
+        "event_slot": 1,
+        "event_kind": "response",
+        "event_subtype": "MarketOperationAction",
+        "event_date": "2023-07-24",
+        "event_end_date": "",
+        "date_precision": "day",
+        "location": "Lapangan Rampal, Kota Malang, East Java",
+        "commodity": "broad_food",
+        "actor": "Pasar Rakyat Kota Malang",
+        "food_system_stage": "retail",
+        "evidence_quote": "Jokowi menegaskan perintah itu sesaat usai mengunjungi Pasar Rakyat Kota Malang yang digelar di Lapangan Rampal Malang, pada Senin, 24 Juli 2023.",
+        "confidence_pct": 86,
+        "granularity_basis": "incident",
+        "event_id": "ann_1cda0b1fdb1b:llm:event:1"
+      }
+    ],
+    "relations": [],
+    "extraction_model": "chatbot-frontier",
+    "human_verified": false,
+    "review_status": "complete"
+  }
+}

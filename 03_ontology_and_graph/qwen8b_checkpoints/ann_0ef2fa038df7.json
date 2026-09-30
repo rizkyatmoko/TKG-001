@@ -1,0 +1,174 @@
+{
+  "pipeline_version": "foodjatim-expansion-extraction-v3",
+  "prompt_version": "foodjatim-expansion-conditional-schema-v3.4",
+  "validator_version": "foodjatim-expansion-validator-v3.7",
+  "run_id": "expansion_v3_qwen8b",
+  "article_id": "ann_0ef2fa038df7",
+  "status": "complete",
+  "blind_payload_sha256": "d5caa323ddb5098a7d332a96ae9aebc594ea50c6a8617822edcf48ce52e49d52",
+  "prompt_sha256": "6525551c4a384f5c588abf29add27359fefdc289f551c7f95c2cc3982c040837",
+  "schema_sha256": "8dec2154844e3f6827b118080183c412fcadf73e6d81597500fb95cba548f13d",
+  "model": "qwen3:8b",
+  "seed": 20260815,
+  "annotation": {
+    "candidate_id": "ann_0ef2fa038df7",
+    "pub_date": "2022-03-02",
+    "source": "kompas_regional",
+    "title": "Puan Maharani: Masalah Minyak Goreng Harus Selesai Sebelum Ramadhan Regional 2 Maret 2022",
+    "url": "https://surabaya.kompas.com/read/2022/03/02/195945178/puan-maharani-masalah-minyak-goreng-harus-selesai-sebelum-ramadhan",
+    "article_relevance": "yes",
+    "llm_confidence_pct": 85,
+    "review_status": "complete_with_deterministic_normalization",
+    "review_flags": [
+      "invalid_relation_dropped",
+      "unimplemented_response_dropped",
+      "verbose_structured_llm_pass_v3"
+    ],
+    "article_notes": "Verbose-schema structured local-LLM extraction using qwen3:8b. Deterministic implementation/location gate removed future-only, non-operational, or non-East-Java event candidates.",
+    "events": [
+      {
+        "event_kind": "response",
+        "event_subtype": "ProcurementAction",
+        "event_date": "2022-03-02",
+        "event_end_date": null,
+        "date_precision": "estimated_day",
+        "location": "East Java",
+        "commodity": "cooking_oil",
+        "actor": "Puan Maharani",
+        "food_system_stage": "distribution",
+        "evidence_quote": "\"Saya minta antara pemerintah pusat dengan pemerintah daerah berkoordinasi untuk menggelar operasi pasar.",
+        "confidence_pct": 85,
+        "notes": "",
+        "event_id": "ann_0ef2fa038df7:run:expansion_v3_qwen8b:event:2",
+        "event_slot": 2
+      },
+      {
+        "event_kind": "disruption",
+        "event_subtype": "SupplyShortage",
+        "event_date": "2022-03-02",
+        "event_end_date": null,
+        "date_precision": "estimated_day",
+        "location": "East Java",
+        "commodity": "cooking_oil",
+        "actor": "public",
+        "food_system_stage": "distribution",
+        "evidence_quote": "SURABAYA, KOMPAS.com - Ketua DPR RI Puan Maharani mendesak pemerintah supaya segera mengatasi kelangkaan dan mahalnya minyak goreng.",
+        "confidence_pct": 85,
+        "notes": "",
+        "event_id": "ann_0ef2fa038df7:run:expansion_v3_qwen8b:event:3",
+        "event_slot": 3
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "ann_0ef2fa038df7:run:expansion_v3_qwen8b:relation:1",
+        "relation_slot": 1,
+        "subject_event_id": "ann_0ef2fa038df7:run:expansion_v3_qwen8b:event:2",
+        "predicate": "respondsTo",
+        "object_event_or_policy_id": "ann_0ef2fa038df7:run:expansion_v3_qwen8b:event:3",
+        "relation_label": "positive",
+        "evidence_quote": "SURABAYA, KOMPAS.com - Ketua DPR RI Puan Maharani mendesak pemerintah supaya segera mengatasi kelangkaan dan mahalnya minyak goreng.",
+        "confidence_pct": 85,
+        "notes": ""
+      },
+      {
+        "relation_id": "ann_0ef2fa038df7:run:expansion_v3_qwen8b:relation:2",
+        "relation_slot": 2,
+        "subject_event_id": "ann_0ef2fa038df7:run:expansion_v3_qwen8b:event:2",
+        "predicate": "reportedCauseOf",
+        "object_event_or_policy_id": "ann_0ef2fa038df7:run:expansion_v3_qwen8b:event:3",
+        "relation_label": "positive",
+        "evidence_quote": "\"Sekarang pertanyaannya adalah, jika produksi pabrik minyak goreng normal, kok bisa minyak goreng tersebut langka di pasaran?,\" tanya Puan.",
+        "confidence_pct": 85,
+        "notes": ""
+      }
+    ],
+    "extraction_model": "qwen3:8b",
+    "human_verified": false,
+    "extraction_run_id": "expansion_v3_qwen8b"
+  },
+  "generation": {
+    "model": "qwen3:8b",
+    "created_at": "2026-08-15T14:45:37.9020964Z",
+    "total_duration_ns": 112541468100,
+    "load_duration_ns": 289173600,
+    "prompt_eval_count": 1524,
+    "eval_count": 353,
+    "done_reason": "stop",
+    "attempts": 1,
+    "wall_seconds": 112.547
+  },
+  "failure": null,
+  "raw_output": {
+    "article_relevance": "yes",
+    "article_confidence_pct": 85,
+    "events": [
+      {
+        "event_kind": "response",
+        "event_subtype": "MarketOperationAction",
+        "event_date": "2022-03-02",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "East Java",
+        "commodity": "cooking_oil",
+        "actor": "Puan Maharani",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 12,
+        "confidence_pct": 85
+      },
+      {
+        "event_kind": "response",
+        "event_subtype": "ProcurementAction",
+        "event_date": "2022-03-02",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "East Java",
+        "commodity": "cooking_oil",
+        "actor": "Puan Maharani",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 13,
+        "confidence_pct": 85
+      },
+      {
+        "event_kind": "disruption",
+        "event_subtype": "SupplyShortage",
+        "event_date": "2022-03-02",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "East Java",
+        "commodity": "cooking_oil",
+        "actor": "public",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 2,
+        "confidence_pct": 85
+      }
+    ],
+    "relations": [
+      {
+        "subject_event_slot": 2,
+        "predicate": "respondsTo",
+        "object_event_slot": 3,
+        "policy_id": "",
+        "evidence_sentence_id": 2,
+        "confidence_pct": 85
+      },
+      {
+        "subject_event_slot": 2,
+        "predicate": "respondsTo",
+        "object_event_slot": 1,
+        "policy_id": "",
+        "evidence_sentence_id": 12,
+        "confidence_pct": 85
+      },
+      {
+        "subject_event_slot": 2,
+        "predicate": "reportedCauseOf",
+        "object_event_slot": 3,
+        "policy_id": "",
+        "evidence_sentence_id": 7,
+        "confidence_pct": 85
+      }
+    ]
+  },
+  "human_verified": false
+}

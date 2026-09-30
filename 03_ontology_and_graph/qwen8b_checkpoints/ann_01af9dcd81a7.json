@@ -1,0 +1,51 @@
+{
+  "pipeline_version": "foodjatim-expansion-extraction-v3",
+  "prompt_version": "foodjatim-expansion-conditional-schema-v3.4",
+  "validator_version": "foodjatim-expansion-validator-v3.7",
+  "run_id": "expansion_v3_qwen8b",
+  "article_id": "ann_01af9dcd81a7",
+  "status": "complete",
+  "blind_payload_sha256": "3ad018f4dcf20d6b913ba41b2cb34ee732b96ec8bf227f618a8603ad75e992af",
+  "prompt_sha256": "6525551c4a384f5c588abf29add27359fefdc289f551c7f95c2cc3982c040837",
+  "schema_sha256": "8dec2154844e3f6827b118080183c412fcadf73e6d81597500fb95cba548f13d",
+  "model": "qwen3:8b",
+  "seed": 20260815,
+  "annotation": {
+    "candidate_id": "ann_01af9dcd81a7",
+    "pub_date": "2024-06-06",
+    "source": "kontan",
+    "title": "Antisipasi Darurat Pangan, Begini Langkah Kementan",
+    "url": "https://regional.kontan.co.id/news/antisipasi-darurat-pangan-begini-langkah-kementan",
+    "article_relevance": "no",
+    "llm_confidence_pct": 0,
+    "review_status": "complete",
+    "review_flags": [
+      "verbose_structured_llm_pass_v3"
+    ],
+    "article_notes": "Verbose-schema structured local-LLM extraction using qwen3:8b.",
+    "events": [],
+    "relations": [],
+    "extraction_model": "qwen3:8b",
+    "human_verified": false,
+    "extraction_run_id": "expansion_v3_qwen8b"
+  },
+  "generation": {
+    "model": "qwen3:8b",
+    "created_at": "2026-08-15T12:08:05.9452764Z",
+    "total_duration_ns": 51099115100,
+    "load_duration_ns": 294357800,
+    "prompt_eval_count": 1706,
+    "eval_count": 22,
+    "done_reason": "stop",
+    "attempts": 1,
+    "wall_seconds": 51.094
+  },
+  "failure": null,
+  "raw_output": {
+    "article_relevance": "no",
+    "article_confidence_pct": 0,
+    "events": [],
+    "relations": []
+  },
+  "human_verified": false
+}

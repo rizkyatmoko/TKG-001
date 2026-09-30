@@ -1,0 +1,37 @@
+{
+  "article_id": "ann_0d14074ee24c",
+  "status": "complete",
+  "model": "chatbot-frontier",
+  "extraction_route": "chatbot",
+  "annotation": {
+    "candidate_id": "ann_0d14074ee24c",
+    "pub_date": "2026-01-05",
+    "source": "",
+    "title": "",
+    "article_relevance": "yes",
+    "east_java_basis": "specific_occurrence",
+    "llm_confidence_pct": 97,
+    "events": [
+      {
+        "event_slot": 1,
+        "event_kind": "disruption",
+        "event_subtype": "DisasterEvent",
+        "event_date": "2026-01-05",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Ponorogo, East Java",
+        "commodity": "rice",
+        "actor": "rice farmers in Ponorogo",
+        "food_system_stage": "production",
+        "evidence_quote": "Sebagian Tanaman Padi Warga Ponorogo Masih Terendam Banjir, Petani: Kami Merugi.",
+        "confidence_pct": 96,
+        "granularity_basis": "incident",
+        "event_id": "ann_0d14074ee24c:llm:event:1"
+      }
+    ],
+    "relations": [],
+    "extraction_model": "chatbot-frontier",
+    "human_verified": false,
+    "review_status": "complete"
+  }
+}

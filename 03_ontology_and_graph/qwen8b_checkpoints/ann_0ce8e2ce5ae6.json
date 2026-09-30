@@ -1,0 +1,118 @@
+{
+  "pipeline_version": "foodjatim-expansion-extraction-v3",
+  "prompt_version": "foodjatim-expansion-conditional-schema-v3.4",
+  "validator_version": "foodjatim-expansion-validator-v3.7",
+  "run_id": "expansion_v3_qwen8b",
+  "article_id": "ann_0ce8e2ce5ae6",
+  "status": "complete",
+  "blind_payload_sha256": "63220a3e47fc5278b71f96a7da0a3b0486c945fd434ca8b1197d0632845992b0",
+  "prompt_sha256": "6525551c4a384f5c588abf29add27359fefdc289f551c7f95c2cc3982c040837",
+  "schema_sha256": "8dec2154844e3f6827b118080183c412fcadf73e6d81597500fb95cba548f13d",
+  "model": "qwen3:8b",
+  "seed": 20260815,
+  "annotation": {
+    "candidate_id": "ann_0ce8e2ce5ae6",
+    "pub_date": "2021-03-09",
+    "source": "kompas_money",
+    "title": "Mensos Risma Bakal Salurkan Surplus Beras dari Merauke ke NTT Money 9 Maret 2021",
+    "url": "https://money.kompas.com/read/2021/03/09/154714626/mensos-risma-bakal-salurkan-surplus-beras-dari-merauke-ke-ntt",
+    "article_relevance": "yes",
+    "llm_confidence_pct": 85,
+    "review_status": "complete_with_deterministic_normalization",
+    "review_flags": [
+      "invalid_relation_dropped",
+      "unimplemented_response_dropped",
+      "verbose_structured_llm_pass_v3"
+    ],
+    "article_notes": "Verbose-schema structured local-LLM extraction using qwen3:8b. Deterministic implementation/location gate removed future-only, non-operational, or non-East-Java event candidates.",
+    "events": [],
+    "relations": [],
+    "extraction_model": "qwen3:8b",
+    "human_verified": false,
+    "extraction_run_id": "expansion_v3_qwen8b"
+  },
+  "generation": {
+    "model": "qwen3:8b",
+    "created_at": "2026-08-15T14:29:03.3824816Z",
+    "total_duration_ns": 120339134200,
+    "load_duration_ns": 290630500,
+    "prompt_eval_count": 1630,
+    "eval_count": 367,
+    "done_reason": "stop",
+    "attempts": 1,
+    "wall_seconds": 120.359
+  },
+  "failure": null,
+  "raw_output": {
+    "article_relevance": "yes",
+    "article_confidence_pct": 85,
+    "events": [
+      {
+        "event_kind": "response",
+        "event_subtype": "MarketOperationAction",
+        "event_date": "2021-03-09",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Indonesia",
+        "commodity": "rice",
+        "actor": "Menteri Sosial Tri Rismaharini",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 1,
+        "confidence_pct": 85
+      },
+      {
+        "event_kind": "response",
+        "event_subtype": "MarketOperationAction",
+        "event_date": "2021-03-09",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Indonesia",
+        "commodity": "rice",
+        "actor": "Menteri Sosial Tri Rismaharini",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 6,
+        "confidence_pct": 85
+      },
+      {
+        "event_kind": "response",
+        "event_subtype": "MarketOperationAction",
+        "event_date": "2021-03-09",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Indonesia",
+        "commodity": "rice",
+        "actor": "Mentery Sosial Tri Rismaharini",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 9,
+        "confidence_pct": 85
+      }
+    ],
+    "relations": [
+      {
+        "subject_event_slot": 2,
+        "predicate": "respondsTo",
+        "object_event_slot": 0,
+        "policy_id": "",
+        "evidence_sentence_id": 1,
+        "confidence_pct": 85
+      },
+      {
+        "subject_event_slot": 2,
+        "predicate": "respondsTo",
+        "object_event_slot": 0,
+        "policy_id": "",
+        "evidence_sentence_id": 6,
+        "confidence_pct": 85
+      },
+      {
+        "subject_event_slot": 2,
+        "predicate": "respondsTo",
+        "object_event_slot": 0,
+        "policy_id": "",
+        "evidence_sentence_id": 9,
+        "confidence_pct": 85
+      }
+    ]
+  },
+  "human_verified": false
+}

@@ -1,0 +1,109 @@
+{
+  "pipeline_version": "foodjatim-expansion-extraction-v3",
+  "prompt_version": "foodjatim-expansion-conditional-schema-v3.4",
+  "validator_version": "foodjatim-expansion-validator-v3.7",
+  "run_id": "expansion_v3_qwen8b",
+  "article_id": "ann_0ce41419e093",
+  "status": "complete",
+  "blind_payload_sha256": "5949099b06e5f3e375d24c1fe1c4a756b0e4337cdd3a67ee831fd2afce263cdd",
+  "prompt_sha256": "6525551c4a384f5c588abf29add27359fefdc289f551c7f95c2cc3982c040837",
+  "schema_sha256": "8dec2154844e3f6827b118080183c412fcadf73e6d81597500fb95cba548f13d",
+  "model": "qwen3:8b",
+  "seed": 20260815,
+  "annotation": {
+    "candidate_id": "ann_0ce41419e093",
+    "pub_date": "2021-02-05",
+    "source": "kontan",
+    "title": "Sudah 3 hari akses Malang-Kediri putus akibat tertutup material longsor",
+    "url": "https://regional.kontan.co.id/news/sudah-3-hari-akses-malang-kediri-putus-akibat-tertutup-material-longsor",
+    "article_relevance": "no",
+    "llm_confidence_pct": 85,
+    "review_status": "complete_with_deterministic_normalization",
+    "review_flags": [
+      "out_of_scope_events_dropped",
+      "verbose_structured_llm_pass_v3"
+    ],
+    "article_notes": "Verbose-schema structured local-LLM extraction using qwen3:8b. Deterministic scope gate removed emitted events because the source lacks both required food-system and East Java anchors.",
+    "events": [],
+    "relations": [],
+    "extraction_model": "qwen3:8b",
+    "human_verified": false,
+    "extraction_run_id": "expansion_v3_qwen8b"
+  },
+  "generation": {
+    "model": "qwen3:8b",
+    "created_at": "2026-08-15T16:09:26.5320471Z",
+    "total_duration_ns": 142935016900,
+    "load_duration_ns": 303265700,
+    "prompt_eval_count": 1785,
+    "eval_count": 350,
+    "done_reason": "stop",
+    "attempts": 1,
+    "wall_seconds": 142.938
+  },
+  "failure": null,
+  "raw_output": {
+    "article_relevance": "yes",
+    "article_confidence_pct": 85,
+    "events": [
+      {
+        "event_kind": "disruption",
+        "event_subtype": "DisasterEvent",
+        "event_date": "2021-02-02",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Kabupaten Malang",
+        "commodity": "broad_food",
+        "actor": "longsor",
+        "food_system_stage": "production",
+        "evidence_sentence_id": 2,
+        "confidence_pct": 85
+      },
+      {
+        "event_kind": "disruption",
+        "event_subtype": "DisasterEvent",
+        "event_date": "2021-02-02",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Kabupaten Malang",
+        "commodity": "broad_food",
+        "actor": "longsor",
+        "food_system_stage": "production",
+        "evidence_sentence_id": 3,
+        "confidence_pct": 85
+      },
+      {
+        "event_kind": "response",
+        "event_subtype": "CrisisPreparednessAction",
+        "event_date": "2021-02-05",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Kabupaten Malang",
+        "commodity": "broad_food",
+        "actor": "Badan Penanggulangan Bencana Daerah (BPBD) Kabupaten Malang",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 17,
+        "confidence_pct": 85
+      }
+    ],
+    "relations": [
+      {
+        "subject_event_slot": 3,
+        "predicate": "respondsTo",
+        "object_event_slot": 1,
+        "policy_id": "",
+        "evidence_sentence_id": 17,
+        "confidence_pct": 85
+      },
+      {
+        "subject_event_slot": 3,
+        "predicate": "respondsTo",
+        "object_event_slot": 2,
+        "policy_id": "",
+        "evidence_sentence_id": 17,
+        "confidence_pct": 85
+      }
+    ]
+  },
+  "human_verified": false
+}

@@ -1,0 +1,163 @@
+{
+  "pipeline_version": "foodjatim-expansion-extraction-v3",
+  "prompt_version": "foodjatim-expansion-conditional-schema-v3.4",
+  "validator_version": "foodjatim-expansion-validator-v3.7",
+  "run_id": "expansion_v3_qwen8b",
+  "article_id": "ann_1da503859348",
+  "status": "complete",
+  "blind_payload_sha256": "01f7c359db5c9ed81cc47f63f6ebd50746c7819526f5511a0c8ab27d4b189513",
+  "prompt_sha256": "6525551c4a384f5c588abf29add27359fefdc289f551c7f95c2cc3982c040837",
+  "schema_sha256": "8dec2154844e3f6827b118080183c412fcadf73e6d81597500fb95cba548f13d",
+  "model": "qwen3:8b",
+  "seed": 20260815,
+  "annotation": {
+    "candidate_id": "ann_1da503859348",
+    "pub_date": "2025-08-21",
+    "source": "beritajatim",
+    "title": "Gubernur Khofifah Instruksikan Kepala Daerah di Jatim Intensif Pantau Distribusi Beras Medium",
+    "url": "https://beritajatim.com/gubernur-khofifah-instruksikan-kepala-daerah-di-jatim-intensif-pantau-distribusi-beras-medium",
+    "article_relevance": "yes",
+    "llm_confidence_pct": 90,
+    "review_status": "complete_with_deterministic_normalization",
+    "review_flags": [
+      "invalid_relation_dropped",
+      "non_operational_response_dropped",
+      "verbose_structured_llm_pass_v3"
+    ],
+    "article_notes": "Verbose-schema structured local-LLM extraction using qwen3:8b. Deterministic implementation/location gate removed future-only, non-operational, or non-East-Java event candidates.",
+    "events": [
+      {
+        "event_kind": "disruption",
+        "event_subtype": "SupplyShortage",
+        "event_date": "2025-08-21",
+        "event_end_date": null,
+        "date_precision": "estimated_day",
+        "location": "East Java",
+        "commodity": "rice",
+        "actor": "Pasar Tradisional",
+        "food_system_stage": "distribution",
+        "evidence_quote": "Sebab, terjadi kelangkaan beras SPHP yang merupakan kategori medium.",
+        "confidence_pct": 90,
+        "notes": "",
+        "event_id": "ann_1da503859348:run:expansion_v3_qwen8b:event:2",
+        "event_slot": 2
+      },
+      {
+        "event_kind": "response",
+        "event_subtype": "DistributionIntervention",
+        "event_date": "2025-08-21",
+        "event_end_date": null,
+        "date_precision": "estimated_day",
+        "location": "East Java",
+        "commodity": "rice",
+        "actor": "Menteri Koordinator Bidang Pangan Zulkifli Hasan",
+        "food_system_stage": "distribution",
+        "evidence_quote": "Zulkifli pun menginstruksikan ke Bulog agar distribusi beras medium dilakukan langsung ke pasar tradisional.",
+        "confidence_pct": 90,
+        "notes": "",
+        "event_id": "ann_1da503859348:run:expansion_v3_qwen8b:event:3",
+        "event_slot": 3
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "ann_1da503859348:run:expansion_v3_qwen8b:relation:1",
+        "relation_slot": 1,
+        "subject_event_id": "ann_1da503859348:run:expansion_v3_qwen8b:event:3",
+        "predicate": "respondsTo",
+        "object_event_or_policy_id": "ann_1da503859348:run:expansion_v3_qwen8b:event:2",
+        "relation_label": "positive",
+        "evidence_quote": "Surabaya (beritajatim.com) – Gubernur Jawa Timur Khofifah Indar Parawansa menegaskan pentingnya keterlibatan langsung bupati dan wali kota dalam memastikan distribusi beras medium program Stabilisasi Pasokan dan Harga Pangan (SPHP) berjalan lancar di pasar tradisional.",
+        "confidence_pct": 90,
+        "notes": ""
+      }
+    ],
+    "extraction_model": "qwen3:8b",
+    "human_verified": false,
+    "extraction_run_id": "expansion_v3_qwen8b"
+  },
+  "generation": {
+    "model": "qwen3:8b",
+    "created_at": "2026-08-15T15:28:15.2892762Z",
+    "total_duration_ns": 194547895300,
+    "load_duration_ns": 284228000,
+    "prompt_eval_count": 2211,
+    "eval_count": 562,
+    "done_reason": "stop",
+    "attempts": 1,
+    "wall_seconds": 194.562
+  },
+  "failure": null,
+  "raw_output": {
+    "article_relevance": "yes",
+    "article_confidence_pct": 90,
+    "events": [
+      {
+        "event_kind": "response",
+        "event_subtype": "MarketOperationAction",
+        "event_date": "2025-08-21",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "East Java",
+        "commodity": "rice",
+        "actor": "Gubernur Jawa Timur Khofifah Indar Parawansa",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 1,
+        "confidence_pct": 90
+      },
+      {
+        "event_kind": "disruption",
+        "event_subtype": "SupplyShortage",
+        "event_date": "2025-08-21",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "East Java",
+        "commodity": "rice",
+        "actor": "Pasar Tradisional",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 8,
+        "confidence_pct": 90
+      },
+      {
+        "event_kind": "response",
+        "event_subtype": "DistributionIntervention",
+        "event_date": "2025-08-21",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "East Java",
+        "commodity": "rice",
+        "actor": "Menteri Koordinator Bidang Pangan Zulkifli Hasan",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 29,
+        "confidence_pct": 90
+      }
+    ],
+    "relations": [
+      {
+        "subject_event_slot": 3,
+        "predicate": "respondsTo",
+        "object_event_slot": 2,
+        "policy_id": "",
+        "evidence_sentence_id": 1,
+        "confidence_pct": 90
+      },
+      {
+        "subject_event_slot": 3,
+        "predicate": "respondsTo",
+        "object_event_slot": 1,
+        "policy_id": "",
+        "evidence_sentence_id": 23,
+        "confidence_pct": 90
+      },
+      {
+        "subject_event_slot": 3,
+        "predicate": "respondsTo",
+        "object_event_slot": 2,
+        "policy_id": "",
+        "evidence_sentence_id": 29,
+        "confidence_pct": 90
+      }
+    ]
+  },
+  "human_verified": false
+}

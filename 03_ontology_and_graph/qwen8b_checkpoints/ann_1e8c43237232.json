@@ -1,0 +1,171 @@
+{
+  "pipeline_version": "foodjatim-expansion-extraction-v3",
+  "prompt_version": "foodjatim-expansion-conditional-schema-v3.4",
+  "validator_version": "foodjatim-expansion-validator-v3.7",
+  "run_id": "expansion_v3_qwen8b",
+  "article_id": "ann_1e8c43237232",
+  "status": "complete",
+  "blind_payload_sha256": "3be970e63cd1ffb5a55130fbed7125d794dabb1bde65423cc8d9eb0527c60fdb",
+  "prompt_sha256": "6525551c4a384f5c588abf29add27359fefdc289f551c7f95c2cc3982c040837",
+  "schema_sha256": "8dec2154844e3f6827b118080183c412fcadf73e6d81597500fb95cba548f13d",
+  "model": "qwen3:8b",
+  "seed": 20260815,
+  "annotation": {
+    "candidate_id": "ann_1e8c43237232",
+    "pub_date": "2022-03-17",
+    "source": "kontan",
+    "title": "Tak Bisa Kontrol Spekulan Minyak Goreng, Menteri Perdagangan Minta Maaf",
+    "url": "https://nasional.kontan.co.id/news/tak-bisa-kontrol-spekulan-minyak-goreng-menteri-perdagangan-minta-maaf",
+    "article_relevance": "yes",
+    "llm_confidence_pct": 85,
+    "review_status": "complete_with_deterministic_normalization",
+    "review_flags": [
+      "relation_duplicate_after_event_merge_dropped",
+      "verbose_structured_llm_pass_v3",
+      "within_article_duplicate_event_merged"
+    ],
+    "article_notes": "Verbose-schema structured local-LLM extraction using qwen3:8b.",
+    "events": [
+      {
+        "event_kind": "response",
+        "event_subtype": "OtherResponseAction",
+        "event_date": "2022-03-17",
+        "event_end_date": null,
+        "date_precision": "estimated_day",
+        "location": "East Java",
+        "commodity": "cooking_oil",
+        "actor": "Ministry of Trade",
+        "food_system_stage": "distribution",
+        "evidence_quote": "Lutfi mengatakan, dengan diberlakukannya domestik market obligation (DMO) dalam kurun waktu 14 Februari hingga 16 Maret 2022, Kementerian Perdagangan (Kemendag) telah mengumpulkan 720.612 ton minyak sawit.",
+        "confidence_pct": 85,
+        "notes": "",
+        "event_id": "ann_1e8c43237232:run:expansion_v3_qwen8b:event:1",
+        "event_slot": 1
+      },
+      {
+        "event_kind": "disruption",
+        "event_subtype": "DistributionDisruption",
+        "event_date": "2022-03-17",
+        "event_end_date": null,
+        "date_precision": "estimated_day",
+        "location": "East Java",
+        "commodity": "cooking_oil",
+        "actor": "speculators",
+        "food_system_stage": "distribution",
+        "evidence_quote": "Menteri Perdagangan Muhammad Lutfi meminta maaf karena tidak bisa mengontrol para spekulan minyak goreng.",
+        "confidence_pct": 85,
+        "notes": "",
+        "event_id": "ann_1e8c43237232:run:expansion_v3_qwen8b:event:2",
+        "event_slot": 2
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "ann_1e8c43237232:run:expansion_v3_qwen8b:relation:1",
+        "relation_slot": 1,
+        "subject_event_id": "ann_1e8c43237232:run:expansion_v3_qwen8b:event:1",
+        "predicate": "respondsTo",
+        "object_event_or_policy_id": "ann_1e8c43237232:run:expansion_v3_qwen8b:event:2",
+        "relation_label": "positive",
+        "evidence_quote": "Lutfi mengatakan, dengan diberlakukannya domestik market obligation (DMO) dalam kurun waktu 14 Februari hingga 16 Maret 2022, Kementerian Perdagangan (Kemendag) telah mengumpulkan 720.612 ton minyak sawit.",
+        "confidence_pct": 85,
+        "notes": ""
+      }
+    ],
+    "extraction_model": "qwen3:8b",
+    "human_verified": false,
+    "extraction_run_id": "expansion_v3_qwen8b"
+  },
+  "generation": {
+    "model": "qwen3:8b",
+    "created_at": "2026-08-15T15:38:13.2717743Z",
+    "total_duration_ns": 159753550700,
+    "load_duration_ns": 284854400,
+    "prompt_eval_count": 2319,
+    "eval_count": 384,
+    "done_reason": "stop",
+    "attempts": 1,
+    "wall_seconds": 159.766
+  },
+  "failure": null,
+  "raw_output": {
+    "article_relevance": "yes",
+    "article_confidence_pct": 85,
+    "events": [
+      {
+        "event_kind": "response",
+        "event_subtype": "OtherResponseAction",
+        "event_date": "2022-03-17",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "East Java",
+        "commodity": "cooking_oil",
+        "actor": "Ministry of Trade",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 4,
+        "confidence_pct": 85
+      },
+      {
+        "event_kind": "disruption",
+        "event_subtype": "DistributionDisruption",
+        "event_date": "2022-03-17",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "East Java",
+        "commodity": "cooking_oil",
+        "actor": "speculators",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 2,
+        "confidence_pct": 85
+      },
+      {
+        "event_kind": "disruption",
+        "event_subtype": "DistributionDisruption",
+        "event_date": "2022-03-17",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "East Java",
+        "commodity": "cooking_oil",
+        "actor": "speculators",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 8,
+        "confidence_pct": 85
+      }
+    ],
+    "relations": [
+      {
+        "subject_event_slot": 1,
+        "predicate": "respondsTo",
+        "object_event_slot": 2,
+        "policy_id": "",
+        "evidence_sentence_id": 4,
+        "confidence_pct": 85
+      },
+      {
+        "subject_event_slot": 1,
+        "predicate": "respondsTo",
+        "object_event_slot": 3,
+        "policy_id": "",
+        "evidence_sentence_id": 4,
+        "confidence_pct": 85
+      },
+      {
+        "subject_event_slot": 2,
+        "predicate": "reportedCauseOf",
+        "object_event_slot": 3,
+        "policy_id": "",
+        "evidence_sentence_id": 2,
+        "confidence_pct": 85
+      },
+      {
+        "subject_event_slot": 3,
+        "predicate": "reportedCauseOf",
+        "object_event_slot": 2,
+        "policy_id": "",
+        "evidence_sentence_id": 8,
+        "confidence_pct": 85
+      }
+    ]
+  },
+  "human_verified": false
+}

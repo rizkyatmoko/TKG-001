@@ -1,0 +1,37 @@
+{
+  "article_id": "ann_1aecfd5d5337",
+  "status": "complete",
+  "model": "chatbot-frontier",
+  "extraction_route": "chatbot",
+  "annotation": {
+    "candidate_id": "ann_1aecfd5d5337",
+    "pub_date": "2021-01-05",
+    "source": "",
+    "title": "",
+    "article_relevance": "yes",
+    "east_java_basis": "specific_occurrence",
+    "llm_confidence_pct": 99,
+    "events": [
+      {
+        "event_slot": 1,
+        "event_kind": "response",
+        "event_subtype": "FoodAssistance",
+        "event_date": "2021-01-05",
+        "event_end_date": "",
+        "date_precision": "day",
+        "location": "Kecamatan Cerme and Benjeng, Kabupaten Gresik, East Java",
+        "commodity": "broad_food",
+        "actor": "Polres Gresik",
+        "food_system_stage": "consumption",
+        "evidence_quote": "Ia menambahkan, 300 kilogram beras, mi instan, minyak serta masker dibagikan kepada warga yang terdampak banjir luapan Kali Lamong.",
+        "confidence_pct": 99,
+        "granularity_basis": "incident",
+        "event_id": "ann_1aecfd5d5337:llm:event:1"
+      }
+    ],
+    "relations": [],
+    "extraction_model": "chatbot-frontier",
+    "human_verified": false,
+    "review_status": "complete"
+  }
+}

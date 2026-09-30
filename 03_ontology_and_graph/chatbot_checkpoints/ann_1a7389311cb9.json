@@ -1,0 +1,37 @@
+{
+  "article_id": "ann_1a7389311cb9",
+  "status": "complete",
+  "model": "chatbot-frontier",
+  "extraction_route": "chatbot",
+  "annotation": {
+    "candidate_id": "ann_1a7389311cb9",
+    "pub_date": "2025-11-05",
+    "source": "",
+    "title": "",
+    "article_relevance": "yes",
+    "east_java_basis": "specific_occurrence",
+    "llm_confidence_pct": 98,
+    "events": [
+      {
+        "event_slot": 1,
+        "event_kind": "disruption",
+        "event_subtype": "DisasterEvent",
+        "event_date": "2025-11-05",
+        "event_end_date": "",
+        "date_precision": "day",
+        "location": "Desa Gondoruso, Pasirian, Lumajang, East Java",
+        "commodity": "unclear",
+        "actor": "local farmers",
+        "food_system_stage": "production",
+        "evidence_quote": "Hal ini menyebabkan sawah dan sejumlah warung rusak disapu derasnya aliran lahar.",
+        "confidence_pct": 98,
+        "granularity_basis": "incident",
+        "event_id": "ann_1a7389311cb9:llm:event:1"
+      }
+    ],
+    "relations": [],
+    "extraction_model": "chatbot-frontier",
+    "human_verified": false,
+    "review_status": "complete"
+  }
+}

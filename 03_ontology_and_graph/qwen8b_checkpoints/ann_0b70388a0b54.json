@@ -1,0 +1,136 @@
+{
+  "pipeline_version": "foodjatim-expansion-extraction-v3",
+  "prompt_version": "foodjatim-expansion-conditional-schema-v3.4",
+  "validator_version": "foodjatim-expansion-validator-v3.7",
+  "run_id": "expansion_v3_qwen8b",
+  "article_id": "ann_0b70388a0b54",
+  "status": "complete",
+  "blind_payload_sha256": "bd378399ffd7608e88c4724bdabae03b1ce162e38352fbb5a3a0dbacba355485",
+  "prompt_sha256": "6525551c4a384f5c588abf29add27359fefdc289f551c7f95c2cc3982c040837",
+  "schema_sha256": "8dec2154844e3f6827b118080183c412fcadf73e6d81597500fb95cba548f13d",
+  "model": "qwen3:8b",
+  "seed": 20260815,
+  "annotation": {
+    "candidate_id": "ann_0b70388a0b54",
+    "pub_date": "2022-08-15",
+    "source": "beritajatim",
+    "title": "ECF Beri Konsultasi Petani Cegah Gagal Panen Akibat Cuaca dan Hama",
+    "url": "https://beritajatim.com/ecf-beri-konsultasi-petani-cegah-gagal-panen-akibat-cuaca-dan-hama",
+    "article_relevance": "yes",
+    "llm_confidence_pct": 85,
+    "review_status": "complete_with_deterministic_normalization",
+    "review_flags": [
+      "invalid_relation_dropped",
+      "non_operational_response_dropped",
+      "ungrounded_commodity_normalized_to_unclear",
+      "verbose_structured_llm_pass_v3"
+    ],
+    "article_notes": "Verbose-schema structured local-LLM extraction using qwen3:8b. Deterministic implementation/location gate removed future-only, non-operational, or non-East-Java event candidates.",
+    "events": [
+      {
+        "event_kind": "response",
+        "event_subtype": "ProductionAssistance",
+        "event_date": "2022-08-15",
+        "event_end_date": null,
+        "date_precision": "estimated_day",
+        "location": "Kabupaten Malang",
+        "commodity": "unclear",
+        "actor": "Eden Collection Facility (ECF)",
+        "food_system_stage": "production",
+        "evidence_quote": "Penyuluhan itu diberikan ECF bagi petani sayur di Desa Bokor, Kecamatan Ngantang, Kabupaten Malang dalam mitigasi gagal panen akibat cuaca dan hama, Senin (15/8/2022).",
+        "confidence_pct": 85,
+        "notes": "",
+        "event_id": "ann_0b70388a0b54:run:expansion_v3_qwen8b:event:1",
+        "event_slot": 1
+      }
+    ],
+    "relations": [],
+    "extraction_model": "qwen3:8b",
+    "human_verified": false,
+    "extraction_run_id": "expansion_v3_qwen8b"
+  },
+  "generation": {
+    "model": "qwen3:8b",
+    "created_at": "2026-08-15T14:20:41.2332698Z",
+    "total_duration_ns": 138153351900,
+    "load_duration_ns": 295391500,
+    "prompt_eval_count": 1914,
+    "eval_count": 365,
+    "done_reason": "stop",
+    "attempts": 1,
+    "wall_seconds": 138.156
+  },
+  "failure": null,
+  "raw_output": {
+    "article_relevance": "yes",
+    "article_confidence_pct": 85,
+    "events": [
+      {
+        "event_kind": "response",
+        "event_subtype": "ProductionAssistance",
+        "event_date": "2022-08-15",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Kabupaten Malang",
+        "commodity": "sugar",
+        "actor": "Eden Collection Facility (ECF)",
+        "food_system_stage": "production",
+        "evidence_sentence_id": 2,
+        "confidence_pct": 85
+      },
+      {
+        "event_kind": "response",
+        "event_subtype": "MarketOperationAction",
+        "event_date": "2022-08-15",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Kabupaten Malang",
+        "commodity": "sugar",
+        "actor": "Eden Collection Facility (ECF)",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 17,
+        "confidence_pct": 85
+      },
+      {
+        "event_kind": "response",
+        "event_subtype": "OtherResponseAction",
+        "event_date": "2022-08-15",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Kabupaten Malang",
+        "commodity": "sugar",
+        "actor": "Eden Collection Facility (ECF)",
+        "food_system_stage": "production",
+        "evidence_sentence_id": 3,
+        "confidence_pct": 85
+      }
+    ],
+    "relations": [
+      {
+        "subject_event_slot": 2,
+        "predicate": "respondsTo",
+        "object_event_slot": 0,
+        "policy_id": "",
+        "evidence_sentence_id": 2,
+        "confidence_pct": 85
+      },
+      {
+        "subject_event_slot": 2,
+        "predicate": "respondsTo",
+        "object_event_slot": 0,
+        "policy_id": "",
+        "evidence_sentence_id": 5,
+        "confidence_pct": 85
+      },
+      {
+        "subject_event_slot": 2,
+        "predicate": "respondsTo",
+        "object_event_slot": 0,
+        "policy_id": "",
+        "evidence_sentence_id": 7,
+        "confidence_pct": 85
+      }
+    ]
+  },
+  "human_verified": false
+}

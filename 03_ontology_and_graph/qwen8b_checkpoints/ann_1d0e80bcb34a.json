@@ -1,0 +1,155 @@
+{
+  "pipeline_version": "foodjatim-expansion-extraction-v3",
+  "prompt_version": "foodjatim-expansion-conditional-schema-v3.4",
+  "validator_version": "foodjatim-expansion-validator-v3.7",
+  "run_id": "expansion_v3_qwen8b",
+  "article_id": "ann_1d0e80bcb34a",
+  "status": "complete",
+  "blind_payload_sha256": "cc498ce348f761057bc25af93a649a5f56706c33c09eccde744301dc6fef5721",
+  "prompt_sha256": "6525551c4a384f5c588abf29add27359fefdc289f551c7f95c2cc3982c040837",
+  "schema_sha256": "8dec2154844e3f6827b118080183c412fcadf73e6d81597500fb95cba548f13d",
+  "model": "qwen3:8b",
+  "seed": 20260815,
+  "annotation": {
+    "candidate_id": "ann_1d0e80bcb34a",
+    "pub_date": "2024-03-21",
+    "source": "kompas_regional",
+    "title": "1.300 Hektar Tanaman Padi di Ngawi Gagal Panen akibat Terendam Banjir Regional 21 Maret 2024",
+    "url": "https://surabaya.kompas.com/read/2024/03/21/105100378/1300-hektar-tanaman-padi-di-ngawi-gagal-panen-akibat-terendam-banjir",
+    "article_relevance": "yes",
+    "llm_confidence_pct": 85,
+    "review_status": "complete_with_deterministic_normalization",
+    "review_flags": [
+      "relation_duplicate_after_event_merge_dropped",
+      "verbose_structured_llm_pass_v3",
+      "within_article_duplicate_event_merged"
+    ],
+    "article_notes": "Verbose-schema structured local-LLM extraction using qwen3:8b.",
+    "events": [
+      {
+        "event_kind": "disruption",
+        "event_subtype": "ProductionDisruption",
+        "event_date": "2024-03-15",
+        "event_end_date": null,
+        "date_precision": "estimated_day",
+        "location": "Ngawi",
+        "commodity": "rice",
+        "actor": "petani",
+        "food_system_stage": "production",
+        "evidence_quote": "1.300 Hektar Tanaman Padi di Ngawi Gagal Panen akibat Terendam Banjir",
+        "confidence_pct": 85,
+        "notes": "",
+        "event_id": "ann_1d0e80bcb34a:run:expansion_v3_qwen8b:event:1",
+        "event_slot": 1
+      },
+      {
+        "event_kind": "response",
+        "event_subtype": "OtherResponseAction",
+        "event_date": "2024-03-21",
+        "event_end_date": null,
+        "date_precision": "estimated_day",
+        "location": "Ngawi",
+        "commodity": "rice",
+        "actor": "Pemerintah Kabupaten Ngawi",
+        "food_system_stage": "production",
+        "evidence_quote": "Supardi mengatakan, Pemerintah Kabupaten Ngawi sejak tahun 2015 telah mengimbau kepada para petani yang memiliki lahan persawahan di bantaran Bengawan Solo maupun Bengawan Madiun untuk lebih waspada.",
+        "confidence_pct": 85,
+        "notes": "",
+        "event_id": "ann_1d0e80bcb34a:run:expansion_v3_qwen8b:event:3",
+        "event_slot": 3
+      }
+    ],
+    "relations": [
+      {
+        "relation_id": "ann_1d0e80bcb34a:run:expansion_v3_qwen8b:relation:1",
+        "relation_slot": 1,
+        "subject_event_id": "ann_1d0e80bcb34a:run:expansion_v3_qwen8b:event:3",
+        "predicate": "respondsTo",
+        "object_event_or_policy_id": "ann_1d0e80bcb34a:run:expansion_v3_qwen8b:event:1",
+        "relation_label": "positive",
+        "evidence_quote": "Supardi mengatakan, Pemerintah Kabupaten Ngawi sejak tahun 2015 telah mengimbau kepada para petani yang memiliki lahan persawahan di bantaran Bengawan Solo maupun Bengawan Madiun untuk lebih waspada.",
+        "confidence_pct": 85,
+        "notes": ""
+      }
+    ],
+    "extraction_model": "qwen3:8b",
+    "human_verified": false,
+    "extraction_run_id": "expansion_v3_qwen8b"
+  },
+  "generation": {
+    "model": "qwen3:8b",
+    "created_at": "2026-08-15T16:22:05.8287273Z",
+    "total_duration_ns": 128184669500,
+    "load_duration_ns": 301136100,
+    "prompt_eval_count": 1773,
+    "eval_count": 314,
+    "done_reason": "stop",
+    "attempts": 1,
+    "wall_seconds": 128.188
+  },
+  "failure": null,
+  "raw_output": {
+    "article_relevance": "yes",
+    "article_confidence_pct": 85,
+    "events": [
+      {
+        "event_kind": "disruption",
+        "event_subtype": "ProductionDisruption",
+        "event_date": "2024-03-15",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Ngawi",
+        "commodity": "rice",
+        "actor": "petani",
+        "food_system_stage": "production",
+        "evidence_sentence_id": 1,
+        "confidence_pct": 85
+      },
+      {
+        "event_kind": "disruption",
+        "event_subtype": "ProductionDisruption",
+        "event_date": "2024-03-15",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Ngawi",
+        "commodity": "rice",
+        "actor": "petani",
+        "food_system_stage": "production",
+        "evidence_sentence_id": 2,
+        "confidence_pct": 85
+      },
+      {
+        "event_kind": "response",
+        "event_subtype": "OtherResponseAction",
+        "event_date": "2024-03-21",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Ngawi",
+        "commodity": "rice",
+        "actor": "Pemerintah Kabupaten Ngawi",
+        "food_system_stage": "production",
+        "evidence_sentence_id": 12,
+        "confidence_pct": 85
+      }
+    ],
+    "relations": [
+      {
+        "subject_event_slot": 3,
+        "predicate": "respondsTo",
+        "object_event_slot": 1,
+        "policy_id": "",
+        "evidence_sentence_id": 12,
+        "confidence_pct": 85
+      },
+      {
+        "subject_event_slot": 3,
+        "predicate": "respondsTo",
+        "object_event_slot": 2,
+        "policy_id": "",
+        "evidence_sentence_id": 12,
+        "confidence_pct": 85
+      }
+    ]
+  },
+  "human_verified": false
+}

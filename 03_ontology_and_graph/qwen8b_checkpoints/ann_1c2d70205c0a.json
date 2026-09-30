@@ -1,0 +1,126 @@
+{
+  "pipeline_version": "foodjatim-expansion-extraction-v3",
+  "prompt_version": "foodjatim-expansion-conditional-schema-v3.4",
+  "validator_version": "foodjatim-expansion-validator-v3.7",
+  "run_id": "expansion_v3_qwen8b",
+  "article_id": "ann_1c2d70205c0a",
+  "status": "complete",
+  "blind_payload_sha256": "34be1452fbe1065270bd5a5b6d680a1523e4366f4cbffe8db945a9b62e970371",
+  "prompt_sha256": "6525551c4a384f5c588abf29add27359fefdc289f551c7f95c2cc3982c040837",
+  "schema_sha256": "8dec2154844e3f6827b118080183c412fcadf73e6d81597500fb95cba548f13d",
+  "model": "qwen3:8b",
+  "seed": 20260815,
+  "annotation": {
+    "candidate_id": "ann_1c2d70205c0a",
+    "pub_date": "2026-03-27",
+    "source": "kompas_regional",
+    "title": "Banjir di Pasuruan Surut, BPBD Tambal Tanggul Jebol Pakai Karung Berisi Pasir Regional 27 Maret 2026",
+    "url": "https://regional.kompas.com/read/2026/03/27/070446678/banjir-di-pasuruan-surut-bpbd-tambal-tanggul-jebol-pakai-karung-berisi",
+    "article_relevance": "no",
+    "llm_confidence_pct": 85,
+    "review_status": "complete_with_deterministic_normalization",
+    "review_flags": [
+      "invalid_relation_dropped",
+      "out_of_scope_events_dropped",
+      "verbose_structured_llm_pass_v3"
+    ],
+    "article_notes": "Verbose-schema structured local-LLM extraction using qwen3:8b. Deterministic scope gate removed emitted events because the source lacks both required food-system and East Java anchors.",
+    "events": [],
+    "relations": [],
+    "extraction_model": "qwen3:8b",
+    "human_verified": false,
+    "extraction_run_id": "expansion_v3_qwen8b"
+  },
+  "generation": {
+    "model": "qwen3:8b",
+    "created_at": "2026-08-15T15:21:43.4941387Z",
+    "total_duration_ns": 136779720100,
+    "load_duration_ns": 286936400,
+    "prompt_eval_count": 1836,
+    "eval_count": 425,
+    "done_reason": "stop",
+    "attempts": 1,
+    "wall_seconds": 136.781
+  },
+  "failure": null,
+  "raw_output": {
+    "article_relevance": "yes",
+    "article_confidence_pct": 85,
+    "events": [
+      {
+        "event_kind": "disruption",
+        "event_subtype": "DisasterEvent",
+        "event_date": "2026-03-25",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Kota Pasuruan, Jawa Timur",
+        "commodity": "broad_food",
+        "actor": "BPBD Kota Pasuruan",
+        "food_system_stage": "production",
+        "evidence_sentence_id": 2,
+        "confidence_pct": 85
+      },
+      {
+        "event_kind": "response",
+        "event_subtype": "CrisisPreparednessAction",
+        "event_date": "2026-03-26",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Kota Pasuruan, Jawa Timur",
+        "commodity": "broad_food",
+        "actor": "BPBD Kota Pasuruan",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 3,
+        "confidence_pct": 85
+      },
+      {
+        "event_kind": "response",
+        "event_subtype": "CrisisPreparednessAction",
+        "event_date": "2026-03-26",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Kota Pasuruan, Jawa Timur",
+        "commodity": "broad_food",
+        "actor": "BPBD Kota Pasuruan",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 12,
+        "confidence_pct": 85
+      }
+    ],
+    "relations": [
+      {
+        "subject_event_slot": 2,
+        "predicate": "respondsTo",
+        "object_event_slot": 1,
+        "policy_id": "",
+        "evidence_sentence_id": 9,
+        "confidence_pct": 85
+      },
+      {
+        "subject_event_slot": 3,
+        "predicate": "respondsTo",
+        "object_event_slot": 1,
+        "policy_id": "",
+        "evidence_sentence_id": 9,
+        "confidence_pct": 85
+      },
+      {
+        "subject_event_slot": 3,
+        "predicate": "respondsTo",
+        "object_event_slot": 1,
+        "policy_id": "",
+        "evidence_sentence_id": 10,
+        "confidence_pct": 85
+      },
+      {
+        "subject_event_slot": 3,
+        "predicate": "respondsTo",
+        "object_event_slot": 1,
+        "policy_id": "",
+        "evidence_sentence_id": 12,
+        "confidence_pct": 85
+      }
+    ]
+  },
+  "human_verified": false
+}

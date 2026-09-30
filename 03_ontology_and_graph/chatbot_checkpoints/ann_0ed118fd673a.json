@@ -1,0 +1,20 @@
+{
+  "article_id": "ann_0ed118fd673a",
+  "status": "complete",
+  "model": "chatbot-frontier",
+  "extraction_route": "chatbot",
+  "annotation": {
+    "candidate_id": "ann_0ed118fd673a",
+    "pub_date": "2024-02-07",
+    "source": "",
+    "title": "",
+    "article_relevance": "no",
+    "east_java_basis": "none",
+    "llm_confidence_pct": 0,
+    "events": [],
+    "relations": [],
+    "extraction_model": "chatbot-frontier",
+    "human_verified": false,
+    "review_status": "complete"
+  }
+}

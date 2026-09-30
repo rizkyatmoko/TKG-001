@@ -1,0 +1,37 @@
+{
+  "article_id": "ann_0ee12942987d",
+  "status": "complete",
+  "model": "chatbot-frontier",
+  "extraction_route": "chatbot",
+  "annotation": {
+    "candidate_id": "ann_0ee12942987d",
+    "pub_date": "2021-01-09",
+    "source": "",
+    "title": "",
+    "article_relevance": "yes",
+    "east_java_basis": "specific_occurrence",
+    "llm_confidence_pct": 96,
+    "events": [
+      {
+        "event_slot": 1,
+        "event_kind": "disruption",
+        "event_subtype": "DisasterEvent",
+        "event_date": "2021-01-09",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Lamongan, East Java",
+        "commodity": "fish",
+        "actor": "fish-pond farmers in Lamongan",
+        "food_system_stage": "production",
+        "evidence_quote": "Ratusan hektar tambak yang terendam banjir tersebut milik warga Desa Karangwedoro, Kecamatan Turi.",
+        "confidence_pct": 93,
+        "granularity_basis": "incident",
+        "event_id": "ann_0ee12942987d:llm:event:1"
+      }
+    ],
+    "relations": [],
+    "extraction_model": "chatbot-frontier",
+    "human_verified": false,
+    "review_status": "complete"
+  }
+}

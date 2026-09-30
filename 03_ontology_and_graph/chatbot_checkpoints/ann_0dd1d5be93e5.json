@@ -1,0 +1,37 @@
+{
+  "article_id": "ann_0dd1d5be93e5",
+  "status": "complete",
+  "model": "chatbot-frontier",
+  "extraction_route": "chatbot",
+  "annotation": {
+    "candidate_id": "ann_0dd1d5be93e5",
+    "pub_date": "2024-04-21",
+    "source": "",
+    "title": "",
+    "article_relevance": "yes",
+    "east_java_basis": "specific_occurrence",
+    "llm_confidence_pct": 96,
+    "events": [
+      {
+        "event_slot": 1,
+        "event_kind": "response",
+        "event_subtype": "ProductionAssistance",
+        "event_date": "2024-04-21",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "East Java",
+        "commodity": "sugar",
+        "actor": "Perum Perhutani and PT Pabrik Gula Rajawali I",
+        "food_system_stage": "production",
+        "evidence_quote": "Dalam kerja sama ini, Perum Perhutani menyediakan lahan dan kegiatan budidaya tebu guna memasok bahan baku tebu giling untuk Pabrik Gula Rejo Agung Baru milik PT PG Rajawali 1.",
+        "confidence_pct": 96,
+        "granularity_basis": "incident",
+        "event_id": "ann_0dd1d5be93e5:llm:event:1"
+      }
+    ],
+    "relations": [],
+    "extraction_model": "chatbot-frontier",
+    "human_verified": false,
+    "review_status": "complete"
+  }
+}

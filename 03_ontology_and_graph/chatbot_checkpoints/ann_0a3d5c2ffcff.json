@@ -1,0 +1,37 @@
+{
+  "article_id": "ann_0a3d5c2ffcff",
+  "status": "complete",
+  "model": "chatbot-frontier",
+  "extraction_route": "chatbot",
+  "annotation": {
+    "candidate_id": "ann_0a3d5c2ffcff",
+    "pub_date": "2026-01-07",
+    "source": "",
+    "title": "",
+    "article_relevance": "yes",
+    "east_java_basis": "specific_occurrence",
+    "llm_confidence_pct": 95,
+    "events": [
+      {
+        "event_slot": 1,
+        "event_kind": "disruption",
+        "event_subtype": "DisasterEvent",
+        "event_date": "2026-01-07",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "Ponorogo, East Java",
+        "commodity": "rice",
+        "actor": "rice farmers in Ponorogo",
+        "food_system_stage": "production",
+        "evidence_quote": "Banjir Rendam Lahan Pertanian di Ponorogo, 28 Hektar Tanaman Padi Dipastikan Gagal Panen PONOROGO, KOMPAS.com – Dinas Pertanian, Ketahanan Pangan dan Perikanan (Dispertahankan) Ponorogo, Jawa Timur mencatat 538 hektare lahan pertanian tergenang banjir pada awal tahun 2026.",
+        "confidence_pct": 92,
+        "granularity_basis": "incident",
+        "event_id": "ann_0a3d5c2ffcff:llm:event:1"
+      }
+    ],
+    "relations": [],
+    "extraction_model": "chatbot-frontier",
+    "human_verified": false,
+    "review_status": "complete"
+  }
+}

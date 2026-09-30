@@ -1,0 +1,51 @@
+{
+  "pipeline_version": "foodjatim-expansion-extraction-v3",
+  "prompt_version": "foodjatim-expansion-conditional-schema-v3.4",
+  "validator_version": "foodjatim-expansion-validator-v3.7",
+  "run_id": "expansion_v3_qwen8b",
+  "article_id": "ann_00c163d05bc1",
+  "status": "complete",
+  "blind_payload_sha256": "ef3996ff4f0c2410ed0e629f784d423d57ee59a686b4adbc1d585e20632c3c41",
+  "prompt_sha256": "6525551c4a384f5c588abf29add27359fefdc289f551c7f95c2cc3982c040837",
+  "schema_sha256": "8dec2154844e3f6827b118080183c412fcadf73e6d81597500fb95cba548f13d",
+  "model": "qwen3:8b",
+  "seed": 20260815,
+  "annotation": {
+    "candidate_id": "ann_00c163d05bc1",
+    "pub_date": "2025-12-17",
+    "source": "kompas_regional",
+    "title": "Universitas Jember Kirim 12 Relawan Medis ke Aceh Tamiang untuk Bantu Korban Banjir Regional 17 Desember 2025",
+    "url": "https://surabaya.kompas.com/read/2025/12/17/094119478/universitas-jember-kirim-12-relawan-medis-ke-aceh-tamiang-untuk-bantu",
+    "article_relevance": "uncertain",
+    "llm_confidence_pct": 0,
+    "review_status": "complete",
+    "review_flags": [
+      "verbose_structured_llm_pass_v3"
+    ],
+    "article_notes": "Verbose-schema structured local-LLM extraction using qwen3:8b.",
+    "events": [],
+    "relations": [],
+    "extraction_model": "qwen3:8b",
+    "human_verified": false,
+    "extraction_run_id": "expansion_v3_qwen8b"
+  },
+  "generation": {
+    "model": "qwen3:8b",
+    "created_at": "2026-08-15T11:52:46.7640609Z",
+    "total_duration_ns": 63915655600,
+    "load_duration_ns": 295105700,
+    "prompt_eval_count": 1901,
+    "eval_count": 25,
+    "done_reason": "stop",
+    "attempts": 1,
+    "wall_seconds": 63.922
+  },
+  "failure": null,
+  "raw_output": {
+    "article_relevance": "uncertain",
+    "article_confidence_pct": 0,
+    "events": [],
+    "relations": []
+  },
+  "human_verified": false
+}

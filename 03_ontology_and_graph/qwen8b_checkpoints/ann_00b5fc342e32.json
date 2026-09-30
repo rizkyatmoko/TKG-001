@@ -1,0 +1,61 @@
+{
+  "pipeline_version": "foodjatim-expansion-extraction-v3",
+  "prompt_version": "foodjatim-expansion-conditional-schema-v3.4",
+  "validator_version": "foodjatim-expansion-validator-v3.7",
+  "run_id": "expansion_v3_qwen8b",
+  "article_id": "ann_00b5fc342e32",
+  "status": "complete",
+  "blind_payload_sha256": "b609a9c6a9afcd5bde7bacb2587177a9e17d7b38c3515a4a4f48f5d309bf21c5",
+  "prompt_sha256": "6525551c4a384f5c588abf29add27359fefdc289f551c7f95c2cc3982c040837",
+  "schema_sha256": "8dec2154844e3f6827b118080183c412fcadf73e6d81597500fb95cba548f13d",
+  "model": "qwen3:8b",
+  "seed": 20260815,
+  "annotation": {
+    "candidate_id": "ann_00b5fc342e32",
+    "pub_date": "2022-01-10",
+    "source": "kontan",
+    "title": "Berangsur Pulih, LPEI Catat Ekspor Kopi Indonesia Hanya Minus 1,9% di November 2021",
+    "url": "https://industri.kontan.co.id/news/berangsur-pulih-lpei-catat-ekspor-kopi-indonesia-hanya-minus-19-di-november-2021",
+    "article_relevance": "no",
+    "llm_confidence_pct": 0,
+    "review_status": "complete_with_deterministic_normalization",
+    "review_flags": [
+      "orphan_relations_dropped",
+      "verbose_structured_llm_pass_v3"
+    ],
+    "article_notes": "Verbose-schema structured local-LLM extraction using qwen3:8b.",
+    "events": [],
+    "relations": [],
+    "extraction_model": "qwen3:8b",
+    "human_verified": false,
+    "extraction_run_id": "expansion_v3_qwen8b"
+  },
+  "generation": {
+    "model": "qwen3:8b",
+    "created_at": "2026-08-15T11:50:35.1864267Z",
+    "total_duration_ns": 79441448800,
+    "load_duration_ns": 277567500,
+    "prompt_eval_count": 2206,
+    "eval_count": 59,
+    "done_reason": "stop",
+    "attempts": 1,
+    "wall_seconds": 79.454
+  },
+  "failure": null,
+  "raw_output": {
+    "article_relevance": "no",
+    "article_confidence_pct": 0,
+    "events": [],
+    "relations": [
+      {
+        "subject_event_slot": 1,
+        "predicate": "respondsTo",
+        "object_event_slot": 0,
+        "policy_id": "",
+        "evidence_sentence_id": 15,
+        "confidence_pct": 10
+      }
+    ]
+  },
+  "human_verified": false
+}

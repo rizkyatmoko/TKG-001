@@ -1,0 +1,118 @@
+{
+  "pipeline_version": "foodjatim-expansion-extraction-v3",
+  "prompt_version": "foodjatim-expansion-conditional-schema-v3.4",
+  "validator_version": "foodjatim-expansion-validator-v3.7",
+  "run_id": "expansion_v3_qwen8b",
+  "article_id": "ann_0ba6f41c2d62",
+  "status": "complete",
+  "blind_payload_sha256": "5e6606ff62b45c883ddce9748f7960f0b785e444ffac1fcc9d5bbc440f4a59fd",
+  "prompt_sha256": "6525551c4a384f5c588abf29add27359fefdc289f551c7f95c2cc3982c040837",
+  "schema_sha256": "8dec2154844e3f6827b118080183c412fcadf73e6d81597500fb95cba548f13d",
+  "model": "qwen3:8b",
+  "seed": 20260815,
+  "annotation": {
+    "candidate_id": "ann_0ba6f41c2d62",
+    "pub_date": "2021-11-01",
+    "source": "detik_news",
+    "title": "Pemprov Jatim Diimbau Siapkan Skenario Mitigasi Bencana Dampak La Nina",
+    "url": "https://news.detik.com/berita/d-5792666/pemprov-jatim-diimbau-siapkan-skenario-mitigasi-bencana-dampak-la-nina",
+    "article_relevance": "no",
+    "llm_confidence_pct": 85,
+    "review_status": "complete_with_deterministic_normalization",
+    "review_flags": [
+      "invalid_relation_dropped",
+      "out_of_scope_events_dropped",
+      "verbose_structured_llm_pass_v3"
+    ],
+    "article_notes": "Verbose-schema structured local-LLM extraction using qwen3:8b. Deterministic scope gate removed emitted events because the source lacks both required food-system and East Java anchors.",
+    "events": [],
+    "relations": [],
+    "extraction_model": "qwen3:8b",
+    "human_verified": false,
+    "extraction_run_id": "expansion_v3_qwen8b"
+  },
+  "generation": {
+    "model": "qwen3:8b",
+    "created_at": "2026-08-17T06:05:39.2104839Z",
+    "total_duration_ns": 168379246700,
+    "load_duration_ns": 387958400,
+    "prompt_eval_count": 1805,
+    "eval_count": 402,
+    "done_reason": "stop",
+    "attempts": 1,
+    "wall_seconds": 168.375
+  },
+  "failure": null,
+  "raw_output": {
+    "article_relevance": "yes",
+    "article_confidence_pct": 85,
+    "events": [
+      {
+        "event_kind": "response",
+        "event_subtype": "CrisisPreparednessAction",
+        "event_date": "2021-11-01",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "East Java",
+        "commodity": "broad_food",
+        "actor": "Ketua DPD RI, AA LaNyalla Mahmud Mattalitti",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 1,
+        "confidence_pct": 85
+      },
+      {
+        "event_kind": "response",
+        "event_subtype": "CrisisPreparednessAction",
+        "event_date": "2021-11-01",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "East Java",
+        "commodity": "broad_food",
+        "actor": "Ketua DPD RI, AA LaNyalla Mahmud Mattalitti",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 5,
+        "confidence_pct": 85
+      },
+      {
+        "event_kind": "response",
+        "event_subtype": "CrisisPreparednessAction",
+        "event_date": "2021-11-01",
+        "event_end_date": "",
+        "date_precision": "estimated_day",
+        "location": "East Java",
+        "commodity": "broad_food",
+        "actor": "Ketua DPD RI, AA LaNyalla Mahmud Mattalitti",
+        "food_system_stage": "distribution",
+        "evidence_sentence_id": 16,
+        "confidence_pct": 85
+      }
+    ],
+    "relations": [
+      {
+        "subject_event_slot": 1,
+        "predicate": "respondsTo",
+        "object_event_slot": 0,
+        "policy_id": "",
+        "evidence_sentence_id": 1,
+        "confidence_pct": 85
+      },
+      {
+        "subject_event_slot": 1,
+        "predicate": "respondsTo",
+        "object_event_slot": 0,
+        "policy_id": "",
+        "evidence_sentence_id": 5,
+        "confidence_pct": 85
+      },
+      {
+        "subject_event_slot": 1,
+        "predicate": "respondsTo",
+        "object_event_slot": 0,
+        "policy_id": "",
+        "evidence_sentence_id": 16,
+        "confidence_pct": 85
+      }
+    ]
+  },
+  "human_verified": false
+}
