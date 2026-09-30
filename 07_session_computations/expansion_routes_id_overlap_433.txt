@@ -1,0 +1,50 @@
+Evidence extract: expansion_routes_id_overlap_433
+Session transcript: 0e3df70b-9d19-43da-9f2f-8b83d625d12d.jsonl
+Timestamp: 2026-09-11T05:18:49.998Z
+Extracted verbatim; the computation was not re-run.
+
+===== command / script as executed =====
+PYTHONIOENCODING=utf-8 python - <<'EOF'
+import json, glob, os
+dense = {x.strip() for x in open("C:/Users/HP/Documents/Claude/news-tkg-eval/ids-dense-subcorpus.txt", encoding="utf-8").read().split(",") if x.strip()}
+print("dense ids (current file):", len(dense))
+ck = "C:/Users/HP/Documents/ChatGPT/News TKG/.artifacts/extraction-expansion-v3/qwen8b-verbose-primary"
+qwen_all, qwen = set(), set()
+for f in glob.glob(ck + "/ann_*.json"):
+    cid = os.path.basename(f)[:-5]
+    qwen_all.add(cid)
+    try:
+        c = json.load(open(f, encoding="utf-8"))
+    except Exception:
+        continue
+    if c.get("status") == "complete" and c.get("annotation"):
+        qwen.add(cid)
+chat = {os.path.basename(f)[:-5] for f in glob.glob("C:/Users/HP/Documents/Claude/news-tkg-chat/checkpoints-chat/ann_*.json")}
+src = json.load(open("C:/Users/HP/Documents/ChatGPT/News TKG/data/extraction/expansion-v3/source-articles.json", encoding="utf-8"))
+sample = {x.get("candidate_id") for x in src.get("sample", []) if isinstance(x, dict)}
+print("source-articles.json sample:", len(sample), "| metadata keys:", list(src.get("metadata", {}).keys())[:10])
+qpath = "C:/Users/HP/Documents/ChatGPT/News TKG/data/link_prediction/expansion-v3/article_queue.jsonl"
+queue = []
+if os.path.exists(qpath):
+    for line in open(qpath, encoding="utf-8"):
+        line = line.strip()
+        if line:
+            queue.append(json.loads(line))
+qids = {r.get("candidate_id") or r.get("article_id") or r.get("id") for r in queue}
+print("article_queue.jsonl rows:", len(queue), "| ids:", len(qids), "| first keys:", list(queue[0].keys())[:12] if queue else "-")
+print("qwen files:", len(qwen_all), "complete:", len(qwen), "| chat:", len(chat))
+print("dense & qwen_complete:", len(dense & qwen), "| dense & qwen_all:", len(dense & qwen_all), "| dense & chat:", len(dense & chat))
+print("sample & qwen:", len(sample & qwen), "| sample & chat:", len(sample & chat), "| sample size:", len(sample))
+print("queue & qwen:", len(qids & qwen), "| queue & chat:", len(qids & chat), "| dense & queue:", len(dense & qids))
+print("qwen & chat:", len(qwen & chat), "| (qwen_all | chat) & queue:", len((qwen_all | chat) & qids))
+EOF
+
+===== printed output =====
+dense ids (current file): 443
+source-articles.json sample: 1952 | metadata keys: ['pipeline_version', 'created_date', 'human_verified', 'label_status', 'source_queue']
+article_queue.jsonl rows: 1952 | ids: 1952 | first keys: ['article_id', 'body', 'body_chars', 'evidence_window', 'explicit_connection_signal', 'heuristic_commodities', 'heuristic_disruption_types', 'heuristic_locations', 'heuristic_response_types', 'human_verified', 'label_status', 'near_copy_cluster_id']
+qwen files: 672 complete: 655 | chat: 1280
+dense & qwen_complete: 433 | dense & qwen_all: 443 | dense & chat: 0
+sample & qwen: 655 | sample & chat: 1280 | sample size: 1952
+queue & qwen: 655 | queue & chat: 1280 | dense & queue: 443
+qwen & chat: 0 | (qwen_all | chat) & queue: 1952

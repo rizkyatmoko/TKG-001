@@ -1,0 +1,59 @@
+Evidence extract: co_reporting
+Session transcript: 2862c002-dc21-4ded-88fa-7123f67b7dd5.jsonl
+Timestamp: 2026-08-15T13:50:10.022Z
+Extracted verbatim; the computation was not re-run.
+
+===== command / script as executed =====
+cd "C:/Users/HP/Documents/Claude/news-tkg-modeling-view" && PYTHONDONTWRITEBYTECODE=1 PYTHONIOENCODING=utf-8 "C:/Users/HP/Documents/ChatGPT/News TKG/.venv/Scripts/python.exe" - <<'PY'
+import csv
+from collections import Counter
+from datetime import date
+def read(p):
+    with open(f"view/{p}",encoding="utf-8") as f: return list(csv.DictReader(f,delimiter="\t"))
+V={r["event_id"]:r for r in read("nodes_event.tsv")}; E=read("edges.tsv")
+def d(s):
+    try: return date.fromisoformat(str(s)[:10])
+    except: return None
+R=[e for e in E if e["relation"]=="respondsTo"]
+same=cross=0; gaps=[]
+for e in R:
+    s,o=V.get(e["src_id"]),V.get(e["dst_id"])
+    if not s or not o: continue
+    if s["article_id"]==o["article_id"]: same+=1
+    else:
+        cross+=1
+        a,b=d(s["available_date"]),d(o["available_date"])
+        if a and b: gaps.append((a-b).days)
+print(f"respondsTo edges {len(R)}:  SAME article {same} ({same/len(R):.0%})   cross-article {cross} ({cross/len(R):.0%})")
+gaps.sort()
+if gaps:
+    print(f"cross-article response-minus-disruption availability gap (days): "
+          f"min {gaps[0]}  median {gaps[len(gaps)//2]}  p90 {gaps[int(len(gaps)*.9)]}  max {gaps[-1]}")
+    print(f"  of those, response available BEFORE disruption: {sum(1 for g in gaps if g<0)}")
+# per-disruption: is EVERY response same-article?
+byd={}
+for e in R:
+    s,o=V.get(e["src_id"]),V.get(e["dst_id"])
+    if not s or not o: continue
+    byd.setdefault(e["dst_id"],[]).append(s["article_id"]==o["article_id"])
+onlysame=sum(1 for k,v in byd.items() if all(v)); anycross=sum(1 for k,v in byd.items() if not all(v))
+print(f"\nresponded disruptions {len(byd)}:  ALL responses same-article {onlysame}   has >=1 cross-article {anycross}")
+# censoring
+END=date(2026,5,30)
+dis=[r for r in V.values() if any(t in r["all_types"] for t in
+    ("SupplyShortage","ProductionDisruption","DistributionDisruption","WeatherDisruption",
+     "DisasterEvent","PestDiseaseEvent","FoodSafetyIncident"))]
+for H in (30,90,180):
+    elig=[r for r in dis if d(r["available_date"]) and (END-d(r["available_date"])).days>=H]
+    print(f"horizon {H:3d}d: disruptions with a full window {len(elig):3d} / {len(dis)}")
+PY
+
+===== printed output =====
+respondsTo edges 130:  SAME article 87 (67%)   cross-article 43 (33%)
+cross-article response-minus-disruption availability gap (days): min 0  median 0  p90 4  max 7
+  of those, response available BEFORE disruption: 0
+
+responded disruptions 84:  ALL responses same-article 63   has >=1 cross-article 21
+horizon  30d: disruptions with a full window 156 / 164
+horizon  90d: disruptions with a full window 145 / 164
+horizon 180d: disruptions with a full window 138 / 164

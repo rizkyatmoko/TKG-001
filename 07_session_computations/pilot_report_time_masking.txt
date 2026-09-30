@@ -1,0 +1,37 @@
+Evidence extract: pilot_report_time_masking
+Session transcript: 2862c002-dc21-4ded-88fa-7123f67b7dd5.jsonl
+Timestamp: 2026-08-15T23:44:45.930Z
+Extracted verbatim; the computation was not re-run.
+
+===== command / script as executed =====
+cd "C:/Users/HP/Documents/Claude/news-tkg-gnn" && PYTHONDONTWRITEBYTECODE=1 PYTHONIOENCODING=utf-8 python -c "
+from pathlib import Path
+p=Path('rgcn.py'); s=p.read_text(encoding='utf-8')
+s=s.replace('def build_graph(mask: str = \"report_time\", tau: date | None = None):',
+            'def build_graph(mask: str = \"report_time\", tau: date | None = None,\n                require_both_times: bool = True):')
+s=s.replace('''    return idx, X, adj, {\"N\": N, \"F\": F, \"relations\": rels,
+                         \"edges_kept\": kept, \"edges_dropped\": dropped}''',
+            '''    return idx, X, adj, {\"N\": N, \"F\": F, \"relations\": rels,
+                         \"edges_kept\": kept, \"edges_dropped\": dropped,
+                         \"edges_excluded_missing_time\": excluded_missing,
+                         \"require_both_times\": require_both_times}''')
+p.write_text(s,encoding='utf-8'); print('patched')
+" && echo "=== A3 masking, now comparable ===" && PYTHONDONTWRITEBYTECODE=1 PYTHONIOENCODING=utf-8 python -c "
+from rgcn import build_graph
+from datetime import date
+for mask in ('none','event_time','report_time'):
+    _,_,_,m=build_graph(mask=mask, tau=date(2024,1,1))
+    print(f'  mask={mask:12s} kept {m[\"edges_kept\"]:5d}  masked-out {m[\"edges_dropped\"]:5d}  excluded(no time) {m[\"edges_excluded_missing_time\"]:5d}')
+" && PYTHONDONTWRITEBYTECODE=1 PYTHONIOENCODING=utf-8 python rgcn.py 2>&1 | grep -E "PASS|FAIL|accuracy|forward"
+
+===== printed output =====
+patched
+=== A3 masking, now comparable ===
+  mask=none         kept  2266  masked-out     2  excluded(no time)   312
+  mask=event_time   kept  1277  masked-out   991  excluded(no time)   312
+  mask=report_time  kept  1199  masked-out  1069  excluded(no time)   312
+   PASS  relations=typed   max rel. err 4.95e-08
+   PASS  relations=single  max rel. err 5.51e-08
+   PASS  relations=none    max rel. err 2.47e-07
+   typed R-GCN accuracy 1.0   feature-only MLP 0.8   graph helps: True
+forward pass OK: logits (1183, 1), finite=True

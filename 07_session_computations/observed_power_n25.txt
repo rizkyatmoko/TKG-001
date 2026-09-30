@@ -1,0 +1,77 @@
+Evidence extract: observed_power_n25
+Session transcript: 2862c002-dc21-4ded-88fa-7123f67b7dd5.jsonl
+Timestamp: 2026-08-15T16:33:15.266Z
+Extracted verbatim; the computation was not re-run.
+
+===== command / script as executed =====
+cd "C:/Users/HP/Documents/Claude/news-tkg-gnn" && PYTHONDONTWRITEBYTECODE=1 PYTHONIOENCODING=utf-8 "C:/Users/HP/Documents/ChatGPT/News TKG/.venv/Scripts/python.exe" - <<'PY'
+import math, random, json
+from pathlib import Path
+import sys; sys.path.insert(0,'.')
+from paired_stats import paired_permutation
+
+def Phi(z):  # standard normal CDF
+    return 0.5*(1+math.erf(z/math.sqrt(2)))
+
+def power(n, dz, alpha=0.05):
+    z = 1.959963985
+    ncp = dz*math.sqrt(n)
+    return Phi(ncp-z) + Phi(-ncp-z)
+
+NS=[10,15,25,40,60,100,150,250]
+DZS=[0.2,0.35,0.5,0.8]
+print("Analytic power of a paired test (alpha=0.05)")
+print(f"{'n':>5s} " + "".join(f" dz={dz:<5.2f}" for dz in DZS))
+for n in NS:
+    print(f"{n:5d} " + "".join(f"  {power(n,dz):5.2f} " for dz in DZS))
+print("\nMinimum n for 80% power:")
+need={}
+for dz in DZS:
+    n=next((x for x in range(5,3000) if power(x,dz)>=0.80), None)
+    need[dz]=n; print(f"   dz={dz:.2f}  ->  n >= {n}")
+
+# spot-check the analytic curve against the real permutation test at 3 points
+print("\nspot-check vs the actual permutation test (150 trials, Monte-Carlo perm):")
+rng=random.Random(11)
+for n,dz in ((25,0.5),(25,0.8),(60,0.35)):
+    hits=0; TR=150
+    for _ in range(TR):
+        diff=[rng.gauss(dz,1.0) for _ in range(n)]
+        # use MC permutation directly (skip exact enumeration and bootstrap)
+        p=paired_permutation(diff,[0.0]*n,n_perm=1500)["p_value"] if n>20 else None
+        if p is None:
+            # n<=20 would enumerate 2^n; approximate with MC by padding logic
+            m=[d for d in diff]; obs=abs(sum(m)/len(m)); c=0
+            for _ in range(1500):
+                f=[d if rng.random()<0.5 else -d for d in m]
+                if abs(sum(f)/len(f))>=obs-1e-12: c+=1
+            p=(c+1)/1501
+        if p<0.05: hits+=1
+    print(f"   n={n:3d} dz={dz:.2f}  empirical {hits/TR:.2f}   analytic {power(n,dz):.2f}")
+Path("power-analysis.json").write_text(json.dumps(
+    {"alpha":0.05,"min_n_for_80pct_power":{str(k):v for k,v in need.items()},
+     "grid":{str(n):{str(dz):round(power(n,dz),4) for dz in DZS} for n in NS}},indent=2),encoding="utf-8")
+PY
+
+===== printed output =====
+Analytic power of a paired test (alpha=0.05)
+    n  dz=0.20  dz=0.35  dz=0.50  dz=0.80 
+   10    0.10    0.20    0.35    0.72 
+   15    0.12    0.27    0.49    0.87 
+   25    0.17    0.42    0.71    0.98 
+   40    0.24    0.60    0.89    1.00 
+   60    0.34    0.77    0.97    1.00 
+  100    0.52    0.94    1.00    1.00 
+  150    0.69    0.99    1.00    1.00 
+  250    0.89    1.00    1.00    1.00 
+
+Minimum n for 80% power:
+   dz=0.20  ->  n >= 197
+   dz=0.35  ->  n >= 65
+   dz=0.50  ->  n >= 32
+   dz=0.80  ->  n >= 13
+
+spot-check vs the actual permutation test (150 trials, Monte-Carlo perm):
+   n= 25 dz=0.50  empirical 0.69   analytic 0.71
+   n= 25 dz=0.80  empirical 0.96   analytic 0.98
+   n= 60 dz=0.35  empirical 0.80   analytic 0.77

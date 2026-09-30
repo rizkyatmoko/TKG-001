@@ -1,0 +1,46 @@
+Evidence extract: attribute_sharing_A4
+Session transcript: 2862c002-dc21-4ded-88fa-7123f67b7dd5.jsonl
+Timestamp: 2026-08-15T15:59:35.959Z
+Extracted verbatim; the computation was not re-run.
+
+===== command / script as executed =====
+cd "C:/Users/HP/Documents/Claude/news-tkg-modeling-view" && PYTHONDONTWRITEBYTECODE=1 PYTHONIOENCODING=utf-8 "C:/Users/HP/Documents/ChatGPT/News TKG/.venv/Scripts/python.exe" - <<'PY'
+import csv
+from collections import Counter
+def read(p):
+    with open(f"view/{p}",encoding="utf-8") as f: return list(csv.DictReader(f,delimiter="\t"))
+E=read("edges.tsv"); V=read("nodes_event.tsv")
+print("Does anything RECUR? (message passing needs shared neighbours)\n")
+for rel,dstt,name in (("hasActor","actor","actors"),("occursIn","location","locations"),
+                      ("concernsCommodity","commodity","commodities"),
+                      ("implementsPolicy","policy","policies (as targets)"),
+                      ("sourcePublisher","publisher","publishers")):
+    c=Counter(e["dst_id"] for e in E if e["relation"]==rel)
+    if not c: continue
+    v=sorted(c.values(),reverse=True)
+    shared=sum(1 for x in v if x>1); singl=sum(1 for x in v if x==1)
+    cov=sum(x for x in v if x>1)
+    print(f"{name:22s} distinct {len(v):4d}  shared(>1 event) {shared:4d} ({shared/len(v):5.1%})  "
+          f"singletons {singl:4d}  events touching a shared node {cov:4d}  top {v[:4]}")
+print()
+# two events connected via a shared side node = the only 2-hop path a GNN can use
+side=Counter()
+for e in E:
+    if e["relation"] in ("hasActor","occursIn","concernsCommodity"):
+        side[e["dst_id"]]+=1
+pairs=sum(n*(n-1)//2 for n in side.values() if n>1)
+print(f"event-pairs reachable in 2 hops via a shared actor/location/commodity: {pairs:,}")
+ev=len(V); print(f"total event pairs: {ev*(ev-1)//2:,}  -> coverage {pairs/(ev*(ev-1)//2):.1%}")
+PY
+
+===== printed output =====
+Does anything RECUR? (message passing needs shared neighbours)
+
+actors                 distinct  268  shared(>1 event)   69 (25.7%)  singletons  199  events touching a shared node  330  top [37, 26, 20, 16]
+locations              distinct  133  shared(>1 event)   68 (51.1%)  singletons   65  events touching a shared node  310  top [26, 19, 16, 13]
+commodities            distinct   15  shared(>1 event)   13 (86.7%)  singletons    2  events touching a shared node  373  top [110, 94, 25, 23]
+policies (as targets)  distinct   14  shared(>1 event)    7 (50.0%)  singletons    7  events touching a shared node   45  top [22, 7, 4, 4]
+publishers             distinct    5  shared(>1 event)    5 (100.0%)  singletons    0  events touching a shared node  375  top [171, 114, 47, 32]
+
+event-pairs reachable in 2 hops via a shared actor/location/commodity: 15,045
+total event pairs: 70,125  -> coverage 21.5%

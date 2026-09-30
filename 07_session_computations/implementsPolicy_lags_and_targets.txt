@@ -1,0 +1,47 @@
+Evidence extract: implementsPolicy_lags_and_targets
+Session transcript: 2862c002-dc21-4ded-88fa-7123f67b7dd5.jsonl
+Timestamp: 2026-08-15T13:51:24.176Z
+Extracted verbatim; the computation was not re-run.
+
+===== command / script as executed =====
+cd "C:/Users/HP/Documents/Claude/news-tkg-modeling-view" && PYTHONDONTWRITEBYTECODE=1 PYTHONIOENCODING=utf-8 "C:/Users/HP/Documents/ChatGPT/News TKG/.venv/Scripts/python.exe" - <<'PY'
+import csv
+from datetime import date
+from collections import Counter
+def read(p):
+    with open(f"view/{p}",encoding="utf-8") as f: return list(csv.DictReader(f,delimiter="\t"))
+V={r["event_id"]:r for r in read("nodes_event.tsv")}
+P={r["policy_id"]:r for r in read("nodes_policy.tsv")}; E=read("edges.tsv")
+def d(s):
+    try: return date.fromisoformat(str(s)[:10])
+    except: return None
+IP=[e for e in E if e["relation"]=="implementsPolicy"]
+lags=[]
+for e in IP:
+    ev,po=V.get(e["src_id"]),P.get(e["dst_id"])
+    if not ev or not po: continue
+    a,b=d(ev["event_date"]),d(po["enactment_date"])
+    if a and b: lags.append((a-b).days)
+lags.sort()
+print(f"implementsPolicy edges {len(IP)}  with both dates {len(lags)}")
+print(f"  event-minus-enactment lag (days): min {lags[0]}  p25 {lags[len(lags)//4]}  median {lags[len(lags)//2]}  p75 {lags[3*len(lags)//4]}  max {lags[-1]}")
+print(f"  lag > 30d: {sum(1 for x in lags if x>30)}   lag > 365d: {sum(1 for x in lags if x>365)}")
+print(f"  distinct policies targeted: {len(set(e['dst_id'] for e in IP))} of {len(P)}")
+tc=Counter(e["dst_id"] for e in IP)
+print(f"  most-targeted policy takes {tc.most_common(1)[0][1]} of {len(IP)} edges")
+print()
+print("KEY CONTRAST")
+print("  respondsTo      : 67% same-article, cross-article gap median 0d  -> co-reported, no lead time")
+print("  implementsPolicy: policy dates come from JDIH registry, independent of the news article")
+PY
+
+===== printed output =====
+implementsPolicy edges 52  with both dates 52
+  event-minus-enactment lag (days): min 75  p25 362  median 896  p75 4216  max 4941
+  lag > 30d: 52   lag > 365d: 37
+  distinct policies targeted: 14 of 87
+  most-targeted policy takes 22 of 52 edges
+
+KEY CONTRAST
+  respondsTo      : 67% same-article, cross-article gap median 0d  -> co-reported, no lead time
+  implementsPolicy: policy dates come from JDIH registry, independent of the news article

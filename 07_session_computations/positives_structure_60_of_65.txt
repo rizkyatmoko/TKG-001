@@ -1,0 +1,72 @@
+Evidence extract: positives_structure_60_of_65
+Session transcript: 0e3df70b-9d19-43da-9f2f-8b83d625d12d.jsonl
+Timestamp: 2026-09-10T23:33:42.880Z
+Extracted verbatim; the computation was not re-run.
+
+===== command / script as executed =====
+cd "C:/Users/HP/Documents/Claude/news-tkg-xdoc" && TKG_WITH_CHAT=1 PYTHONIOENCODING=utf-8 python - <<'EOF' 2>&1 | grep "^RC"
+import json, random, sys
+from collections import defaultdict
+X = "C:/Users/HP/Documents/Claude/news-tkg-xdoc"
+sys.path.insert(0, X)
+import scope_candidates as S
+evs = S.evs
+by_id = {e["event_id"]: e for e in evs}
+dis_all = [e for e in evs if e["is_dis"] and e["date"]]
+canon = {}
+for c in json.load(open(X + "/../news-tkg-gnn/coref-with-chat.json", encoding="utf-8")).get("cluster_members", []):
+    for m in c["members"]:
+        canon[m] = c["canonical"]
+def can(x):
+    return canon.get(x, x)
+members = defaultdict(list)
+for e in dis_all:
+    members[can(e["event_id"])].append(e)
+inc = {}
+for k, ms in members.items():
+    rec = dict(by_id[k]) if k in by_id else dict(ms[0])
+    rec["event_id"] = k
+    rec["date"] = min(m["date"] for m in ms)
+    rec["articles"] = {m["article"] for m in ms}
+    inc[k] = rec
+inc_all = list(inc.values())
+edges = json.load(open(X + "/xdoc-edges.json", encoding="utf-8"))
+gold, pos = {}, defaultdict(set)
+for e in edges:
+    pos[e["src_id"]].add(e["dst_id"])
+    gold.setdefault(e["src_id"], e["dst_id"])
+rng = random.Random(20260829)
+n = sdg = w180 = top_full = other = 0
+neg_share, neg_same_n, lags = [], [], []
+for src, g in gold.items():
+    r, gd = by_id.get(src), inc.get(can(g))
+    if not r or not gd or not r["date"]:
+        continue
+    gk = {can(p) for p in pos[src]}
+    pool = [c for c in inc_all if c["event_id"] not in gk and c["date"] <= r["date"] and r["article"] not in c["articles"]]
+    full = list(pool)
+    rng.shuffle(pool)
+    cands = pool[:100]
+    n += 1
+    other += r["district"] == "_other_"
+    def sd(c):
+        return c["district"] == r["district"] and r["district"] != "_other_"
+    sdg += sd(gd)
+    lags.append((r["date"] - gd["date"]).days)
+    w180 += (r["date"] - gd["date"]).days <= 180
+    neg_share.append(sum(1 for c in cands if sd(c)) / len(cands))
+    neg_same_n.append(sum(1 for c in cands if sd(c)))
+    top_full += sd(gd) and not [c for c in full if sd(c) and c["date"] > gd["date"]]
+lags.sort()
+neg_same_n.sort()
+print("RC instances", n, "responses with district _other_", other)
+print("RC gold in response district", sdg, "gold incident within 180 days", w180, "median lag days", lags[n // 2])
+print("RC sampled negatives in response district: mean share", round(sum(neg_share) / n, 4), "median count", neg_same_n[n // 2], "max", neg_same_n[-1])
+print("RC gold is the most recent same-district incident in the FULL pool", top_full, "of", n)
+EOF
+
+===== printed output =====
+RC instances 65 responses with district _other_ 0
+RC gold in response district 65 gold incident within 180 days 65 median lag days 2
+RC sampled negatives in response district: mean share 0.035 median count 3 max 11
+RC gold is the most recent same-district incident in the FULL pool 60 of 65

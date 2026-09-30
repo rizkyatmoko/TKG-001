@@ -1,0 +1,47 @@
+Evidence extract: L0_event_to_event_159
+Session transcript: 2862c002-dc21-4ded-88fa-7123f67b7dd5.jsonl
+Timestamp: 2026-08-16T07:09:33.096Z
+Extracted verbatim; the computation was not re-run.
+
+===== command / script as executed =====
+cd "C:/Users/HP/Documents/Claude/news-tkg-gnn" && PYTHONDONTWRITEBYTECODE=1 PYTHONIOENCODING=utf-8 python -c "
+import csv
+from collections import Counter, defaultdict
+from pathlib import Path
+V=Path(r'C:\Users\HP\Documents\Claude\news-tkg-modeling-view\view')
+def rd(n):
+    with (V/n).open(encoding='utf-8') as f: return list(csv.DictReader(f,delimiter='\t'))
+EV={r['event_id']:r for r in rd('nodes_event.tsv')}; E=rd('edges.tsv')
+DIS=('SupplyShortage','DisasterEvent','WeatherDisruption','PestDiseaseEvent','FoodSafetyIncident','ProductionDisruption','DistributionDisruption')
+def kind(eid):
+    r=EV.get(eid,{}); st=r.get('all_types','')
+    return 'disruption' if any(k in st for k in DIS) else 'response'
+sub=[e for e in E if e['relation'] in ('respondsTo','reportedCauseOf') and e['src_type']=='event' and e['dst_type']=='event']
+sig=defaultdict(Counter)
+for e in sub: sig[(kind(e['src_id']),kind(e['dst_id']))][e['relation']]+=1
+print('event->event relation vs (src_kind, dst_kind):')
+det=0
+for k,v in sorted(sig.items(), key=lambda kv:-sum(kv[1].values())):
+    tot=sum(v.values()); det+=v.most_common(1)[0][1]
+    print(f'  {str(k):28s} n={tot:4d}  ->  {dict(v)}')
+print(f'\nrecoverable from event-kind pair alone: {det}/{len(sub)} = {det/len(sub):.1%}')
+srcsig=defaultdict(Counter)
+for e in sub: srcsig[kind(e['src_id'])][e['relation']]+=1
+print('\nby SOURCE kind alone:')
+d2=0
+for k,v in srcsig.items():
+    d2+=v.most_common(1)[0][1]; print(f'  src={k:11s} -> {dict(v)}')
+print(f'recoverable from source kind ALONE: {d2}/{len(sub)} = {d2/len(sub):.1%}')
+"
+
+===== printed output =====
+event->event relation vs (src_kind, dst_kind):
+  ('response', 'disruption')   n= 130  ->  {'respondsTo': 130}
+  ('disruption', 'disruption') n=  29  ->  {'reportedCauseOf': 29}
+
+recoverable from event-kind pair alone: 159/159 = 100.0%
+
+by SOURCE kind alone:
+  src=disruption  -> {'reportedCauseOf': 29}
+  src=response    -> {'respondsTo': 130}
+recoverable from source kind ALONE: 159/159 = 100.0%

@@ -1,0 +1,1524 @@
+{
+  "seed": "foodjatim-claude-calibration-v1",
+  "sample_size": 40,
+  "requested": 40,
+  "strata": {
+    "relevant_with_relations": 16,
+    "not_relevant:no": 10,
+    "relevant_single_event": 9,
+    "relevant_multi_event": 2,
+    "relevant_no_event": 2,
+    "not_relevant:uncertain": 1
+  },
+  "skipped": [],
+  "pilot_sha_source": "C:\\Users\\HP\\Documents\\ChatGPT\\News TKG\\data\\annotation\\llm-silver-pilot-v2.json",
+  "reference": {
+    "ann_01d55215fe18": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 98,
+      "events": [
+        {
+          "event_kind": "disruption",
+          "event_subtype": "FoodSafetyIncident",
+          "event_date": "2025-04-01",
+          "event_end_date": "2026-04-16",
+          "date_precision": "range",
+          "location": "Probolinggo and Surabaya, East Java",
+          "commodity": "rice",
+          "actor": "Unlicensed rice repackager",
+          "food_system_stage": "food_safety",
+          "evidence_quote": "Surabaya (beritajatim.com) – Direktorat Reserse Kriminal Khusus (Ditreskrimsus) Polda Jawa Timur mengungkap kasus dugaan tindak pidana di bidang pangan dan perlindungan konsumen terkait peredaran beras kemasan program Stabilisasi Pasokan dan Harga Pangan (SPHP) yang tidak sesuai ketentuan.",
+          "confidence_pct": 97,
+          "notes": "",
+          "event_id": "ann_01d55215fe18:llm:event:1",
+          "event_slot": 1
+        },
+        {
+          "event_kind": "response",
+          "event_subtype": "InspectionEnforcement",
+          "event_date": "2026-04-16",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "Probolinggo and Surabaya, East Java",
+          "commodity": "rice",
+          "actor": "East Java Police",
+          "food_system_stage": "food_safety",
+          "evidence_quote": "Dari pengungkapan ini, polisi menyita sejumlah barang bukti, antara lain 400 sak beras kemasan SPHP ukuran 5 kilogram, karung kosong, alat jahit, timbangan, hingga peralatan pengemasan lainnya.",
+          "confidence_pct": 98,
+          "notes": "",
+          "event_id": "ann_01d55215fe18:llm:event:2",
+          "event_slot": 2
+        }
+      ],
+      "relations": [
+        {
+          "relation_id": "ann_01d55215fe18:llm:relation:1",
+          "relation_slot": 1,
+          "subject_event_id": "ann_01d55215fe18:llm:event:2",
+          "predicate": "respondsTo",
+          "object_event_or_policy_id": "ann_01d55215fe18:llm:event:1",
+          "relation_label": "positive",
+          "evidence_quote": "Surabaya (beritajatim.com) – Direktorat Reserse Kriminal Khusus (Ditreskrimsus) Polda Jawa Timur mengungkap kasus dugaan tindak pidana di bidang pangan dan perlindungan konsumen terkait peredaran beras kemasan program Stabilisasi Pasokan dan Harga Pangan (SPHP) yang tidak sesuai ketentuan.",
+          "confidence_pct": 96,
+          "notes": ""
+        },
+        {
+          "relation_id": "ann_01d55215fe18:llm:relation:2",
+          "relation_slot": 2,
+          "subject_event_id": "ann_01d55215fe18:llm:event:2",
+          "predicate": "implementsPolicy",
+          "object_event_or_policy_id": "statute-2012-18",
+          "relation_label": "positive",
+          "evidence_quote": "Atas perbuatannya, tersangka dijerat Pasal 144 Undang-Undang Nomor 18 Tahun 2012 tentang Pangan serta Pasal 62 Ayat (1) Undang-Undang Nomor 8 Tahun 1999 tentang Perlindungan Konsumen, dengan ancaman hukuman maksimal lima tahun penjara dan denda hingga Rp6 miliar.",
+          "confidence_pct": 98,
+          "notes": ""
+        }
+      ],
+      "source": "beritajatim",
+      "pub_date": "2026-04-16",
+      "title": "Polda Jatim Bongkar Beras SPHP Oplosan, Isi Disunat Jadi 4,9 Kg per Karung",
+      "stratum": "relevant_with_relations"
+    },
+    "ann_05e2fa9b8de0": {
+      "article_relevance": "no",
+      "llm_confidence_pct": 94,
+      "events": [],
+      "relations": [],
+      "source": "detik_news",
+      "pub_date": "2024-04-26",
+      "title": "KKP Amankan Kapal Ilegal Berbendera Malaysia Tangkap Ikan di Selat Malaka",
+      "stratum": "not_relevant:no"
+    },
+    "ann_0b5b3e6c9588": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 83,
+      "events": [
+        {
+          "event_kind": "response",
+          "event_subtype": "MarketOperationAction",
+          "event_date": "2025-06-19",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Indonesia (including East Java)",
+          "commodity": "chicken_meat",
+          "actor": "Ministry of Agriculture; Bapanas; Food Task Force",
+          "food_system_stage": "governance",
+          "evidence_quote": "Untuk diketahui, per 19 Juni 2025 pemerintah telah memberlakukan HPP livebird di peternak sebesar Rp18.000 per kg untuk semua ukuran.",
+          "confidence_pct": 88,
+          "notes": "",
+          "event_id": "ann_0b5b3e6c9588:llm:event:1",
+          "event_slot": 1
+        }
+      ],
+      "relations": [
+        {
+          "relation_id": "ann_0b5b3e6c9588:llm:relation:1",
+          "relation_slot": 1,
+          "subject_event_id": "ann_0b5b3e6c9588:llm:event:1",
+          "predicate": "implementsPolicy",
+          "object_event_or_policy_id": "bapanas-regulation-2024-6",
+          "relation_label": "positive",
+          "evidence_quote": "Kebijakan ini diharapkan dapat mengerek harga livebird mendekati HAP di tingkat produsen sebagaimana diatur dalam Perbadan No.6/2024 sebesar Rp25.000 per kg.",
+          "confidence_pct": 82,
+          "notes": ""
+        }
+      ],
+      "source": "bisnis",
+      "pub_date": "2025-06-30",
+      "title": "Usai Harga Pokok Produksi, Bapanas Bakal Revisi Harga Acuan Ayam Hidup",
+      "stratum": "relevant_with_relations"
+    },
+    "ann_18b594b3b73e": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 98,
+      "events": [
+        {
+          "event_kind": "disruption",
+          "event_subtype": "FoodSafetyIncident",
+          "event_date": "2025-04-01",
+          "event_end_date": "2026-04-16",
+          "date_precision": "range",
+          "location": "Probolinggo and Surabaya, East Java",
+          "commodity": "rice",
+          "actor": "Counterfeit rice packager",
+          "food_system_stage": "food_safety",
+          "evidence_quote": "“Sehingga kualitas berkaitan dengan beras tersebut sangat jauh di bawah mutu.",
+          "confidence_pct": 98,
+          "notes": "",
+          "event_id": "ann_18b594b3b73e:llm:event:1",
+          "event_slot": 1
+        },
+        {
+          "event_kind": "response",
+          "event_subtype": "InspectionEnforcement",
+          "event_date": "2026-04-16",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "Probolinggo and Surabaya, East Java",
+          "commodity": "rice",
+          "actor": "East Java Food Task Force; East Java Police",
+          "food_system_stage": "food_safety",
+          "evidence_quote": "RMF ditetapkan Polda Jatim sebagai tersangka atas kasus tindak pidana bidang pangan dan perlindungan konsumen terkait peredaran beras kemasan SPHP yang tidak sesuai ketentuan.",
+          "confidence_pct": 98,
+          "notes": "",
+          "event_id": "ann_18b594b3b73e:llm:event:2",
+          "event_slot": 2
+        }
+      ],
+      "relations": [
+        {
+          "relation_id": "ann_18b594b3b73e:llm:relation:1",
+          "relation_slot": 1,
+          "subject_event_id": "ann_18b594b3b73e:llm:event:2",
+          "predicate": "respondsTo",
+          "object_event_or_policy_id": "ann_18b594b3b73e:llm:event:1",
+          "relation_label": "positive",
+          "evidence_quote": "SURABAYA, KOMPAS.com - Satgas Pangan Direktorat Reserse Kriminal Khusus (Ditreskrimsus) Polda Jawa Timur (Jatim) membongkar kasus beras SPHP 5 kilogram (kg) yang dioplos warga Probolinggo, RMF (28).",
+          "confidence_pct": 97,
+          "notes": ""
+        },
+        {
+          "relation_id": "ann_18b594b3b73e:llm:relation:2",
+          "relation_slot": 2,
+          "subject_event_id": "ann_18b594b3b73e:llm:event:2",
+          "predicate": "implementsPolicy",
+          "object_event_or_policy_id": "statute-2012-18",
+          "relation_label": "positive",
+          "evidence_quote": "Tersangka dijerat dengan Pasal 144 Undang-Undang Nomor 18 Tahun 2012 tentang Pangan serta Pasal 62 Ayat (1) Undang-Undang Nomor 8 Tahun 1999 tentang Perlindungan Konsumen, dengan ancaman hukuman penjara maksimal 5 tahun.",
+          "confidence_pct": 98,
+          "notes": ""
+        }
+      ],
+      "source": "kompas_regional",
+      "pub_date": "2026-04-16",
+      "title": "Kasus Beras SPHP Oplosan, Polda Jatim Sebut Pelaku Kantongi Untung Rp 91 Juta Per Bulan Regional 16 April 2026",
+      "stratum": "relevant_with_relations"
+    },
+    "ann_1cc3eaf85db9": {
+      "article_relevance": "no",
+      "llm_confidence_pct": 99,
+      "events": [],
+      "relations": [],
+      "source": "kompas_money",
+      "pub_date": "2023-01-10",
+      "title": "Produksi WK Pangkah PGN Saka Lampaui Target APBN 2022 Money 10 Januari 2023",
+      "stratum": "not_relevant:no"
+    },
+    "ann_1d55cdd4ac16": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 98,
+      "events": [
+        {
+          "event_kind": "disruption",
+          "event_subtype": "DistributionDisruption",
+          "event_date": "2023-02-09",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Wonodadi, Mojokerto, East Java",
+          "commodity": "rice",
+          "actor": "Rice and corn farmers",
+          "food_system_stage": "production",
+          "evidence_quote": "Rusaknya pintu air membuat fungsi pengalihan sungai tak berjalan sehingga saat ini para petani hanya mengandalkan air hujan saja.",
+          "confidence_pct": 98,
+          "notes": "",
+          "event_id": "ann_1d55cdd4ac16:llm:event:1",
+          "event_slot": 1
+        },
+        {
+          "event_kind": "disruption",
+          "event_subtype": "PestDiseaseEvent",
+          "event_date": "2023-02-15",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "Wonodadi, Mojokerto, East Java",
+          "commodity": "rice",
+          "actor": "Rice farmers",
+          "food_system_stage": "production",
+          "evidence_quote": "“Yang panen kemarin, tanaman padi petani diserang hama wereng, sekarang dam jebol.",
+          "confidence_pct": 95,
+          "notes": "",
+          "event_id": "ann_1d55cdd4ac16:llm:event:2",
+          "event_slot": 2
+        },
+        {
+          "event_kind": "response",
+          "event_subtype": "DistributionIntervention",
+          "event_date": "2023-02-15",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "Mojokerto, East Java",
+          "commodity": "rice",
+          "actor": "Mojokerto BPBD; Mojokerto Public Works Office",
+          "food_system_stage": "production",
+          "evidence_quote": "Sejumlah titik tanggul yang jebol akibat banjir Kamis pekan lalu, juga telah diperbaiki secara darurat,” pungkasnya.",
+          "confidence_pct": 97,
+          "notes": "",
+          "event_id": "ann_1d55cdd4ac16:llm:event:3",
+          "event_slot": 3
+        }
+      ],
+      "relations": [
+        {
+          "relation_id": "ann_1d55cdd4ac16:llm:relation:1",
+          "relation_slot": 1,
+          "subject_event_id": "ann_1d55cdd4ac16:llm:event:3",
+          "predicate": "respondsTo",
+          "object_event_or_policy_id": "ann_1d55cdd4ac16:llm:event:1",
+          "relation_label": "positive",
+          "evidence_quote": "Sejumlah titik tanggul yang jebol akibat banjir Kamis pekan lalu, juga telah diperbaiki secara darurat,” pungkasnya.",
+          "confidence_pct": 98,
+          "notes": ""
+        }
+      ],
+      "source": "beritajatim",
+      "pub_date": "2023-02-15",
+      "title": "Dam Jebol, Tanaman Padi Petani di Mojokerto Terancam Gagal Panen",
+      "stratum": "relevant_with_relations"
+    },
+    "ann_1e348acf7d7f": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 84,
+      "events": [
+        {
+          "event_kind": "response",
+          "event_subtype": "ProductionAssistance",
+          "event_date": "2026-04-17",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Indonesia (assessment held in Surabaya)",
+          "commodity": "sugar",
+          "actor": "Ministry of Agriculture",
+          "food_system_stage": "production",
+          "evidence_quote": "Capaian ini didorong berbagai intervensi pemerintah, mulai dari bongkar ratoon, penggunaan varietas unggul, hingga pendampingan petani,",
+          "confidence_pct": 88,
+          "notes": "",
+          "event_id": "ann_1e348acf7d7f:llm:event:1",
+          "event_slot": 1
+        }
+      ],
+      "relations": [],
+      "source": "bisnis",
+      "pub_date": "2026-04-18",
+      "title": "Produksi Gula Nasional Diproyeksikan Capai 3,04 Juta Ton pada 2026",
+      "stratum": "relevant_single_event"
+    },
+    "ann_2fd915acff95": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 96,
+      "events": [
+        {
+          "event_kind": "disruption",
+          "event_subtype": "PestDiseaseEvent",
+          "event_date": "2022-07-17",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "Jember, East Java",
+          "commodity": "beef",
+          "actor": "Livestock farmers",
+          "food_system_stage": "production",
+          "evidence_quote": "Jember (beritajatim.com) – Pemerintah Kabupaten Jember, Jawa Timur, belum juga menetapkan status wabah penyakit mulut dan kuku (PMK) sebagai bencana.",
+          "confidence_pct": 97,
+          "notes": "",
+          "event_id": "ann_2fd915acff95:llm:event:1",
+          "event_slot": 1
+        },
+        {
+          "event_kind": "response",
+          "event_subtype": "ProductionAssistance",
+          "event_date": "2022-07-17",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "East Java",
+          "commodity": "beef",
+          "actor": "East Java Provincial Government",
+          "food_system_stage": "production",
+          "evidence_quote": "Pemprov Jatim langsung merespons dengan mengalokasikan BTT untuk pengadaan obat dan bantuan sosial untuk peternak yang terdampak.",
+          "confidence_pct": 96,
+          "notes": "",
+          "event_id": "ann_2fd915acff95:llm:event:2",
+          "event_slot": 2
+        }
+      ],
+      "relations": [
+        {
+          "relation_id": "ann_2fd915acff95:llm:relation:1",
+          "relation_slot": 1,
+          "subject_event_id": "ann_2fd915acff95:llm:event:2",
+          "predicate": "respondsTo",
+          "object_event_or_policy_id": "ann_2fd915acff95:llm:event:1",
+          "relation_label": "positive",
+          "evidence_quote": "Pemprov Jatim langsung merespons dengan mengalokasikan BTT untuk pengadaan obat dan bantuan sosial untuk peternak yang terdampak.",
+          "confidence_pct": 96,
+          "notes": ""
+        }
+      ],
+      "source": "beritajatim",
+      "pub_date": "2022-07-17",
+      "title": "Pemkab Jember Gamang, Penanganan Wabah PMK Ternak Lamban",
+      "stratum": "relevant_with_relations"
+    },
+    "ann_32b72b6685a2": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 96,
+      "events": [
+        {
+          "event_kind": "disruption",
+          "event_subtype": "DisasterEvent",
+          "event_date": "2026-04-21",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "Lamongan, East Java",
+          "commodity": "rice",
+          "actor": "Rice farmers",
+          "food_system_stage": "production",
+          "evidence_quote": "Hal tersebut terkait dengan percepatan verifikasi dan pencairan klaim Asuransi Usaha Tani Padi (AUTP) bagi petani yang terdampak banjir di Kabupaten Lamongan, Jawa Timur.",
+          "confidence_pct": 95,
+          "notes": "",
+          "event_id": "ann_32b72b6685a2:llm:event:1",
+          "event_slot": 1
+        },
+        {
+          "event_kind": "response",
+          "event_subtype": "OtherResponseAction",
+          "event_date": "2026-04-21",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "Lamongan, East Java",
+          "commodity": "rice",
+          "actor": "Asuransi Jasindo; Government of Indonesia",
+          "food_system_stage": "assistance",
+          "evidence_quote": "Sekretaris Perusahaan Asuransi Jasindo Brellian Gema Widayana menyampaikan, percepatan verifikasi dan pencairan klaim AUTP adalah dukungan bagi petani dan juga pemerintah demi mencapai target swasembada pangan.",
+          "confidence_pct": 96,
+          "notes": "",
+          "event_id": "ann_32b72b6685a2:llm:event:2",
+          "event_slot": 2
+        },
+        {
+          "event_kind": "response",
+          "event_subtype": "ProductionAssistance",
+          "event_date": "2026-04-21",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "Indonesia, including East Java",
+          "commodity": "rice",
+          "actor": "Asuransi Jasindo",
+          "food_system_stage": "production",
+          "evidence_quote": "Di sisi mitigasi, ia bilang, Asuransi Jasindo juga aktif melakukan edukasi kepada petani terkait pola tanam adaptif dan pengelolaan risiko pertanian agar dampak El Niño dapat diminimalisasi.",
+          "confidence_pct": 90,
+          "notes": "",
+          "event_id": "ann_32b72b6685a2:llm:event:3",
+          "event_slot": 3
+        }
+      ],
+      "relations": [
+        {
+          "relation_id": "ann_32b72b6685a2:llm:relation:1",
+          "relation_slot": 1,
+          "subject_event_id": "ann_32b72b6685a2:llm:event:2",
+          "predicate": "respondsTo",
+          "object_event_or_policy_id": "ann_32b72b6685a2:llm:event:1",
+          "relation_label": "positive",
+          "evidence_quote": "Hal tersebut terkait dengan percepatan verifikasi dan pencairan klaim Asuransi Usaha Tani Padi (AUTP) bagi petani yang terdampak banjir di Kabupaten Lamongan, Jawa Timur.",
+          "confidence_pct": 97,
+          "notes": ""
+        }
+      ],
+      "source": "kompas_money",
+      "pub_date": "2026-04-21",
+      "title": "Asuransi Usaha Tani Padi Lindungi Petani dari Risiko Fenomena Iklim El Nino Godzilla Money 21 April 2026",
+      "stratum": "relevant_with_relations"
+    },
+    "ann_423a1ecf1c21": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 93,
+      "events": [
+        {
+          "event_kind": "disruption",
+          "event_subtype": "SupplyShortage",
+          "event_date": "2022-02-18",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Ponorogo, East Java and Indonesia",
+          "commodity": "cooking_oil",
+          "actor": "Cooking-oil consumers and retailers",
+          "food_system_stage": "distribution",
+          "evidence_quote": "Belakangan ini minyak goreng semakin langka di pasaran.",
+          "confidence_pct": 96,
+          "notes": "The source anchors the Ponorogo illustration and viral report to 18 February 2022.",
+          "event_id": "ann_423a1ecf1c21:llm:event:1",
+          "event_slot": 1
+        }
+      ],
+      "relations": [],
+      "source": "detik_food",
+      "pub_date": "2022-02-24",
+      "title": "Kian Langka, Minyak Goreng Jadi Mahar hingga Bingkisan Ngapel Pacar",
+      "stratum": "relevant_single_event"
+    },
+    "ann_446610993ebe": {
+      "article_relevance": "no",
+      "llm_confidence_pct": 99,
+      "events": [],
+      "relations": [],
+      "source": "kompas_money",
+      "pub_date": "2021-07-23",
+      "title": "Pertamina Distribusikan 1.335 Ton Oksigen ke 206 Rumah Sakit Money 23 Juli 2021",
+      "stratum": "not_relevant:no"
+    },
+    "ann_483632b5f4a0": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 86,
+      "events": [
+        {
+          "event_kind": "response",
+          "event_subtype": "CrisisPreparednessAction",
+          "event_date": "2023-07-10",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Indonesia (including East Java)",
+          "commodity": "broad_food",
+          "actor": "Bapanas",
+          "food_system_stage": "reserve_management",
+          "evidence_quote": "Telah selesai dilaksanakan harmonisasi Peraturan Badan Pangan tentang Tatacara Penghitungan CPPD, tinggal menunggu diundangkan,",
+          "confidence_pct": 89,
+          "notes": "",
+          "event_id": "ann_483632b5f4a0:llm:event:1",
+          "event_slot": 1
+        }
+      ],
+      "relations": [],
+      "source": "kontan",
+      "pub_date": "2023-07-10",
+      "title": "Perkuat CPP, Peraturan Penghitungan Cadang Pangan Daerah Ditargetkan Diundangkan Juli",
+      "stratum": "relevant_single_event"
+    },
+    "ann_5e1896f82442": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 99,
+      "events": [
+        {
+          "event_kind": "disruption",
+          "event_subtype": "FoodSafetyIncident",
+          "event_date": "2026-05-25",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "Sidoarjo and Surabaya, East Java",
+          "commodity": "broad_food",
+          "actor": "Former warehouse manager and resellers",
+          "food_system_stage": "food_safety",
+          "evidence_quote": "Setelah bersih, para pelaku mencetak ulang tanggal kedaluwarsa palsu menggunakan mesin printer inkjet komersial agar produk tampak seolah masih baru dan layak konsumsi,” ujar Fathol saat persidangan yang berlangsung di Ruang Sari 2 PN Surabaya , Senin (25/6/2026).",
+          "confidence_pct": 99,
+          "notes": "",
+          "event_id": "ann_5e1896f82442:llm:event:1",
+          "event_slot": 1
+        },
+        {
+          "event_kind": "response",
+          "event_subtype": "InspectionEnforcement",
+          "event_date": "2026-05-25",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "Surabaya, East Java",
+          "commodity": "broad_food",
+          "actor": "Police; Surabaya prosecutors",
+          "food_system_stage": "food_safety",
+          "evidence_quote": "Petugas berhasil mengamankan puluhan ribu kemasan produk pangan dari tiga lokasi berbeda di Surabaya.",
+          "confidence_pct": 98,
+          "notes": "",
+          "event_id": "ann_5e1896f82442:llm:event:2",
+          "event_slot": 2
+        }
+      ],
+      "relations": [
+        {
+          "relation_id": "ann_5e1896f82442:llm:relation:1",
+          "relation_slot": 1,
+          "subject_event_id": "ann_5e1896f82442:llm:event:2",
+          "predicate": "respondsTo",
+          "object_event_or_policy_id": "ann_5e1896f82442:llm:event:1",
+          "relation_label": "positive",
+          "evidence_quote": "SURABAYA, KOMPAS.com - Mantan Kepala Gudang PT Cimory di Sidoarjo, Jawa Timur, Adi Purwoko (36), kini menjalani persidangan di Pengadilan Negeri (PN) Surabaya atas kasus peredaran pangan kedaluwarsa.",
+          "confidence_pct": 97,
+          "notes": ""
+        },
+        {
+          "relation_id": "ann_5e1896f82442:llm:relation:2",
+          "relation_slot": 2,
+          "subject_event_id": "ann_5e1896f82442:llm:event:2",
+          "predicate": "implementsPolicy",
+          "object_event_or_policy_id": "statute-2012-18",
+          "relation_label": "positive",
+          "evidence_quote": "“Sedangkan dakwaan ketiga, Pasal 90 ayat (1) dan ayat (2) huruf f UU Nomor 18 Tahun 2012 tentang Pangan terkait pengedaran pangan tercemar dan kedaluwarsa,” tandas jaksa.",
+          "confidence_pct": 99,
+          "notes": ""
+        }
+      ],
+      "source": "kompas_regional",
+      "pub_date": "2026-05-25",
+      "title": "Eks Kepala Gudang Cimory Diadili, Didakwa Edarkan Ratusan Karton Produk Kedaluwarsa Regional 25 Mei 2026",
+      "stratum": "relevant_with_relations"
+    },
+    "ann_610ae3eaeaaa": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 93,
+      "events": [
+        {
+          "event_kind": "response",
+          "event_subtype": "ProductionAssistance",
+          "event_date": "2026-02-28",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Bojonegoro, East Java",
+          "commodity": "rice",
+          "actor": "Bojonegoro Regency Government; Gadjah Mada University",
+          "food_system_stage": "production",
+          "evidence_quote": "Langkah strategis ini diawali dengan suksesnya Panen Raya varietas unggul Gamagora 7 hasil kolaborasi dengan Universitas Gadjah Mada (UGM) di Desa Bayemgede, Kecamatan Kepohbaru, Sabtu (28/2/2026).",
+          "confidence_pct": 96,
+          "notes": "",
+          "event_id": "ann_610ae3eaeaaa:llm:event:1",
+          "event_slot": 1
+        }
+      ],
+      "relations": [],
+      "source": "beritajatim",
+      "pub_date": "2026-02-28",
+      "title": "Bojonegoro Incar Takhta Produsen Padi Nomor 1 Nasional di 2028, Andalkan Benih “Amfibi” Gamagora 7",
+      "stratum": "relevant_single_event"
+    },
+    "ann_63a2468ad5df": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 99,
+      "events": [
+        {
+          "event_kind": "disruption",
+          "event_subtype": "FoodSafetyIncident",
+          "event_date": "2023-01-01",
+          "event_end_date": "2025-08-04",
+          "date_precision": "range",
+          "location": "Sidoarjo and Pasuruan, East Java",
+          "commodity": "rice",
+          "actor": "CV Sumber Pangan Group",
+          "food_system_stage": "food_safety",
+          "evidence_quote": "MLH warga Desa Keper, Kecamatan Krembung, Sidoarjo mencampur beras medium dengan merek Pandan Wangi dengan label premium dan logo halal.",
+          "confidence_pct": 99,
+          "notes": "",
+          "event_id": "ann_63a2468ad5df:llm:event:1",
+          "event_slot": 1
+        },
+        {
+          "event_kind": "response",
+          "event_subtype": "InspectionEnforcement",
+          "event_date": "2025-08-04",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Sidoarjo, East Java",
+          "commodity": "rice",
+          "actor": "East Java Police; Sidoarjo Police",
+          "food_system_stage": "food_safety",
+          "evidence_quote": "SIDOARJO, KOMPAS.com - Polda Jawa Timur (Jatim) menetapkan pengusaha produsen beras asal Sidoarjo, Jawa Timur, CV Sumber Pangan Group (SPG), MLH sebagai tersangka.",
+          "confidence_pct": 99,
+          "notes": "",
+          "event_id": "ann_63a2468ad5df:llm:event:2",
+          "event_slot": 2
+        },
+        {
+          "event_kind": "response",
+          "event_subtype": "DistributionIntervention",
+          "event_date": "2025-08-04",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Sidoarjo and Pasuruan, East Java",
+          "commodity": "rice",
+          "actor": "East Java Police; Sidoarjo Police",
+          "food_system_stage": "distribution",
+          "evidence_quote": "“Dari hasil pengecekan di lapangan, kami masih melakukan proses untuk penarikan barang-barang yang masih beredar, dijual-jual khususnya wilayah Sidoarjo dan Pasuruan,” ungkapnya.",
+          "confidence_pct": 98,
+          "notes": "",
+          "event_id": "ann_63a2468ad5df:llm:event:3",
+          "event_slot": 3
+        }
+      ],
+      "relations": [
+        {
+          "relation_id": "ann_63a2468ad5df:llm:relation:1",
+          "relation_slot": 1,
+          "subject_event_id": "ann_63a2468ad5df:llm:event:2",
+          "predicate": "respondsTo",
+          "object_event_or_policy_id": "ann_63a2468ad5df:llm:event:1",
+          "relation_label": "positive",
+          "evidence_quote": "SIDOARJO, KOMPAS.com - Polda Jawa Timur (Jatim) menetapkan pengusaha produsen beras asal Sidoarjo, Jawa Timur, CV Sumber Pangan Group (SPG), MLH sebagai tersangka.",
+          "confidence_pct": 99,
+          "notes": ""
+        },
+        {
+          "relation_id": "ann_63a2468ad5df:llm:relation:2",
+          "relation_slot": 2,
+          "subject_event_id": "ann_63a2468ad5df:llm:event:3",
+          "predicate": "respondsTo",
+          "object_event_or_policy_id": "ann_63a2468ad5df:llm:event:1",
+          "relation_label": "positive",
+          "evidence_quote": "“Dari hasil pengecekan di lapangan, kami masih melakukan proses untuk penarikan barang-barang yang masih beredar, dijual-jual khususnya wilayah Sidoarjo dan Pasuruan,” ungkapnya.",
+          "confidence_pct": 99,
+          "notes": ""
+        },
+        {
+          "relation_id": "ann_63a2468ad5df:llm:relation:3",
+          "relation_slot": 3,
+          "subject_event_id": "ann_63a2468ad5df:llm:event:2",
+          "predicate": "implementsPolicy",
+          "object_event_or_policy_id": "statute-2012-18",
+          "relation_label": "positive",
+          "evidence_quote": "Lalu UU Nomor 18 Tahun 2012 tentang Pangan dengan ancaman 3 tahun penjara atau denda maksimal Rp 6 miliar dan UU Nomor 20 Tahun 2014 tentang Standardisasi dan Penilaian Kesesuaian dengan ancaman penjara 5 tahun atau denda hingga Rp 35 miliar.",
+          "confidence_pct": 98,
+          "notes": ""
+        }
+      ],
+      "source": "kompas_regional",
+      "pub_date": "2025-08-04",
+      "title": "Oplos Beras Premium, Warga Sidoarjo Untung Rp 13 Miliar Regional 4 Agustus 2025",
+      "stratum": "relevant_with_relations"
+    },
+    "ann_63f2506c000a": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 90,
+      "events": [
+        {
+          "event_kind": "disruption",
+          "event_subtype": "DisasterEvent",
+          "event_date": "2026-02-02",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Bojonegoro, East Java",
+          "commodity": "broad_food",
+          "actor": "Sunarto household",
+          "food_system_stage": "assistance",
+          "evidence_quote": "Hujan deras yang disertai angin kencang menyebabkan atap rumah milik Sunarto, warga Desa Kuniran, Kecamatan Purwosari, Kabupaten Bojonegoro, ambruk pada Selasa (2/2/2026).",
+          "confidence_pct": 96,
+          "notes": "",
+          "event_id": "ann_63f2506c000a:llm:event:1",
+          "event_slot": 1
+        },
+        {
+          "event_kind": "response",
+          "event_subtype": "FoodAssistance",
+          "event_date": "2026-02-02",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Bojonegoro, East Java",
+          "commodity": "broad_food",
+          "actor": "Bojonegoro BPBD",
+          "food_system_stage": "assistance",
+          "evidence_quote": "BPBD Bojonegoro telah menyalurkan bantuan darurat berupa paket sembako, terpal, alat kebersihan, hygiene kit, family kit, dan paket sandang.",
+          "confidence_pct": 98,
+          "notes": "",
+          "event_id": "ann_63f2506c000a:llm:event:2",
+          "event_slot": 2
+        }
+      ],
+      "relations": [
+        {
+          "relation_id": "ann_63f2506c000a:llm:relation:1",
+          "relation_slot": 1,
+          "subject_event_id": "ann_63f2506c000a:llm:event:2",
+          "predicate": "respondsTo",
+          "object_event_or_policy_id": "ann_63f2506c000a:llm:event:1",
+          "relation_label": "positive",
+          "evidence_quote": "BPBD Bojonegoro telah menyalurkan bantuan darurat berupa paket sembako, terpal, alat kebersihan, hygiene kit, family kit, dan paket sandang.",
+          "confidence_pct": 96,
+          "notes": ""
+        }
+      ],
+      "source": "beritajatim",
+      "pub_date": "2026-02-02",
+      "title": "Hujan Disertai Angin Kencang, Atap Rumah Warga Kuniran Bojonegoro Ambruk",
+      "stratum": "relevant_with_relations"
+    },
+    "ann_66ce2834051e": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 91,
+      "events": [
+        {
+          "event_kind": "response",
+          "event_subtype": "ProductionAssistance",
+          "event_date": "2024-02-27",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Lamongan, East Java",
+          "commodity": "corn",
+          "actor": "Syngenta Indonesia",
+          "food_system_stage": "production",
+          "evidence_quote": "KONTAN.CO.ID - PT Syngenta Indonesia hari ini meluncurkan sekaligus mulai memasarkan NK Pendekar Sakti, jagung bioteknologi pertama di Indonesia yang memiliki keunggulan ganda.",
+          "confidence_pct": 94,
+          "notes": "",
+          "event_id": "ann_66ce2834051e:llm:event:1",
+          "event_slot": 1
+        }
+      ],
+      "relations": [],
+      "source": "kontan",
+      "pub_date": "2024-02-27",
+      "title": "Jagung Bioteknologi Pertama dengan Keunggulan Ganda di Indonesia Mulai Dipasarkan",
+      "stratum": "relevant_single_event"
+    },
+    "ann_68eb4297b336": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 99,
+      "events": [
+        {
+          "event_kind": "disruption",
+          "event_subtype": "DisasterEvent",
+          "event_date": "2024-12-16",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Sidoarjo, East Java",
+          "commodity": "broad_food",
+          "actor": "Flood-affected residents",
+          "food_system_stage": "distribution",
+          "evidence_quote": "KOMPAS.com - Sejumlah wilayah di Kabupaten Sidoarjo terendam banjir akibat luberan air sungai dan air rob.",
+          "confidence_pct": 99,
+          "notes": "",
+          "event_id": "ann_68eb4297b336:llm:event:1",
+          "event_slot": 1
+        },
+        {
+          "event_kind": "response",
+          "event_subtype": "FoodAssistance",
+          "event_date": "2024-12-16",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Sidoarjo, East Java",
+          "commodity": "broad_food",
+          "actor": "Sidoarjo BPBD",
+          "food_system_stage": "assistance",
+          "evidence_quote": "BPBD Sidoarjo telah menyalurkan sejumlah bantuan logistik kepada warga yang terdampak, yaitu makanan, terpal, dan karung.",
+          "confidence_pct": 99,
+          "notes": "",
+          "event_id": "ann_68eb4297b336:llm:event:2",
+          "event_slot": 2
+        }
+      ],
+      "relations": [
+        {
+          "relation_id": "ann_68eb4297b336:llm:relation:1",
+          "relation_slot": 1,
+          "subject_event_id": "ann_68eb4297b336:llm:event:2",
+          "predicate": "respondsTo",
+          "object_event_or_policy_id": "ann_68eb4297b336:llm:event:1",
+          "relation_label": "positive",
+          "evidence_quote": "BPBD Sidoarjo telah menyalurkan sejumlah bantuan logistik kepada warga yang terdampak, yaitu makanan, terpal, dan karung.",
+          "confidence_pct": 98,
+          "notes": ""
+        }
+      ],
+      "source": "kompas_regional",
+      "pub_date": "2024-12-16",
+      "title": "Banjir Rendam Sejumlah Wilayah di Sidoarjo, Ketinggian Air di Wilayah Terparah 50 Sentimeter Regional 16 Desember 2024",
+      "stratum": "relevant_with_relations"
+    },
+    "ann_7269372a527d": {
+      "article_relevance": "no",
+      "llm_confidence_pct": 99,
+      "events": [],
+      "relations": [],
+      "source": "kontan",
+      "pub_date": "2026-01-30",
+      "title": "Taman Safari Indonesia Rawat Kembangbiakkan 100 Satwa Endemik Langka di PCBA Jatim",
+      "stratum": "not_relevant:no"
+    },
+    "ann_74148fec68c0": {
+      "article_relevance": "no",
+      "llm_confidence_pct": 99,
+      "events": [],
+      "relations": [],
+      "source": "kontan",
+      "pub_date": "2025-11-19",
+      "title": "Freeport Percepat Pemulihan Tambang Grasberg, Produksi Ditarget Meningkat 2026",
+      "stratum": "not_relevant:no"
+    },
+    "ann_7eb34b881752": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 95,
+      "events": [
+        {
+          "event_kind": "response",
+          "event_subtype": "DistributionIntervention",
+          "event_date": "2022-08-25",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "Blitar, East Java, and Kendal",
+          "commodity": "corn",
+          "actor": "Bapanas; poultry associations",
+          "food_system_stage": "distribution",
+          "evidence_quote": "Sementara itu, terkait jagung untuk bahan baku pakan, badan pangan telah menghubungkan daerah sentra produksi seperti Sumbawa, Dompu dengan Sentra Peternak Layer di Blitar dan Kendal sehingga dapat berjalan dengan baik.",
+          "confidence_pct": 97,
+          "notes": "",
+          "event_id": "ann_7eb34b881752:llm:event:1",
+          "event_slot": 1
+        }
+      ],
+      "relations": [],
+      "source": "detik_finance",
+      "pub_date": "2022-08-25",
+      "title": "Harga Telur Tembus di Atas Rp 30.000/Kg, Badan Pangan Lakukan Ini",
+      "stratum": "relevant_single_event"
+    },
+    "ann_964222991cda": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 87,
+      "events": [
+        {
+          "event_kind": "response",
+          "event_subtype": "OtherResponseAction",
+          "event_date": "2022-07-21",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "Indonesia, including East Java",
+          "commodity": "rice",
+          "actor": "Bulog",
+          "food_system_stage": "production",
+          "evidence_quote": "Untuk diketahui, 10 MRMP yang sudah dibangun saat ini berada di Lampung, Jawa Barat, Jawa Tengah, Jawa Timur, dan NTB.",
+          "confidence_pct": 89,
+          "notes": "",
+          "event_id": "ann_964222991cda:llm:event:1",
+          "event_slot": 1
+        }
+      ],
+      "relations": [],
+      "source": "bisnis",
+      "pub_date": "2022-07-21",
+      "title": "Indonesia Ekspor Beras, Bulog: Bukan Hal yang Mustahil",
+      "stratum": "relevant_single_event"
+    },
+    "ann_aa4fe7443c10": {
+      "article_relevance": "no",
+      "llm_confidence_pct": 98,
+      "events": [],
+      "relations": [],
+      "source": "detik_food",
+      "pub_date": "2025-03-02",
+      "title": "5 Varietas Kopi Indonesia yang Tak Kalah Enak dari Kopi Impor",
+      "stratum": "not_relevant:no"
+    },
+    "ann_aa7ea8c81058": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 91,
+      "events": [
+        {
+          "event_kind": "response",
+          "event_subtype": "DistributionIntervention",
+          "event_date": "2025-12-19",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "East Java",
+          "commodity": "broad_food",
+          "actor": "East Java Police Traffic Directorate; Ministry of Transportation; National Police; Ministry of Public Works",
+          "food_system_stage": "distribution",
+          "evidence_quote": "Dijelaskan Dirlantas bahwa terdapat pengecualian bagi kendaraan kendaraan yang digunakan untuk membawa atau mendistribusikan BBM, sembako untuk keperluan bencana maupun mudik motor gratis yang telah ditentukan di SKB.",
+          "confidence_pct": 93,
+          "notes": "",
+          "event_id": "ann_aa7ea8c81058:llm:event:1",
+          "event_slot": 1
+        }
+      ],
+      "relations": [],
+      "source": "beritajatim",
+      "pub_date": "2025-12-20",
+      "title": "Ditlantas Polda Jatim Batasi Operasional Angkutan Barang, Ini Jadwalnya",
+      "stratum": "relevant_single_event"
+    },
+    "ann_abc60677dbcf": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 98,
+      "events": [
+        {
+          "event_kind": "response",
+          "event_subtype": "ProductionAssistance",
+          "event_date": "2022-07-26",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Ngawi and Mojokerto, East Java",
+          "commodity": "rice",
+          "actor": "Wilmar Padi Indonesia; farmer groups",
+          "food_system_stage": "production",
+          "evidence_quote": "Sebagai informasi, Wilmar Padi Indonesia telah menjalin kemitraan dengan kelompok tani di Ngawi dengan lahan garapan seluas 1.000 ha dan di Mojokerto 500 ha.",
+          "confidence_pct": 99,
+          "notes": "",
+          "event_id": "ann_abc60677dbcf:llm:event:1",
+          "event_slot": 1
+        },
+        {
+          "event_kind": "response",
+          "event_subtype": "ProcurementAction",
+          "event_date": "2022-07-26",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Ngawi and Mojokerto, East Java",
+          "commodity": "rice",
+          "actor": "Wilmar Padi Indonesia",
+          "food_system_stage": "procurement",
+          "evidence_quote": "Serta menyerap hasil panen petani secara langsung dengan harga yang bersaing.",
+          "confidence_pct": 97,
+          "notes": "",
+          "event_id": "ann_abc60677dbcf:llm:event:2",
+          "event_slot": 2
+        }
+      ],
+      "relations": [],
+      "source": "detik_finance",
+      "pub_date": "2022-07-31",
+      "title": "Wilmar Targetkan Kemitraan Lahan Padi 1.000 Ha di Medan-Palembang",
+      "stratum": "relevant_multi_event"
+    },
+    "ann_b6b3da858be4": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 99,
+      "events": [
+        {
+          "event_kind": "response",
+          "event_subtype": "CrisisPreparednessAction",
+          "event_date": "2023-06-28",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Lamongan, East Java",
+          "commodity": "rice",
+          "actor": "Lamongan DKPP; Lamongan Regency Government",
+          "food_system_stage": "production",
+          "evidence_quote": "Wahyudi mengklaim, beberapa langkah konkrit yang sudah dilakukan Pemkab Lamongan dalam menghadapi ancaman serius El Nino itu di antaranya percepatan tanam, penggunaan varietas tahan kering atau adaptif kondisi kurang air, dan sekolah iklim.",
+          "confidence_pct": 99,
+          "notes": "",
+          "event_id": "ann_b6b3da858be4:llm:event:1",
+          "event_slot": 1
+        },
+        {
+          "event_kind": "response",
+          "event_subtype": "ProductionAssistance",
+          "event_date": "2023-06-28",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "Lamongan, East Java",
+          "commodity": "rice",
+          "actor": "Lamongan Regency Government",
+          "food_system_stage": "production",
+          "evidence_quote": "Selain itu, sambung Wahyudi, berbagai dukungan juga terus digencarkan, mulai dari bantuan benih, pupuk, pengendalian hama dan penyakit tumbuhan, hingga dukungan alat mesin pertanian serta penyediaan infrastruktur.",
+          "confidence_pct": 98,
+          "notes": "",
+          "event_id": "ann_b6b3da858be4:llm:event:2",
+          "event_slot": 2
+        }
+      ],
+      "relations": [],
+      "source": "beritajatim",
+      "pub_date": "2023-06-28",
+      "title": "DKPP Lamongan Jalankan Mitigasi Hadapi Ancaman El Nino",
+      "stratum": "relevant_multi_event"
+    },
+    "ann_b75a1d3c2312": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 86,
+      "events": [
+        {
+          "event_kind": "response",
+          "event_subtype": "CrisisPreparednessAction",
+          "event_date": "2023-02-23",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Indonesia, explicitly including East Java",
+          "commodity": "rice",
+          "actor": "President of Indonesia; provincial governors",
+          "food_system_stage": "governance",
+          "evidence_quote": "JAKARTA, KOMPAS.com - Presiden Joko Widodo meminta para gubernur memastikan kecukupan stok beras di daerah masing-masing.",
+          "confidence_pct": 88,
+          "notes": "",
+          "event_id": "ann_b75a1d3c2312:llm:event:1",
+          "event_slot": 1
+        }
+      ],
+      "relations": [],
+      "source": "kompas_nasional",
+      "pub_date": "2023-02-23",
+      "title": "Jokowi Minta Gubernur Jaga Stok Beras: Pastikan Betul Itu Cukup News 23 Februari 2023",
+      "stratum": "relevant_single_event"
+    },
+    "ann_b7b7916921e5": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 97,
+      "events": [
+        {
+          "event_kind": "disruption",
+          "event_subtype": "WeatherDisruption",
+          "event_date": "2023-01-01",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Kediri, East Java",
+          "commodity": "chili",
+          "actor": "Chili farmers",
+          "food_system_stage": "production",
+          "evidence_quote": "Kenaikan harga cabai akibat kenaikan harga di tingkat produsen yang disebabkan tingginya intensitas hujan dan libur akhir tahun.",
+          "confidence_pct": 93,
+          "notes": "The comparison is anchored to 1 January 2023.",
+          "event_id": "ann_b7b7916921e5:llm:event:1",
+          "event_slot": 1
+        },
+        {
+          "event_kind": "disruption",
+          "event_subtype": "SupplyShortage",
+          "event_date": "2023-01-01",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Kediri, East Java",
+          "commodity": "chili",
+          "actor": "Chili producers and distributors",
+          "food_system_stage": "distribution",
+          "evidence_quote": "Kondisi ini berdampak pada menurunnya jumlah petikan dan volume pengiriman ke daerah konsumsi seperti Jabodetabek.",
+          "confidence_pct": 95,
+          "notes": "",
+          "event_id": "ann_b7b7916921e5:llm:event:2",
+          "event_slot": 2
+        },
+        {
+          "event_kind": "response",
+          "event_subtype": "DistributionIntervention",
+          "event_date": "2023-01-02",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Kediri, East Java to Jabodetabek",
+          "commodity": "chili",
+          "actor": "Bapanas; production centers",
+          "food_system_stage": "distribution",
+          "evidence_quote": "Kami telah berkoordinasi dengan wilayah sentra produksi untuk mendorong distribusi ke daerah konsumsi, khususnya Jabodetabek.",
+          "confidence_pct": 98,
+          "notes": "",
+          "event_id": "ann_b7b7916921e5:llm:event:3",
+          "event_slot": 3
+        }
+      ],
+      "relations": [
+        {
+          "relation_id": "ann_b7b7916921e5:llm:relation:1",
+          "relation_slot": 1,
+          "subject_event_id": "ann_b7b7916921e5:llm:event:1",
+          "predicate": "reportedCauseOf",
+          "object_event_or_policy_id": "ann_b7b7916921e5:llm:event:2",
+          "relation_label": "positive",
+          "evidence_quote": "Kondisi ini berdampak pada menurunnya jumlah petikan dan volume pengiriman ke daerah konsumsi seperti Jabodetabek.",
+          "confidence_pct": 96,
+          "notes": ""
+        },
+        {
+          "relation_id": "ann_b7b7916921e5:llm:relation:2",
+          "relation_slot": 2,
+          "subject_event_id": "ann_b7b7916921e5:llm:event:3",
+          "predicate": "respondsTo",
+          "object_event_or_policy_id": "ann_b7b7916921e5:llm:event:2",
+          "relation_label": "positive",
+          "evidence_quote": "Kami telah berkoordinasi dengan wilayah sentra produksi untuk mendorong distribusi ke daerah konsumsi, khususnya Jabodetabek.",
+          "confidence_pct": 95,
+          "notes": ""
+        },
+        {
+          "relation_id": "ann_b7b7916921e5:llm:relation:3",
+          "relation_slot": 3,
+          "subject_event_id": "ann_b7b7916921e5:llm:event:3",
+          "predicate": "citesPolicy",
+          "object_event_or_policy_id": "bapanas-regulation-2022-11",
+          "relation_label": "positive",
+          "evidence_quote": "sesuai dengan Harga Acuan Pembelian/Penjualan (HAP) yang sudah di tetapkan NFA melalu Peraturan Badan Pangan Nasional Nomor 11 Tahun 2022,",
+          "confidence_pct": 96,
+          "notes": ""
+        }
+      ],
+      "source": "kompas_money",
+      "pub_date": "2023-01-05",
+      "title": "Bapanas: Harga Cabai dan Telur Ayam Berangsur Turun Money 5 Januari 2023",
+      "stratum": "relevant_with_relations"
+    },
+    "ann_bf122de827bb": {
+      "article_relevance": "no",
+      "llm_confidence_pct": 98,
+      "events": [],
+      "relations": [],
+      "source": "kompas_nasional",
+      "pub_date": "2024-04-04",
+      "title": "Saksi Ahli Prabowo-Gibran: Kalau Bansos Berpengaruh, Anies Tidak Bisa Menang lawan Ahok News 4 April 2024",
+      "stratum": "not_relevant:no"
+    },
+    "ann_bf7b1951b7ab": {
+      "article_relevance": "no",
+      "llm_confidence_pct": 93,
+      "events": [],
+      "relations": [],
+      "source": "kompas_nasional",
+      "pub_date": "2026-03-06",
+      "title": "Gibran Pimpin Rakor Penanganan Banjir di Tuban, Perintahkan Fasilitas Umum Segera Dipulihkan News 6 Maret 2026",
+      "stratum": "not_relevant:no"
+    },
+    "ann_c2b9be01c3d2": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 99,
+      "events": [
+        {
+          "event_kind": "disruption",
+          "event_subtype": "WeatherDisruption",
+          "event_date": "2023-11-20",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "Sumenep, East Java",
+          "commodity": "chili",
+          "actor": "Chili farmers",
+          "food_system_stage": "production",
+          "evidence_quote": "Kemarau panjang ini menyebabkan hasil panen petani cabai tidak maksimal.",
+          "confidence_pct": 98,
+          "notes": "",
+          "event_id": "ann_c2b9be01c3d2:llm:event:1",
+          "event_slot": 1
+        },
+        {
+          "event_kind": "disruption",
+          "event_subtype": "ProductionDisruption",
+          "event_date": "2023-11-20",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "Sumenep, East Java",
+          "commodity": "chili",
+          "actor": "Chili farmers",
+          "food_system_stage": "production",
+          "evidence_quote": "Kemarau panjang ini menyebabkan hasil panen petani cabai tidak maksimal.",
+          "confidence_pct": 99,
+          "notes": "",
+          "event_id": "ann_c2b9be01c3d2:llm:event:2",
+          "event_slot": 2
+        },
+        {
+          "event_kind": "disruption",
+          "event_subtype": "SupplyShortage",
+          "event_date": "2023-11-20",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "Sumenep, East Java",
+          "commodity": "chili",
+          "actor": "Chili traders and consumers",
+          "food_system_stage": "distribution",
+          "evidence_quote": "“Naiknya harga cabai ini lebih karena stok yang berkurang di pasaran.",
+          "confidence_pct": 99,
+          "notes": "",
+          "event_id": "ann_c2b9be01c3d2:llm:event:3",
+          "event_slot": 3
+        }
+      ],
+      "relations": [
+        {
+          "relation_id": "ann_c2b9be01c3d2:llm:relation:1",
+          "relation_slot": 1,
+          "subject_event_id": "ann_c2b9be01c3d2:llm:event:1",
+          "predicate": "reportedCauseOf",
+          "object_event_or_policy_id": "ann_c2b9be01c3d2:llm:event:2",
+          "relation_label": "positive",
+          "evidence_quote": "Kemarau panjang ini menyebabkan hasil panen petani cabai tidak maksimal.",
+          "confidence_pct": 99,
+          "notes": ""
+        },
+        {
+          "relation_id": "ann_c2b9be01c3d2:llm:relation:2",
+          "relation_slot": 2,
+          "subject_event_id": "ann_c2b9be01c3d2:llm:event:2",
+          "predicate": "reportedCauseOf",
+          "object_event_or_policy_id": "ann_c2b9be01c3d2:llm:event:3",
+          "relation_label": "positive",
+          "evidence_quote": "Karena itu, stok di pasaran pun menjadi menipis,” ujar Idham.",
+          "confidence_pct": 99,
+          "notes": ""
+        }
+      ],
+      "source": "beritajatim",
+      "pub_date": "2023-11-20",
+      "title": "Harga Gula Pasir dan Cabai di Sumenep Bikin Meringis",
+      "stratum": "relevant_with_relations"
+    },
+    "ann_c52b28d4e1bc": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 99,
+      "events": [
+        {
+          "event_kind": "disruption",
+          "event_subtype": "PestDiseaseEvent",
+          "event_date": "2025-01-22",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "Lumajang, East Java",
+          "commodity": "beef",
+          "actor": "Cattle farmers",
+          "food_system_stage": "production",
+          "evidence_quote": "Ternak sapi yang terpapar PMK di Lumajang mencapai 1.143 ekor, dengan 77 ekor di antaranya mati.",
+          "confidence_pct": 99,
+          "notes": "",
+          "event_id": "ann_c52b28d4e1bc:llm:event:1",
+          "event_slot": 1
+        },
+        {
+          "event_kind": "disruption",
+          "event_subtype": "SupplyShortage",
+          "event_date": "2025-01-22",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "Lumajang, East Java",
+          "commodity": "beef",
+          "actor": "Cattle farmers and veterinary services",
+          "food_system_stage": "production",
+          "evidence_quote": "Menurutnya, di wilayah UPT Puskeswan Pasirian, terdapat sekitar 17.000 ekor sapi, sedangkan jatah vaksin yang didapat hanya 2.500 dosis.",
+          "confidence_pct": 99,
+          "notes": "",
+          "event_id": "ann_c52b28d4e1bc:llm:event:2",
+          "event_slot": 2
+        },
+        {
+          "event_kind": "response",
+          "event_subtype": "ProductionAssistance",
+          "event_date": "2025-01-22",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "Lumajang, East Java",
+          "commodity": "beef",
+          "actor": "Central government; Lumajang veterinary services",
+          "food_system_stage": "production",
+          "evidence_quote": "LUMAJANG, KOMPAS.com - Pemerintah Kabupaten Lumajang hanya menerima tambahan 10.000 dosis vaksin penyakit mulut dan kuku (PMK) dari pemerintah pusat.",
+          "confidence_pct": 98,
+          "notes": "",
+          "event_id": "ann_c52b28d4e1bc:llm:event:3",
+          "event_slot": 3
+        }
+      ],
+      "relations": [
+        {
+          "relation_id": "ann_c52b28d4e1bc:llm:relation:1",
+          "relation_slot": 1,
+          "subject_event_id": "ann_c52b28d4e1bc:llm:event:3",
+          "predicate": "respondsTo",
+          "object_event_or_policy_id": "ann_c52b28d4e1bc:llm:event:1",
+          "relation_label": "positive",
+          "evidence_quote": "LUMAJANG, KOMPAS.com - Pemerintah Kabupaten Lumajang hanya menerima tambahan 10.000 dosis vaksin penyakit mulut dan kuku (PMK) dari pemerintah pusat.",
+          "confidence_pct": 98,
+          "notes": ""
+        }
+      ],
+      "source": "kompas_regional",
+      "pub_date": "2025-01-22",
+      "title": "Stok Vaksin PMK Gratis di Lumajang Terbatas, Peternak Diminta Vaksinasi Mandiri Regional 22 Januari 2025",
+      "stratum": "relevant_with_relations"
+    },
+    "ann_c778d03fa05c": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 94,
+      "events": [],
+      "relations": [],
+      "source": "beritajatim",
+      "pub_date": "2024-02-16",
+      "title": "Harga Beras di Kota Mojokerto Terus Merangkak Naik",
+      "stratum": "relevant_no_event"
+    },
+    "ann_d4f9396fc660": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 99,
+      "events": [
+        {
+          "event_kind": "disruption",
+          "event_subtype": "SupplyShortage",
+          "event_date": "2022-11-01",
+          "event_end_date": null,
+          "date_precision": "month",
+          "location": "Pamekasan, East Java",
+          "commodity": "rice",
+          "actor": "Rice farmers and fertilizer retailers",
+          "food_system_stage": "production",
+          "evidence_quote": "Para petani di Kabupaten Pamekasan, Jawa Timur, mengeluh kelangkaan pupuk subsidi jenis urea yang telah terjadi sejak November 2022.",
+          "confidence_pct": 99,
+          "notes": "",
+          "event_id": "ann_d4f9396fc660:llm:event:1",
+          "event_slot": 1
+        },
+        {
+          "event_kind": "disruption",
+          "event_subtype": "ProductionDisruption",
+          "event_date": "2023-01-18",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Pamekasan, East Java",
+          "commodity": "rice",
+          "actor": "Rice farmers",
+          "food_system_stage": "production",
+          "evidence_quote": "Akibat kekurangan pupuk, tanaman padi petani banyak yang menguning.",
+          "confidence_pct": 98,
+          "notes": "",
+          "event_id": "ann_d4f9396fc660:llm:event:2",
+          "event_slot": 2
+        }
+      ],
+      "relations": [
+        {
+          "relation_id": "ann_d4f9396fc660:llm:relation:1",
+          "relation_slot": 1,
+          "subject_event_id": "ann_d4f9396fc660:llm:event:1",
+          "predicate": "reportedCauseOf",
+          "object_event_or_policy_id": "ann_d4f9396fc660:llm:event:2",
+          "relation_label": "positive",
+          "evidence_quote": "Akibat kekurangan pupuk, tanaman padi petani banyak yang menguning.",
+          "confidence_pct": 99,
+          "notes": ""
+        }
+      ],
+      "source": "kompas_regional",
+      "pub_date": "2023-01-18",
+      "title": "Petani di Pamekasan Mengeluh Pupuk Subsidi Langka, Tanaman Padi Terancam Rusak Regional 18 Januari 2023",
+      "stratum": "relevant_with_relations"
+    },
+    "ann_dbdf192be053": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 96,
+      "events": [
+        {
+          "event_kind": "disruption",
+          "event_subtype": "DistributionDisruption",
+          "event_date": "2025-08-20",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Indonesia (program agreed in Surabaya)",
+          "commodity": "sugar",
+          "actor": "Sugarcane farmers and sugar warehouses",
+          "food_system_stage": "distribution",
+          "evidence_quote": "Ia menegaskan, anggaran tersebut penting untuk menekan penumpukan gula di gudang dan mengembalikan harga ke level yang wajar sesuai HAP.",
+          "confidence_pct": 91,
+          "notes": "",
+          "event_id": "ann_dbdf192be053:llm:event:1",
+          "event_slot": 1
+        },
+        {
+          "event_kind": "response",
+          "event_subtype": "ProcurementAction",
+          "event_date": "2025-08-22",
+          "event_end_date": null,
+          "date_precision": "day",
+          "location": "Indonesia (program agreed in Surabaya)",
+          "commodity": "sugar",
+          "actor": "Government of Indonesia; ID FOOD; PT SGN",
+          "food_system_stage": "procurement",
+          "evidence_quote": "Pemerintah memastikan alokasi anggaran sebesar Rp 1,5 triliun untuk menyerap hasil gula petani dalam negeri. Penyerapan dilakukan melalui Holding BUMN Pangan alias ID FOOD.",
+          "confidence_pct": 99,
+          "notes": "",
+          "event_id": "ann_dbdf192be053:llm:event:2",
+          "event_slot": 2
+        }
+      ],
+      "relations": [
+        {
+          "relation_id": "ann_dbdf192be053:llm:relation:1",
+          "relation_slot": 1,
+          "subject_event_id": "ann_dbdf192be053:llm:event:2",
+          "predicate": "respondsTo",
+          "object_event_or_policy_id": "ann_dbdf192be053:llm:event:1",
+          "relation_label": "positive",
+          "evidence_quote": "Ia menegaskan, anggaran tersebut penting untuk menekan penumpukan gula di gudang dan mengembalikan harga ke level yang wajar sesuai HAP.",
+          "confidence_pct": 96,
+          "notes": ""
+        }
+      ],
+      "source": "kompas_money",
+      "pub_date": "2025-08-25",
+      "title": "Pemerintah Suntik Rp 1,5 Triliun untuk Serap Gula Petani, Harga Dijaga di Atas Rp 14.500 per Kg Money 25 Agustus 2025",
+      "stratum": "relevant_with_relations"
+    },
+    "ann_e046c2504305": {
+      "article_relevance": "no",
+      "llm_confidence_pct": 99,
+      "events": [],
+      "relations": [],
+      "source": "kompas_regional",
+      "pub_date": "2026-03-12",
+      "title": "Elpiji 3 Kg Langka, Polisi Bongkar Modus Penyuntikan Gas Subsidi di Tulungagung Regional 12 Maret 2026",
+      "stratum": "not_relevant:no"
+    },
+    "ann_f1a835ec4682": {
+      "article_relevance": "uncertain",
+      "llm_confidence_pct": 63,
+      "events": [],
+      "relations": [],
+      "source": "kompas_money",
+      "pub_date": "2025-07-03",
+      "title": "Pupuk Kaltim Raih 3 Penghargaan Tertinggi di Ajang TOP CSR Awards 2025 Money 3 Juli 2025",
+      "stratum": "not_relevant:uncertain"
+    },
+    "ann_f7082c416267": {
+      "article_relevance": "no",
+      "llm_confidence_pct": 99,
+      "events": [],
+      "relations": [],
+      "source": "beritajatim",
+      "pub_date": "2026-04-17",
+      "title": "Polres Bondowoso Ringkus Dua Pengecer Ilegal BBM Bersubsidi",
+      "stratum": "not_relevant:no"
+    },
+    "ann_f8cb11ae6208": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 92,
+      "events": [
+        {
+          "event_kind": "disruption",
+          "event_subtype": "PestDiseaseEvent",
+          "event_date": "2025-06-07",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "Magetan, East Java",
+          "commodity": "rice",
+          "actor": "Rice farmers",
+          "food_system_stage": "production",
+          "evidence_quote": "“Imbauan dari petugas wilayah sudah sering disampaikan terkait dengan serangan tikus melalui lajakan untuk gerdal (gerakan pengendalian) melalui emposan, ada pendirian rumah burung hantu yang sebanyak 941 belum ditambah yang swadaya kelurahan.",
+          "confidence_pct": 93,
+          "notes": "",
+          "event_id": "ann_f8cb11ae6208:llm:event:1",
+          "event_slot": 1
+        },
+        {
+          "event_kind": "response",
+          "event_subtype": "ProductionAssistance",
+          "event_date": "2025-06-07",
+          "event_end_date": null,
+          "date_precision": "estimated_day",
+          "location": "Magetan, East Java",
+          "commodity": "rice",
+          "actor": "Magetan DTPHP; local communities",
+          "food_system_stage": "production",
+          "evidence_quote": "“Imbauan dari petugas wilayah sudah sering disampaikan terkait dengan serangan tikus melalui lajakan untuk gerdal (gerakan pengendalian) melalui emposan, ada pendirian rumah burung hantu yang sebanyak 941 belum ditambah yang swadaya kelurahan.",
+          "confidence_pct": 95,
+          "notes": "",
+          "event_id": "ann_f8cb11ae6208:llm:event:2",
+          "event_slot": 2
+        }
+      ],
+      "relations": [
+        {
+          "relation_id": "ann_f8cb11ae6208:llm:relation:1",
+          "relation_slot": 1,
+          "subject_event_id": "ann_f8cb11ae6208:llm:event:2",
+          "predicate": "respondsTo",
+          "object_event_or_policy_id": "ann_f8cb11ae6208:llm:event:1",
+          "relation_label": "positive",
+          "evidence_quote": "“Imbauan dari petugas wilayah sudah sering disampaikan terkait dengan serangan tikus melalui lajakan untuk gerdal (gerakan pengendalian) melalui emposan, ada pendirian rumah burung hantu yang sebanyak 941 belum ditambah yang swadaya kelurahan.",
+          "confidence_pct": 98,
+          "notes": ""
+        }
+      ],
+      "source": "beritajatim",
+      "pub_date": "2025-06-07",
+      "title": "Petani Tewas Tersengat Listrik Jebakan Tikus, DTPHP Magetan Klaim Sering Beri Imbauan",
+      "stratum": "relevant_with_relations"
+    },
+    "ann_fbd9dc9a62dc": {
+      "article_relevance": "yes",
+      "llm_confidence_pct": 92,
+      "events": [],
+      "relations": [],
+      "source": "kompas_money",
+      "pub_date": "2023-09-18",
+      "title": "Peternak Ayam Mengadu ke DPR, Keluhkan Harga Telur Jatuh tetapi Pakan Mahal Money 18 September 2023",
+      "stratum": "relevant_no_event"
+    }
+  }
+}

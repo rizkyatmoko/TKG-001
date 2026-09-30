@@ -1,0 +1,63 @@
+Evidence extract: L1_against_blocking_rule_72pct
+Session transcript: 0e3df70b-9d19-43da-9f2f-8b83d625d12d.jsonl
+Timestamp: 2026-09-10T23:37:40.850Z
+Extracted verbatim; the computation was not re-run.
+
+===== command / script as executed =====
+cd "C:/Users/HP/Documents/Claude/news-tkg-xdoc" && TKG_WITH_CHAT=1 PYTHONIOENCODING=utf-8 python - <<'EOF' 2>&1 | grep "^RC"
+import json, sys
+from collections import defaultdict
+X = "C:/Users/HP/Documents/Claude/news-tkg-xdoc"
+sys.path.insert(0, X)
+import scope_candidates as S
+evs = S.evs
+by_id = {e["event_id"]: e for e in evs}
+dis_all = [e for e in evs if e["is_dis"] and e["date"]]
+canon = {}
+for c in json.load(open(X + "/../news-tkg-gnn/coref-with-chat.json", encoding="utf-8")).get("cluster_members", []):
+    for m in c["members"]:
+        canon[m] = c["canonical"]
+def can(x):
+    return canon.get(x, x)
+members = defaultdict(list)
+for e in dis_all:
+    members[can(e["event_id"])].append(e)
+inc = {}
+for k, ms in members.items():
+    rec = dict(by_id[k]) if k in by_id else dict(ms[0])
+    rec["event_id"] = k
+    rec["date"] = min(m["date"] for m in ms)
+    rec["articles"] = {m["article"] for m in ms}
+    inc[k] = rec
+def dscore(r, c):
+    same = c["district"] == r["district"] and r["district"] != "_other_"
+    return (2.0 if same else 0.0) - (r["date"] - c["date"]).days / 10000.0
+edges = json.load(open(X + "/xdoc-edges.json", encoding="utf-8"))
+ge, gt = [], []
+for e in edges:
+    r, d0 = by_id.get(e["src_id"]), by_id.get(e["dst_id"])
+    if not r or not d0 or d0["date"] > r["date"]:
+        continue
+    gk = can(d0["event_id"])
+    h = dscore(r, inc[gk])
+    elig = [c for k, c in inc.items() if k != gk and c["date"] <= r["date"] and r["article"] not in c["articles"]]
+    ge.append(sum(1 for c in elig if dscore(r, c) >= h))
+    gt.append(sum(1 for c in elig if dscore(r, c) > h))
+ge.sort(); gt.sort()
+n = len(ge)
+print("RC district-rule L1 (ties count as competitors): pairs", n, "strictly first", ge.count(0), round(ge.count(0) / n, 4), "median", ge[n // 2], "max", ge[-1])
+print("RC district-rule, strictly-better only: zero", gt.count(0), "median", gt[n // 2])
+pil_ids = {a.get("candidate_id") for a in json.loads(S.PILOT.read_text(encoding="utf-8"))["annotations"]}
+pil = [e for e in evs if e["article"] in pil_ids]
+qwen = [e for e in evs if "expansion_v3_qwen8b" in e["event_id"]]
+print("RC pilot events", len(pil), "disruptions", sum(1 for e in pil if e["is_dis"]))
+print("RC pilot+qwen events", len(pil) + len(qwen), "disruptions", sum(1 for e in pil + qwen if e["is_dis"]))
+print("RC all events", len(evs), "disruptions", len(dis_all), "incidents", len(inc))
+EOF
+
+===== printed output =====
+RC district-rule L1 (ties count as competitors): pairs 65 strictly first 47 0.7231 median 0 max 4
+RC district-rule, strictly-better only: zero 60 median 0
+RC pilot events 359 disruptions 155
+RC pilot+qwen events 773 disruptions 366
+RC all events 1107 disruptions 510 incidents 462

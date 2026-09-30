@@ -1,0 +1,43 @@
+Evidence extract: L0_lookup_at_955_articles
+Session transcript: 2862c002-dc21-4ded-88fa-7123f67b7dd5.jsonl
+Timestamp: 2026-08-16T07:29:05.055Z
+Extracted verbatim; the computation was not re-run.
+
+===== command / script as executed =====
+cd "C:/Users/HP/Documents/Claude/news-tkg-gnn" && PYTHONDONTWRITEBYTECODE=1 PYTHONIOENCODING=utf-8 "C:/Users/HP/Documents/ChatGPT/News TKG/.venv/Scripts/python.exe" -c "
+from pathlib import Path
+p=Path('viability_check.py'); s=p.read_text(encoding='utf-8')
+s=s.replace('''    print(f\"D6 integrity''','''    print(f\"D7 degeneracy   {R['D7_task_degeneracy']['relations_labelled']} relations   \"
+          f\"lookup ceiling {R['D7_task_degeneracy']['GATE_share_recoverable_from_argument_types']:.0%}\")
+    print(f\"D6 integrity''')
+p.write_text(s,encoding='utf-8'); print('patched')
+" && PYTHONDONTWRITEBYTECODE=1 PYTHONIOENCODING=utf-8 "C:/Users/HP/Documents/ChatGPT/News TKG/.venv/Scripts/python.exe" viability_check.py 2>&1 | tail -26
+
+===== printed output =====
+patched
+D3 coref pool   242 blocked pairs (pilot: 140)
+D4 hard-neg     median 3 competitors/response   >=5: 25%   >=10: 11%
+D5 confidence   25 distinct values   constant=False
+D7 degeneracy   222 relations   lookup ceiling 93%
+D6 integrity    121 pairs scored   strictly-hardest 65%   median competitors>=positive 0
+
+  BLOCKED  L1_benchmark_integrity
+            gate: share of positives strictly hardest < 0.80 AND median cross-article competitors at-or-above positive hardness >= 1
+            obs : 65% strictly hardest; median 0 competitors
+  BLOCKED  L2_statistical_power
+            gate: >=215 respondsTo positives (-> ~32 test items, 80% power for dz=0.5); 435 for dz=0.35
+            obs : 121 respondsTo positives
+  BLOCKED  respondsTo_target_ranking
+            gate: requires BOTH layers
+            obs : L1 FAIL; L2 FAIL
+  BLOCKED  response_occurrence_forecasting
+            gate: >=600 blocked coreference pairs (cross-document lead time) AND L2 power
+            obs : 242 pairs; L2 FAIL
+  BLOCKED  L0_task_non_degeneracy
+            gate: <90% of relation labels recoverable from the argument-type signature alone (else the label restates the ontology)
+            obs : 93% recoverable by lookup
+  BLOCKED  relation_type_classification
+            gate: >=215 relations AND L0 non-degeneracy
+            obs : 222 relations; L0 93% recoverable (FAIL)
+
+wrote C:\Users\HP\Documents\Claude\news-tkg-gnn\viability-current.json

@@ -1,0 +1,51 @@
+Evidence extract: events_per_route_and_874
+Session transcript: 0e3df70b-9d19-43da-9f2f-8b83d625d12d.jsonl
+Timestamp: 2026-09-10T23:29:03.799Z
+Extracted verbatim; the computation was not re-run.
+
+===== command / script as executed =====
+cd "C:/Users/HP/Documents/Claude/news-tkg-xdoc" && TKG_WITH_CHAT=1 PYTHONIOENCODING=utf-8 python - <<'EOF' 2>&1 | grep "^RC"
+import json, os, sys
+from collections import Counter
+sys.path.insert(0, "C:/Users/HP/Documents/Claude/news-tkg-xdoc")
+import scope_candidates as S
+pil = json.loads(S.PILOT.read_text(encoding="utf-8"))["annotations"]
+n_pil = sum(len(a.get("events") or []) for a in pil)
+def load(d):
+    out = []
+    for f in sorted(d.glob("ann_*.json")):
+        try:
+            out.append(json.loads(f.read_text(encoding="utf-8")))
+        except Exception:
+            pass
+    return out
+ck = load(S.CKPT)
+ckd = [c for c in ck if c.get("status") == "complete" and c.get("annotation")]
+n_ck = sum(len(c["annotation"].get("events") or []) for c in ckd)
+ch = load(S.CHAT)
+cha = [c for c in ch if c.get("annotation")]
+n_ch = sum(len(c["annotation"].get("events") or []) for c in cha)
+print("RC pilot articles", len(pil), "events", n_pil, "per article", round(n_pil / len(pil), 3))
+print("RC qwen files", len(ck), "complete", len(ckd), "events", n_ck, "per article", round(n_ck / max(1, len(ckd)), 3))
+print("RC chat files", len(ch), "annotated", len(cha), "events", n_ch, "per article", round(n_ch / max(1, len(cha)), 3))
+print("RC total articles", len(pil) + len(ckd) + len(cha), "total events", n_pil + n_ck + n_ch)
+print("RC chat east_java_basis", Counter(str(c["annotation"].get("east_java_basis")) for c in cha).most_common(8))
+print("RC chat status", Counter(str(c.get("status")) for c in ch).most_common(5))
+def route(eid):
+    if ":run:" in eid:
+        return eid.split(":run:")[1].split(":")[0]
+    parts = eid.split(":")
+    return parts[1] if len(parts) > 1 else "?"
+print("RC S.evs", len(S.evs), dict(Counter(route(e["event_id"]) for e in S.evs)))
+print("RC S.evs with date", sum(1 for e in S.evs if e["date"]), "disruptions", sum(1 for e in S.evs if e["is_dis"]))
+EOF
+
+===== printed output =====
+RC pilot articles 300 events 359 per article 1.197
+RC qwen files 672 complete 655 events 414 per article 0.632
+RC chat files 1280 annotated 1280 events 334 per article 0.261
+RC total articles 2235 total events 1107
+RC chat east_java_basis [('none', 874), ('specific_occurrence', 375), ('named_participant', 15), ('list_mention', 10), ('venue_only', 4), ('measured_inclusion', 2)]
+RC chat status [('complete', 1280)]
+RC S.evs 1107 {'llm': 693, 'expansion_v3_qwen8b': 414}
+RC S.evs with date 1107 disruptions 510

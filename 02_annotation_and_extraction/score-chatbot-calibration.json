@@ -1,0 +1,618 @@
+{
+  "backend": "chatbot-calibration",
+  "run_file": "run-chatbot.json",
+  "articles_scored": 40,
+  "articles_missing_from_run": [],
+  "match_rule": "evidence token Jaccard >= 0.45, greedy",
+  "frontier_baseline_for_comparison": {
+    "event_jaccard": 0.417,
+    "subtype_agreement": 0.71,
+    "relation_jaccard": 0.407
+  },
+  "relevance": {
+    "confusion": {
+      "run=yes|ref=yes": 25,
+      "run=no|ref=no": 8,
+      "run=no|ref=yes": 4,
+      "run=yes|ref=no": 2,
+      "run=no|ref=uncertain": 1
+    },
+    "observed_agreement": 0.825,
+    "cohens_kappa": 0.5924
+  },
+  "events": {
+    "run_total": 39,
+    "ref_total": 50,
+    "matched": 25,
+    "jaccard_vs_reference": 0.3906,
+    "subtype_agreement_on_matched": 0.88,
+    "date_agreement_on_matched": 0.8,
+    "events_per_article_run": 0.975,
+    "events_per_article_ref": 1.25,
+    "subtype_disagreements": {
+      "OtherResponseAction -> MarketOperationAction": 1,
+      "ProductionDisruption -> WeatherDisruption": 1,
+      "WeatherDisruption -> SupplyShortage": 1
+    }
+  },
+  "relations": {
+    "run_total": 29,
+    "ref_total": 24,
+    "matched": 13,
+    "jaccard_vs_reference": 0.325,
+    "predicate_agreement_on_matched": {
+      "respondsTo -> respondsTo": 7,
+      "implementsPolicy -> implementsPolicy": 4,
+      "citesPolicy -> implementsPolicy": 1,
+      "citesPolicy -> citesPolicy": 1
+    }
+  },
+  "failure_modes": {
+    "false_positive_articles": 2,
+    "false_positive_detail": [
+      {
+        "article_id": "ann_05e2fa9b8de0",
+        "stratum": "not_relevant:no",
+        "relevance_run": "yes",
+        "relevance_ref": "no",
+        "events_run": 1,
+        "events_ref": 0,
+        "events_matched": 0,
+        "relations_run": 0,
+        "relations_ref": 0,
+        "relations_matched": 0
+      },
+      {
+        "article_id": "ann_bf7b1951b7ab",
+        "stratum": "not_relevant:no",
+        "relevance_run": "yes",
+        "relevance_ref": "no",
+        "events_run": 2,
+        "events_ref": 0,
+        "events_matched": 0,
+        "relations_run": 1,
+        "relations_ref": 0,
+        "relations_matched": 0
+      }
+    ],
+    "over_fragmented_articles": 2,
+    "under_extracted_articles": 13
+  },
+  "confidence": {
+    "n": 79,
+    "distinct_values": 13,
+    "distribution": {
+      "98": 13,
+      "99": 13,
+      "0": 13,
+      "97": 8,
+      "95": 7,
+      "94": 6,
+      "96": 5,
+      "88": 4,
+      "91": 4,
+      "90": 2
+    },
+    "is_effectively_constant": false
+  },
+  "per_stratum": {
+    "not_relevant:no": {
+      "articles": 10,
+      "events_run": 3,
+      "events_ref": 0,
+      "events_matched": 0
+    },
+    "not_relevant:uncertain": {
+      "articles": 1,
+      "events_run": 0,
+      "events_ref": 0,
+      "events_matched": 0
+    },
+    "relevant_multi_event": {
+      "articles": 2,
+      "events_run": 2,
+      "events_ref": 4,
+      "events_matched": 2
+    },
+    "relevant_no_event": {
+      "articles": 2,
+      "events_run": 0,
+      "events_ref": 0,
+      "events_matched": 0
+    },
+    "relevant_single_event": {
+      "articles": 9,
+      "events_run": 7,
+      "events_ref": 9,
+      "events_matched": 5
+    },
+    "relevant_with_relations": {
+      "articles": 16,
+      "events_run": 27,
+      "events_ref": 37,
+      "events_matched": 18
+    }
+  },
+  "per_article": [
+    {
+      "article_id": "ann_01d55215fe18",
+      "stratum": "relevant_with_relations",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 1,
+      "events_ref": 2,
+      "events_matched": 1,
+      "relations_run": 2,
+      "relations_ref": 2,
+      "relations_matched": 1
+    },
+    {
+      "article_id": "ann_05e2fa9b8de0",
+      "stratum": "not_relevant:no",
+      "relevance_run": "yes",
+      "relevance_ref": "no",
+      "events_run": 1,
+      "events_ref": 0,
+      "events_matched": 0,
+      "relations_run": 0,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_0b5b3e6c9588",
+      "stratum": "relevant_with_relations",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 1,
+      "events_ref": 1,
+      "events_matched": 1,
+      "relations_run": 1,
+      "relations_ref": 1,
+      "relations_matched": 1
+    },
+    {
+      "article_id": "ann_18b594b3b73e",
+      "stratum": "relevant_with_relations",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 1,
+      "events_ref": 2,
+      "events_matched": 0,
+      "relations_run": 2,
+      "relations_ref": 2,
+      "relations_matched": 1
+    },
+    {
+      "article_id": "ann_1cc3eaf85db9",
+      "stratum": "not_relevant:no",
+      "relevance_run": "no",
+      "relevance_ref": "no",
+      "events_run": 0,
+      "events_ref": 0,
+      "events_matched": 0,
+      "relations_run": 0,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_1d55cdd4ac16",
+      "stratum": "relevant_with_relations",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 2,
+      "events_ref": 3,
+      "events_matched": 0,
+      "relations_run": 0,
+      "relations_ref": 1,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_1e348acf7d7f",
+      "stratum": "relevant_single_event",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 1,
+      "events_ref": 1,
+      "events_matched": 1,
+      "relations_run": 2,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_2fd915acff95",
+      "stratum": "relevant_with_relations",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 2,
+      "events_ref": 2,
+      "events_matched": 0,
+      "relations_run": 2,
+      "relations_ref": 1,
+      "relations_matched": 1
+    },
+    {
+      "article_id": "ann_32b72b6685a2",
+      "stratum": "relevant_with_relations",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 2,
+      "events_ref": 3,
+      "events_matched": 1,
+      "relations_run": 2,
+      "relations_ref": 1,
+      "relations_matched": 1
+    },
+    {
+      "article_id": "ann_423a1ecf1c21",
+      "stratum": "relevant_single_event",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 1,
+      "events_ref": 1,
+      "events_matched": 0,
+      "relations_run": 0,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_446610993ebe",
+      "stratum": "not_relevant:no",
+      "relevance_run": "no",
+      "relevance_ref": "no",
+      "events_run": 0,
+      "events_ref": 0,
+      "events_matched": 0,
+      "relations_run": 0,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_483632b5f4a0",
+      "stratum": "relevant_single_event",
+      "relevance_run": "no",
+      "relevance_ref": "yes",
+      "events_run": 0,
+      "events_ref": 1,
+      "events_matched": 0,
+      "relations_run": 0,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_5e1896f82442",
+      "stratum": "relevant_with_relations",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 2,
+      "events_ref": 2,
+      "events_matched": 1,
+      "relations_run": 4,
+      "relations_ref": 2,
+      "relations_matched": 1
+    },
+    {
+      "article_id": "ann_610ae3eaeaaa",
+      "stratum": "relevant_single_event",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 1,
+      "events_ref": 1,
+      "events_matched": 0,
+      "relations_run": 0,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_63a2468ad5df",
+      "stratum": "relevant_with_relations",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 1,
+      "events_ref": 3,
+      "events_matched": 1,
+      "relations_run": 3,
+      "relations_ref": 3,
+      "relations_matched": 1
+    },
+    {
+      "article_id": "ann_63f2506c000a",
+      "stratum": "relevant_with_relations",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 2,
+      "events_ref": 2,
+      "events_matched": 2,
+      "relations_run": 1,
+      "relations_ref": 1,
+      "relations_matched": 1
+    },
+    {
+      "article_id": "ann_66ce2834051e",
+      "stratum": "relevant_single_event",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 1,
+      "events_ref": 1,
+      "events_matched": 1,
+      "relations_run": 0,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_68eb4297b336",
+      "stratum": "relevant_with_relations",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 2,
+      "events_ref": 2,
+      "events_matched": 2,
+      "relations_run": 1,
+      "relations_ref": 1,
+      "relations_matched": 1
+    },
+    {
+      "article_id": "ann_7269372a527d",
+      "stratum": "not_relevant:no",
+      "relevance_run": "no",
+      "relevance_ref": "no",
+      "events_run": 0,
+      "events_ref": 0,
+      "events_matched": 0,
+      "relations_run": 0,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_74148fec68c0",
+      "stratum": "not_relevant:no",
+      "relevance_run": "no",
+      "relevance_ref": "no",
+      "events_run": 0,
+      "events_ref": 0,
+      "events_matched": 0,
+      "relations_run": 0,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_7eb34b881752",
+      "stratum": "relevant_single_event",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 1,
+      "events_ref": 1,
+      "events_matched": 1,
+      "relations_run": 0,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_964222991cda",
+      "stratum": "relevant_single_event",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 1,
+      "events_ref": 1,
+      "events_matched": 1,
+      "relations_run": 0,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_aa4fe7443c10",
+      "stratum": "not_relevant:no",
+      "relevance_run": "no",
+      "relevance_ref": "no",
+      "events_run": 0,
+      "events_ref": 0,
+      "events_matched": 0,
+      "relations_run": 0,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_aa7ea8c81058",
+      "stratum": "relevant_single_event",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 1,
+      "events_ref": 1,
+      "events_matched": 1,
+      "relations_run": 1,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_abc60677dbcf",
+      "stratum": "relevant_multi_event",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 1,
+      "events_ref": 2,
+      "events_matched": 1,
+      "relations_run": 0,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_b6b3da858be4",
+      "stratum": "relevant_multi_event",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 1,
+      "events_ref": 2,
+      "events_matched": 1,
+      "relations_run": 0,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_b75a1d3c2312",
+      "stratum": "relevant_single_event",
+      "relevance_run": "no",
+      "relevance_ref": "yes",
+      "events_run": 0,
+      "events_ref": 1,
+      "events_matched": 0,
+      "relations_run": 0,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_b7b7916921e5",
+      "stratum": "relevant_with_relations",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 2,
+      "events_ref": 3,
+      "events_matched": 2,
+      "relations_run": 2,
+      "relations_ref": 3,
+      "relations_matched": 2
+    },
+    {
+      "article_id": "ann_bf122de827bb",
+      "stratum": "not_relevant:no",
+      "relevance_run": "no",
+      "relevance_ref": "no",
+      "events_run": 0,
+      "events_ref": 0,
+      "events_matched": 0,
+      "relations_run": 0,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_bf7b1951b7ab",
+      "stratum": "not_relevant:no",
+      "relevance_run": "yes",
+      "relevance_ref": "no",
+      "events_run": 2,
+      "events_ref": 0,
+      "events_matched": 0,
+      "relations_run": 1,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_c2b9be01c3d2",
+      "stratum": "relevant_with_relations",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 2,
+      "events_ref": 3,
+      "events_matched": 1,
+      "relations_run": 1,
+      "relations_ref": 2,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_c52b28d4e1bc",
+      "stratum": "relevant_with_relations",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 3,
+      "events_ref": 3,
+      "events_matched": 2,
+      "relations_run": 2,
+      "relations_ref": 1,
+      "relations_matched": 1
+    },
+    {
+      "article_id": "ann_c778d03fa05c",
+      "stratum": "relevant_no_event",
+      "relevance_run": "no",
+      "relevance_ref": "yes",
+      "events_run": 0,
+      "events_ref": 0,
+      "events_matched": 0,
+      "relations_run": 0,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_d4f9396fc660",
+      "stratum": "relevant_with_relations",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 1,
+      "events_ref": 2,
+      "events_matched": 1,
+      "relations_run": 0,
+      "relations_ref": 1,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_dbdf192be053",
+      "stratum": "relevant_with_relations",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 1,
+      "events_ref": 2,
+      "events_matched": 1,
+      "relations_run": 1,
+      "relations_ref": 1,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_e046c2504305",
+      "stratum": "not_relevant:no",
+      "relevance_run": "no",
+      "relevance_ref": "no",
+      "events_run": 0,
+      "events_ref": 0,
+      "events_matched": 0,
+      "relations_run": 0,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_f1a835ec4682",
+      "stratum": "not_relevant:uncertain",
+      "relevance_run": "no",
+      "relevance_ref": "uncertain",
+      "events_run": 0,
+      "events_ref": 0,
+      "events_matched": 0,
+      "relations_run": 0,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_f7082c416267",
+      "stratum": "not_relevant:no",
+      "relevance_run": "no",
+      "relevance_ref": "no",
+      "events_run": 0,
+      "events_ref": 0,
+      "events_matched": 0,
+      "relations_run": 0,
+      "relations_ref": 0,
+      "relations_matched": 0
+    },
+    {
+      "article_id": "ann_f8cb11ae6208",
+      "stratum": "relevant_with_relations",
+      "relevance_run": "yes",
+      "relevance_ref": "yes",
+      "events_run": 2,
+      "events_ref": 2,
+      "events_matched": 2,
+      "relations_run": 1,
+      "relations_ref": 1,
+      "relations_matched": 1
+    },
+    {
+      "article_id": "ann_fbd9dc9a62dc",
+      "stratum": "relevant_no_event",
+      "relevance_run": "no",
+      "relevance_ref": "yes",
+      "events_run": 0,
+      "events_ref": 0,
+      "events_matched": 0,
+      "relations_run": 0,
+      "relations_ref": 0,
+      "relations_matched": 0
+    }
+  ]
+}
