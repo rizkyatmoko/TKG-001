@@ -1,0 +1,32 @@
+{
+  "systems": [
+    "lexical",
+    "numeric"
+  ],
+  "n_items": 10,
+  "mean_lexical": 0.743333,
+  "mean_numeric": 0.855882,
+  "paired_bootstrap": {
+    "n": 10,
+    "mean_difference": -0.112549,
+    "ci_low": -0.33,
+    "ci_high": 0.054902,
+    "ci_excludes_zero": false,
+    "confidence": 0.95,
+    "n_boot": 20000
+  },
+  "paired_permutation": {
+    "n": 10,
+    "p_value": 0.5,
+    "exact": true,
+    "assignments": 1024
+  },
+  "cohens_dz": -0.3289,
+  "wins_losses_ties": [
+    1,
+    2,
+    7
+  ],
+  "significant_at_alpha": false,
+  "verdict": "no detectable difference between lexical and numeric at n=10"
+}

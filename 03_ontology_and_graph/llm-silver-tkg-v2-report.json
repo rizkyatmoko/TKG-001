@@ -1,0 +1,111 @@
+{
+  "dataset": "FoodJatim resolved LLM-only silver temporal event knowledge graph v2",
+  "graph_version": "v2",
+  "ontology_version": "0.4.0",
+  "created_date": "2026-08-15",
+  "label_status": "silver",
+  "human_verified": false,
+  "price_prediction_target": false,
+  "inputs": {
+    "ontology": {
+      "path": "C:\\Users\\HP\\Documents\\ChatGPT\\News TKG\\ontology\\foodjatim-tkg.ttl",
+      "sha256": "fb20b8bd5bbae7db9b98cf0e6a8994e3eb25eae65ff9d8c450c8aeec2a224fae"
+    },
+    "annotations": {
+      "path": "C:\\Users\\HP\\Documents\\ChatGPT\\News TKG\\data\\annotation\\llm-silver-pilot-v2.json",
+      "sha256": "d9e83a7211632d8c25a1b657aa88e4248a45811588e78fcd9af91b7250d5c5c6"
+    },
+    "source_subset": {
+      "path": "C:\\Users\\HP\\Documents\\ChatGPT\\News TKG\\data\\annotation\\pilot-candidates.json",
+      "sha256": "1362eaa6751ae5149c4e15afcd8780ca6dfd25c92c0a884e644c6d776755789d"
+    },
+    "policy_lookup": {
+      "path": "C:\\Users\\HP\\Documents\\ChatGPT\\News TKG\\data\\annotation\\policy-lookup.json",
+      "sha256": "cd9dc765d26d6d16b11e96b87d2e137ed512a9788b45762e4ef55db7a5857bb1"
+    },
+    "policy_graph": {
+      "path": "C:\\Users\\HP\\Documents\\ChatGPT\\News TKG\\data\\derived\\policy-graph.ttl",
+      "sha256": "000e40047f08626d6a366e827de03ab7fe931698fe4979f4c94f8d575c8c5042"
+    },
+    "resolved_events": {
+      "path": "C:\\Users\\HP\\Documents\\ChatGPT\\News TKG\\data\\derived\\resolved-events-v2.json",
+      "sha256": "7bda2722eb19d3ff7e653af854516edce60448d1830b82779b8675e7f1c9ccfc"
+    },
+    "resolved_relations": {
+      "path": "C:\\Users\\HP\\Documents\\ChatGPT\\News TKG\\data\\derived\\resolved-relations-v2.json",
+      "sha256": "700df8ffe8f42614ebbc1034eb5ba7a43cbcbafb64eb0b330df0b00161d300cd"
+    },
+    "cross_document_relations": {
+      "path": "C:\\Users\\HP\\Documents\\ChatGPT\\News TKG\\data\\derived\\cross-document-relations-v2.json",
+      "sha256": "9fabd18ce7b6ad27a13648fe6a8a0350f6d75122746b65dbf578a903177792ed"
+    },
+    "coreference_decisions": {
+      "path": "C:\\Users\\HP\\Documents\\ChatGPT\\News TKG\\data\\annotation\\event-coreference-decisions-v2.json",
+      "sha256": "b9a7ee5004a2eae9c8ffbf224ce70a8149a32970dc104b210af3371be50890d5"
+    }
+  },
+  "counts": {
+    "articles": 300,
+    "article_annotations": 300,
+    "event_mentions": 359,
+    "event_time_intervals": 375,
+    "publisher_nodes": 5,
+    "accepted_coreference_clusters": 16,
+    "canonical_events": 16,
+    "resolved_event_entities": 333,
+    "canonical_event_evidence_links": 42,
+    "soft_event_resolution_assertions": 42,
+    "rejected_event_identity_comparisons": 5,
+    "source_relation_assertions": 167,
+    "resolved_relation_entities": 145,
+    "resolved_relation_entities_by_predicate": {
+      "citesPolicy": 12,
+      "implementsPolicy": 32,
+      "reportedCauseOf": 27,
+      "respondsTo": 74
+    },
+    "resolved_assertions_added_to_rdf": 22,
+    "resolved_article_level_citations_not_duplicated": 0,
+    "cross_document_respondsTo_assertions": 34,
+    "all_rdf_relation_assertions": 223,
+    "evidence_agreement_assertions": 34,
+    "corroborates_assertion_edges": 34,
+    "contradicts_assertion_edges": 0,
+    "policy_instruments": 87,
+    "rdf_triples": 37821
+  },
+  "mapping_decisions": {
+    "event_mentions": "Each extracted source event is an fj:EventMention anchored to exactly one article.",
+    "bitemporal_events": "Each event has an OWL-Time valid-time interval; source report timestamps remain separate on articles, mentions, evidence, assertions, and canonical first/last report properties.",
+    "publisher_provenance": "Channel-specific source keys map to normalized publisher organizations and remain traceable from every source-derived graph item.",
+    "canonical_events": "Only accepted cross-document clusters receive an fj:CanonicalEvent node; owl:sameAs is not used.",
+    "soft_event_resolution": "Every accepted mention-to-canonical convenience edge has a reified EventResolutionAssertion with same-event probability, rationale, method, report time, publisher, and LLM-only provenance.",
+    "negative_coreference": "Rejected event pairs are EventIdentityComparison nodes; they are not mislabeled as contradictory source claims.",
+    "corroboration": "Direct source assertions co-supporting the same resolved relation receive confidence-bearing EvidenceAgreementAssertion nodes. independenceAssessed=false because syndication was not adjudicated.",
+    "contradiction": "The ontology can represent explicit contradiction, but none is materialized because the current positive-only silver annotations contain no contradiction judgment.",
+    "resolved_relations": "Relations touching a canonical event are materialized with aggregated evidence-bearing assertions.",
+    "cross_document_relations": "Each cross-document respondsTo edge is entailed from a direct assertion and a separately represented event-coreference premise.",
+    "citesPolicy": "Bare citations remain NewsArticle-to-PolicyInstrument edges and are not duplicated as canonical event edges.",
+    "price_prediction_target": false
+  },
+  "pre_export_validation": {
+    "all_300_articles_present": true,
+    "all_359_event_mentions_present": true,
+    "all_16_canonical_events_present": true,
+    "all_canonical_events_have_two_or_more_mentions": true,
+    "all_events_have_explicit_event_time_intervals": true,
+    "all_accepted_links_have_soft_resolution_assertions": true,
+    "all_rejected_pairs_preserved": true,
+    "all_multi_support_pairs_have_agreement_assertions": true,
+    "no_unsubstantiated_contradictions": true,
+    "all_cross_document_edges_have_direct_and_coreference_premises": true,
+    "all_cross_document_edges_have_two_source_documents": true,
+    "all_labels_llm_only_silver": true,
+    "price_prediction_excluded": true
+  },
+  "output": {
+    "path": "C:\\Users\\HP\\Documents\\ChatGPT\\News TKG\\data\\derived\\llm-silver-tkg-v2.ttl",
+    "sha256": "bc676f65ba46d0ce17cc2495e3f124ec6248fc1a759419d317143b538f90af8c",
+    "bytes": 3648883
+  }
+}

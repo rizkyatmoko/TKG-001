@@ -1,0 +1,169 @@
+{
+  "articles": {
+    "pilot": 300,
+    "expansion": 655,
+    "chat": 1280
+  },
+  "articles_total": 2235,
+  "D1_yield": {
+    "events": 1107,
+    "relations": 335,
+    "events_per_article": 0.495,
+    "relations_per_article": 0.15,
+    "disruptions": 510,
+    "responses": 597,
+    "pilot_reference_events_per_article": 1.197
+  },
+  "D2_cell_density": {
+    "cells": 303,
+    "median_disruptions_per_cell": 1,
+    "cells_ge_4": 22,
+    "cells_ge_8": 2,
+    "max_cell": 18,
+    "top_cells": [
+      {
+        "cell": "broad_food|lumajang|2021Q4",
+        "n": 18
+      },
+      {
+        "cell": "rice|_other_|2023Q3",
+        "n": 8
+      },
+      {
+        "cell": "rice|sumenep|2023Q1",
+        "n": 7
+      },
+      {
+        "cell": "cooking_oil|_other_|2022Q1",
+        "n": 6
+      },
+      {
+        "cell": "broad_food|pasuruan|2026Q1",
+        "n": 6
+      },
+      {
+        "cell": "rice|ponorogo|2025Q3",
+        "n": 5
+      },
+      {
+        "cell": "broad_food|surabaya|2026Q2",
+        "n": 5
+      },
+      {
+        "cell": "fish|gresik|2023Q4",
+        "n": 5
+      }
+    ]
+  },
+  "D3_coreference_pool": {
+    "blocked_cross_article_pairs": 898,
+    "pilot_reference": 140,
+    "by_subtype": {
+      "DisasterEvent": 450,
+      "PestDiseaseEvent": 166,
+      "SupplyShortage": 131,
+      "ProductionDisruption": 58,
+      "WeatherDisruption": 48,
+      "FoodSafetyIncident": 29,
+      "DistributionDisruption": 16
+    },
+    "note": "this is the upstream driver of cross-document edges and lead time"
+  },
+  "D4_hard_negative_pool": {
+    "responses_evaluated": 597,
+    "median_same_commodity_competitors_within_90d": 5,
+    "p75": 11,
+    "share_with_ge_5": 0.549,
+    "share_with_ge_10": 0.295
+  },
+  "D5_confidence": {
+    "n": 1107,
+    "distinct": 25,
+    "top": {
+      "85": 355,
+      "99": 181,
+      "96": 112,
+      "98": 100,
+      "95": 74
+    },
+    "is_effectively_constant": false
+  },
+  "D6_benchmark_integrity": {
+    "respondsTo_pairs_scored": 198,
+    "GATE_share_positives_strictly_hardest": 0.6111,
+    "GATE_median_competitors_at_or_above": 0,
+    "share_with_ge_1_competitor": 0.389,
+    "note": "cross-article competitors only; intra-article candidates are excluded"
+  },
+  "D7_task_degeneracy": {
+    "relations_labelled": 335,
+    "GATE_share_recoverable_from_argument_types": 0.9134,
+    "signatures": {
+      "response|disruption": {
+        "respondsTo": 200,
+        "reportedCauseOf": 14
+      },
+      "response|policy_or_other": {
+        "implementsPolicy": 46,
+        "citesPolicy": 15
+      },
+      "disruption|disruption": {
+        "reportedCauseOf": 43
+      },
+      "disruption|response": {
+        "reportedCauseOf": 12
+      },
+      "response|response": {
+        "reportedCauseOf": 3
+      },
+      "disruption|policy_or_other": {
+        "citesPolicy": 2
+      }
+    },
+    "note": "if this is at ceiling the relation label restates the ontology's domain/range constraints and relation classification is not a task"
+  },
+  "power_basis": {
+    "alpha": 0.05,
+    "target_power": 0.8,
+    "min_test_items": {
+      "dz=0.80": 13,
+      "dz=0.50": 32,
+      "dz=0.35": 65,
+      "dz=0.20": 197
+    },
+    "assumed_test_fraction": 0.15
+  },
+  "verdicts": {
+    "L1_benchmark_integrity": {
+      "viable": false,
+      "gate": "share of positives strictly hardest < 0.80 AND median cross-article competitors at-or-above positive hardness >= 1",
+      "observed": "61% strictly hardest; median 0 competitors"
+    },
+    "L2_statistical_power": {
+      "viable": false,
+      "gate": ">=215 respondsTo positives (-> ~32 test items, 80% power for dz=0.5); 435 for dz=0.35",
+      "observed": "200 respondsTo positives"
+    },
+    "respondsTo_target_ranking": {
+      "viable": false,
+      "gate": "requires BOTH layers",
+      "observed": "L1 FAIL; L2 FAIL"
+    },
+    "response_occurrence_forecasting": {
+      "viable": false,
+      "gate": ">=600 blocked coreference pairs (cross-document lead time) AND L2 power",
+      "observed": "898 pairs; L2 FAIL"
+    },
+    "L0_task_non_degeneracy": {
+      "viable": false,
+      "gate": "<90% of relation labels recoverable from the argument-type signature alone (else the label restates the ontology)",
+      "observed": "91% recoverable by lookup"
+    },
+    "relation_type_classification": {
+      "viable": false,
+      "gate": ">=215 relations AND L0 non-degeneracy",
+      "observed": "335 relations; L0 91% recoverable (FAIL)"
+    }
+  },
+  "any_viable": false
+}

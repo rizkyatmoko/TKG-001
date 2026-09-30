@@ -1,0 +1,89 @@
+{
+  "graph": "C:\\Users\\HP\\Documents\\Claude\\news-tkg-modeling-view\\view-chat-coref",
+  "events_measured": 1059,
+  "edges_with_both_times": 5534,
+  "edges_excluded_missing_a_time": 955,
+  "hops": 2,
+  "prediction_time": "each event's own available_date",
+  "neighbourhood_size": {
+    "nodes_none": {
+      "median": 361,
+      "p25": 312,
+      "p75": 527,
+      "max": 928,
+      "mean": 381.19,
+      "nonzero_share": 1.0
+    },
+    "nodes_event_time": {
+      "median": 178,
+      "p25": 75,
+      "p75": 283,
+      "max": 634,
+      "mean": 197.55,
+      "nonzero_share": 1.0
+    },
+    "nodes_report_time": {
+      "median": 174,
+      "p25": 73,
+      "p75": 278,
+      "max": 627,
+      "mean": 193.72,
+      "nonzero_share": 1.0
+    },
+    "edges_none": {
+      "median": 405,
+      "p25": 331,
+      "p75": 631,
+      "max": 1418,
+      "mean": 447.43,
+      "nonzero_share": 1.0
+    },
+    "edges_event_time": {
+      "median": 207,
+      "p25": 89,
+      "p75": 331,
+      "max": 853,
+      "mean": 234.88,
+      "nonzero_share": 1.0
+    },
+    "edges_report_time": {
+      "median": 200,
+      "p25": 85,
+      "p75": 326,
+      "max": 846,
+      "mean": 230.26,
+      "nonzero_share": 1.0
+    }
+  },
+  "leakage": {
+    "leak_edges_vs_none": {
+      "median": 178,
+      "p25": 78,
+      "p75": 305,
+      "max": 1054,
+      "mean": 217.17,
+      "nonzero_share": 0.9924
+    },
+    "leak_edges_vs_event_time": {
+      "median": 3,
+      "p25": 1,
+      "p75": 6,
+      "max": 255,
+      "mean": 4.62,
+      "nonzero_share": 0.8055
+    },
+    "leak_nodes_vs_event_time": {
+      "median": 3,
+      "p25": 1,
+      "p75": 6,
+      "max": 156,
+      "mean": 3.84,
+      "nonzero_share": 0.8017
+    }
+  },
+  "self_test": {
+    "edges_checked": 53918,
+    "violations": 0,
+    "passes": true
+  }
+}

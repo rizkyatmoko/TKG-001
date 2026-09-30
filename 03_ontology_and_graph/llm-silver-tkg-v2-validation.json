@@ -1,0 +1,17 @@
+{
+  "success": true,
+  "ontology_triples": 750,
+  "shape_triples": 529,
+  "data_triples": 37821,
+  "data_files": [
+    "data\\derived\\llm-silver-tkg-v2.ttl"
+  ],
+  "core_issue_count": 0,
+  "core_issues": [],
+  "pyshacl": {
+    "available": true,
+    "version": "0.40.1",
+    "conforms": true,
+    "report": "Validation Report\nConforms: True\n"
+  }
+}

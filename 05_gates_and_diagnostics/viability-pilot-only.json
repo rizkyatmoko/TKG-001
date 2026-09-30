@@ -1,0 +1,135 @@
+{
+  "articles": {
+    "pilot": 300
+  },
+  "articles_total": 300,
+  "D1_yield": {
+    "events": 359,
+    "relations": 167,
+    "events_per_article": 1.197,
+    "relations_per_article": 0.557,
+    "disruptions": 155,
+    "responses": 204,
+    "pilot_reference_events_per_article": 1.197
+  },
+  "D2_cell_density": {
+    "cells": 114,
+    "median_disruptions_per_cell": 1,
+    "cells_ge_4": 2,
+    "cells_ge_8": 0,
+    "max_cell": 4,
+    "top_cells": [
+      {
+        "cell": "broad_food|surabaya|2026Q2",
+        "n": 4
+      },
+      {
+        "cell": "fish|gresik|2023Q4",
+        "n": 4
+      },
+      {
+        "cell": "chicken_eggs|jombang|2022Q2",
+        "n": 3
+      },
+      {
+        "cell": "chili|_other_|2021Q4",
+        "n": 3
+      },
+      {
+        "cell": "cooking_oil|surabaya|2022Q1",
+        "n": 3
+      },
+      {
+        "cell": "rice|pasuruan|2023Q1",
+        "n": 3
+      },
+      {
+        "cell": "chili|sumenep|2023Q4",
+        "n": 3
+      },
+      {
+        "cell": "rice|surabaya|2025Q2",
+        "n": 2
+      }
+    ]
+  },
+  "D3_coreference_pool": {
+    "blocked_cross_article_pairs": 59,
+    "pilot_reference": 140,
+    "by_subtype": {
+      "FoodSafetyIncident": 20,
+      "SupplyShortage": 16,
+      "DisasterEvent": 8,
+      "PestDiseaseEvent": 6,
+      "ProductionDisruption": 6,
+      "WeatherDisruption": 2,
+      "DistributionDisruption": 1
+    },
+    "note": "this is the upstream driver of cross-document edges and lead time"
+  },
+  "D4_hard_negative_pool": {
+    "responses_evaluated": 204,
+    "median_same_commodity_competitors_within_90d": 1,
+    "p75": 3,
+    "share_with_ge_5": 0.132,
+    "share_with_ge_10": 0.0
+  },
+  "D5_confidence": {
+    "n": 359,
+    "distinct": 23,
+    "top": {
+      "99": 119,
+      "98": 60,
+      "97": 35,
+      "96": 32,
+      "94": 20
+    },
+    "is_effectively_constant": false
+  },
+  "D6_benchmark_integrity": {
+    "respondsTo_pairs_scored": 83,
+    "GATE_share_positives_strictly_hardest": 0.6988,
+    "GATE_median_competitors_at_or_above": 0,
+    "share_with_ge_1_competitor": 0.301,
+    "note": "cross-article competitors only; intra-article candidates are excluded"
+  },
+  "power_basis": {
+    "alpha": 0.05,
+    "target_power": 0.8,
+    "min_test_items": {
+      "dz=0.80": 13,
+      "dz=0.50": 32,
+      "dz=0.35": 65,
+      "dz=0.20": 197
+    },
+    "assumed_test_fraction": 0.15
+  },
+  "verdicts": {
+    "L1_benchmark_integrity": {
+      "viable": false,
+      "gate": "share of positives strictly hardest < 0.80 AND median cross-article competitors at-or-above positive hardness >= 1",
+      "observed": "70% strictly hardest; median 0 competitors"
+    },
+    "L2_statistical_power": {
+      "viable": false,
+      "gate": ">=215 respondsTo positives (-> ~32 test items, 80% power for dz=0.5); 435 for dz=0.35",
+      "observed": "83 respondsTo positives"
+    },
+    "respondsTo_target_ranking": {
+      "viable": false,
+      "gate": "requires BOTH layers",
+      "observed": "L1 FAIL; L2 FAIL"
+    },
+    "response_occurrence_forecasting": {
+      "viable": false,
+      "gate": ">=600 blocked coreference pairs (cross-document lead time) AND L2 power",
+      "observed": "59 pairs; L2 FAIL"
+    },
+    "relation_type_classification": {
+      "viable": false,
+      "gate": ">=215 relations (same power derivation)",
+      "observed": "167 relations"
+    }
+  },
+  "any_viable": false
+}

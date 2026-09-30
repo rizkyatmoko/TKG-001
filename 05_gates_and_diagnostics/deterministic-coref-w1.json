@@ -1,0 +1,83 @@
+{
+  "window_days": 1,
+  "cross_publisher_only": false,
+  "rule": "same subtype + same single district + compatible commodity + precise dates (day/estimated_day, no end date) + different article",
+  "disruption_events": 197,
+  "candidate_pairs_merged": 9,
+  "clusters": 4,
+  "clustered_events": 10,
+  "clusters_spanning_multiple_publishers": 1,
+  "clusters_spanning_pilot_and_expansion": 1,
+  "cluster_size_hist": {
+    "2": 3,
+    "4": 1
+  },
+  "lead_time_days": {
+    "n": 4,
+    "median": 6,
+    "p75": 6,
+    "max": 6,
+    "share_gt_0": 0.75
+  },
+  "validation_vs_llm_ensemble": {
+    "available": true,
+    "judged_pairs": 176,
+    "also_proposed_by_rule": 0,
+    "false_positives_rule_merges_ensemble_says_distinct": 0,
+    "true_positives_both_merge": 0,
+    "false_negatives_ensemble_merges_rule_misses": 1,
+    "fp_examples": [],
+    "fn_examples": [
+      "ann_76b0e0517053:llm:event:1 + ann_8195fc6965e4:llm:event:1 (ens=0.5667)"
+    ]
+  },
+  "largest_clusters": [
+    {
+      "n": 4,
+      "subtype": "DisasterEvent",
+      "district": "lumajang",
+      "dates": [
+        "2021-12-04",
+        "2021-12-05"
+      ],
+      "publishers": [
+        "beritajatim",
+        "detik",
+        "kompas"
+      ]
+    },
+    {
+      "n": 2,
+      "subtype": "SupplyShortage",
+      "district": "gresik",
+      "dates": [
+        "2023-12-29"
+      ],
+      "publishers": [
+        "kompas"
+      ]
+    },
+    {
+      "n": 2,
+      "subtype": "ProductionDisruption",
+      "district": "gresik",
+      "dates": [
+        "2023-12-29"
+      ],
+      "publishers": [
+        "kompas"
+      ]
+    },
+    {
+      "n": 2,
+      "subtype": "DisasterEvent",
+      "district": "trenggalek",
+      "dates": [
+        "2022-11-06"
+      ],
+      "publishers": [
+        "kompas"
+      ]
+    }
+  ]
+}

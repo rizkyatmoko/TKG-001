@@ -1,0 +1,940 @@
+@prefix fj: <https://w3id.org/foodjatim-tkg/ontology#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/foodjatim-tkg/ontology>
+    a owl:Ontology ;
+    dcterms:title "FoodJatim Temporal Event Knowledge Graph Ontology"@en ;
+    dcterms:description "Ontology for evidence-grounded, bitemporal food-system disruptions, government responses, policy instruments, source provenance, and uncertainty in East Java."@en ;
+    dcterms:created "2026-08-13"^^xsd:date ;
+    dcterms:modified "2026-08-15"^^xsd:date ;
+    owl:versionIRI <https://w3id.org/foodjatim-tkg/ontology/0.4.1> ;
+    owl:priorVersion <https://w3id.org/foodjatim-tkg/ontology/0.4.0> ;
+    owl:versionInfo "0.4.1" .
+
+#################################################################
+# Core classes
+#################################################################
+
+fj:Event
+    a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "Event"@en ;
+    rdfs:comment "A time-indexed real-world occurrence represented in the graph."@en .
+
+fj:EventMention
+    a owl:Class ;
+    rdfs:subClassOf fj:Event ;
+    rdfs:label "Event mention"@en ;
+    rdfs:comment "A source-anchored extraction of an event. Multiple mentions may denote one canonical real-world event."@en .
+
+fj:CanonicalEvent
+    a owl:Class ;
+    rdfs:subClassOf fj:Event ;
+    rdfs:label "Canonical event"@en ;
+    rdfs:comment "A resolved real-world event identity supported by one or more source-anchored event mentions."@en .
+
+fj:DisruptionEvent
+    a owl:Class ;
+    rdfs:subClassOf fj:Event ;
+    rdfs:label "Disruption event"@en .
+
+fj:ResponseActionEvent
+    a owl:Class ;
+    rdfs:subClassOf fj:Event ;
+    owl:disjointWith fj:DisruptionEvent ;
+    rdfs:label "Response action event"@en ;
+    rdfs:comment "An observed food-system intervention, assistance, enforcement, or preparedness action. The reporting source may not explicitly identify the disruption it addresses."@en .
+
+fj:ResponseEvent
+    a owl:Class ;
+    rdfs:subClassOf fj:ResponseActionEvent ;
+    rdfs:label "Response event"@en ;
+    rdfs:comment "A response action explicitly linked to one or more disruption events by an evidence-backed respondsTo assertion."@en .
+
+fj:PolicyImplementationEvent
+    a owl:Class ;
+    rdfs:subClassOf fj:Event ;
+    rdfs:label "Policy implementation event"@en .
+
+fj:PolicyGroundedResponseEvent
+    a owl:Class ;
+    rdfs:subClassOf fj:ResponseEvent, fj:PolicyImplementationEvent ;
+    rdfs:label "Policy-grounded response event"@en ;
+    rdfs:comment "A response linked to both a disruption and a policy instrument by evidence-backed assertions."@en .
+
+fj:PolicyEnactmentEvent
+    a owl:Class ;
+    rdfs:subClassOf fj:Event ;
+    rdfs:label "Policy enactment event"@en .
+
+fj:SourceDocument
+    a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "Source document"@en .
+
+fj:NewsArticle
+    a owl:Class ;
+    rdfs:subClassOf fj:SourceDocument ;
+    rdfs:label "News article"@en .
+
+fj:PolicyInstrument
+    a owl:Class ;
+    rdfs:subClassOf fj:SourceDocument ;
+    rdfs:label "Policy instrument"@en ;
+    rdfs:comment "A statute, regulation, or other authoritative policy document; it is not itself an implementation or response event."@en .
+
+fj:EvidenceStatement
+    a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "Evidence statement"@en ;
+    rdfs:comment "A source passage that supports an event or relation assertion."@en .
+
+fj:RelationAssertion
+    a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "Relation assertion"@en ;
+    rdfs:comment "A reified relation used to attach evidence, confidence, and extraction provenance while retaining a direct edge for querying."@en .
+
+fj:ArticleAnnotation
+    a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "Article annotation"@en ;
+    rdfs:comment "An evidence-extraction record attached to a source article. It keeps silver/gold status, relevance, confidence, and review flags separate from the source document itself."@en .
+
+fj:Publisher
+    a owl:Class ;
+    rdfs:subClassOf prov:Organization ;
+    rdfs:label "Publisher"@en ;
+    rdfs:comment "The publisher organization responsible for a news article. Channel-specific source keys remain attributes of the article rather than separate publisher identities."@en .
+
+fj:EventTimeInterval
+    a owl:Class ;
+    rdfs:subClassOf time:Interval ;
+    rdfs:label "Event time interval"@en ;
+    rdfs:comment "The valid-time interval during which an event occurred. A point-like event is represented as an interval with equal beginning and end dates."@en .
+
+fj:EventResolutionAssertion
+    a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "Event-resolution assertion"@en ;
+    rdfs:comment "A confidence-bearing assertion that an event mention denotes a proposed canonical event. The direct denotesCanonicalEvent edge is retained as a convenience edge, while this node carries probability, method, rationale, and provenance."@en .
+
+fj:EventIdentityComparison
+    a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "Event-identity comparison"@en ;
+    rdfs:comment "A pairwise same-event or distinct-event assessment between source-anchored event mentions, including negative coreference evidence that must not be represented as source contradiction."@en .
+
+fj:EvidenceAgreementAssertion
+    a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "Evidence-agreement assertion"@en ;
+    rdfs:comment "A provenance-bearing assessment that two relation assertions corroborate or contradict one another. Corroboration does not imply source independence unless independenceAssessed is true."@en .
+
+fj:EvidenceAgreementType
+    a owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "Evidence-agreement type"@en .
+
+fj:Commodity
+    a owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "Commodity"@en .
+
+fj:Location
+    a owl:Class ;
+    rdfs:subClassOf prov:Location ;
+    rdfs:label "Location"@en .
+
+fj:EastJavaDistrict
+    a owl:Class ;
+    rdfs:subClassOf fj:Location ;
+    rdfs:label "East Java regency or city"@en .
+
+fj:Organization
+    a owl:Class ;
+    rdfs:subClassOf prov:Organization ;
+    rdfs:label "Organization"@en .
+
+fj:Person
+    a owl:Class ;
+    rdfs:subClassOf prov:Person ;
+    rdfs:label "Person"@en .
+
+fj:FoodSystemStage
+    a owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "Food-system stage"@en .
+
+fj:PolicyTheme
+    a owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "Policy theme"@en .
+
+fj:PolicyInstrumentType
+    a owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "Policy instrument type"@en .
+
+#################################################################
+# Disruption taxonomy
+#################################################################
+
+fj:WeatherDisruption
+    a owl:Class ; rdfs:subClassOf fj:DisruptionEvent ; rdfs:label "Weather disruption"@en .
+
+fj:DisasterEvent
+    a owl:Class ; rdfs:subClassOf fj:DisruptionEvent ; rdfs:label "Disaster event"@en .
+
+fj:PestDiseaseEvent
+    a owl:Class ; rdfs:subClassOf fj:DisruptionEvent ; rdfs:label "Pest or disease event"@en .
+
+fj:ProductionDisruption
+    a owl:Class ; rdfs:subClassOf fj:DisruptionEvent ; rdfs:label "Production disruption"@en .
+
+fj:SupplyShortage
+    a owl:Class ; rdfs:subClassOf fj:DisruptionEvent ; rdfs:label "Supply shortage"@en .
+
+fj:DistributionDisruption
+    a owl:Class ; rdfs:subClassOf fj:DisruptionEvent ; rdfs:label "Distribution disruption"@en .
+
+fj:FoodSafetyIncident
+    a owl:Class ; rdfs:subClassOf fj:DisruptionEvent ; rdfs:label "Food-safety incident"@en .
+
+#################################################################
+# Response taxonomy
+#################################################################
+
+fj:ReserveRelease
+    a owl:Class ; rdfs:subClassOf fj:ResponseActionEvent ; rdfs:label "Reserve release"@en .
+
+fj:FoodAssistance
+    a owl:Class ; rdfs:subClassOf fj:ResponseActionEvent ; rdfs:label "Food assistance"@en .
+
+fj:MarketOperationAction
+    a owl:Class ; rdfs:subClassOf fj:ResponseActionEvent ; rdfs:label "Market operation action"@en .
+
+fj:ProcurementAction
+    a owl:Class ; rdfs:subClassOf fj:ResponseActionEvent ; rdfs:label "Procurement action"@en .
+
+fj:DistributionIntervention
+    a owl:Class ; rdfs:subClassOf fj:ResponseActionEvent ; rdfs:label "Distribution intervention"@en .
+
+fj:ImportExportAction
+    a owl:Class ; rdfs:subClassOf fj:ResponseActionEvent ; rdfs:label "Import or export action"@en .
+
+fj:InspectionEnforcement
+    a owl:Class ; rdfs:subClassOf fj:ResponseActionEvent ; rdfs:label "Inspection or enforcement action"@en .
+
+fj:ProductionAssistance
+    a owl:Class ; rdfs:subClassOf fj:ResponseActionEvent ; rdfs:label "Production assistance"@en .
+
+fj:CrisisPreparednessAction
+    a owl:Class ; rdfs:subClassOf fj:ResponseActionEvent ; rdfs:label "Crisis-preparedness action"@en .
+
+fj:OtherResponseAction
+    a owl:Class ; rdfs:subClassOf fj:ResponseActionEvent ; rdfs:label "Other response action"@en .
+
+#################################################################
+# Core object properties
+#################################################################
+
+fj:respondsTo
+    a owl:ObjectProperty ;
+    rdfs:domain fj:ResponseEvent ;
+    rdfs:range fj:DisruptionEvent ;
+    owl:inverseOf fj:hasResponse ;
+    rdfs:label "responds to"@en ;
+    rdfs:comment "Links a reported response to the disruption it explicitly addresses. Temporal proximity alone is insufficient evidence."@en .
+
+fj:hasResponse
+    a owl:ObjectProperty ;
+    rdfs:domain fj:DisruptionEvent ;
+    rdfs:range fj:ResponseEvent ;
+    rdfs:label "has response"@en .
+
+fj:implementsPolicy
+    a owl:ObjectProperty ;
+    rdfs:domain fj:Event ;
+    rdfs:range fj:PolicyInstrument ;
+    owl:inverseOf fj:implementedBy ;
+    rdfs:label "implements policy"@en ;
+    rdfs:comment "Links an observed implementation event to its explicit or manually verified legal or programmatic basis. A citation alone does not establish implementation."@en .
+
+fj:implementedBy
+    a owl:ObjectProperty ;
+    rdfs:domain fj:PolicyInstrument ;
+    rdfs:range fj:Event ;
+    rdfs:label "implemented by"@en .
+
+fj:enactsPolicy
+    a owl:ObjectProperty ;
+    rdfs:domain fj:PolicyEnactmentEvent ;
+    rdfs:range fj:PolicyInstrument ;
+    rdfs:label "enacts policy"@en .
+
+fj:reportsEvent
+    a owl:ObjectProperty ;
+    rdfs:domain fj:NewsArticle ;
+    rdfs:range fj:Event ;
+    owl:inverseOf fj:reportedBy ;
+    rdfs:label "reports event"@en .
+
+fj:reportedBy
+    a owl:ObjectProperty ;
+    rdfs:domain fj:Event ;
+    rdfs:range fj:NewsArticle ;
+    rdfs:label "reported by"@en .
+
+fj:publishedBy
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:subPropertyOf prov:wasAttributedTo ;
+    rdfs:domain fj:NewsArticle ;
+    rdfs:range fj:Publisher ;
+    rdfs:label "published by"@en ;
+    rdfs:comment "Links a news article to its normalized publisher organization. Source-channel identifiers are retained separately with sourceChannelKey."@en .
+
+fj:reportedIn
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf prov:wasDerivedFrom ;
+    rdfs:domain prov:Entity ;
+    rdfs:range fj:NewsArticle ;
+    rdfs:label "reported in"@en ;
+    rdfs:comment "Direct provenance link from a source-anchored extraction, assertion, or evidence statement to the article in which it was reported."@en .
+
+fj:sourcePublisher
+    a owl:ObjectProperty ;
+    rdfs:domain prov:Entity ;
+    rdfs:range fj:Publisher ;
+    rdfs:label "source publisher"@en ;
+    rdfs:comment "Materialized provenance shortcut from an extracted entity or assertion to the publisher of its source article. It does not attribute the extraction activity itself to the publisher."@en .
+
+fj:hasEventTime
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:Event ;
+    rdfs:range fj:EventTimeInterval ;
+    rdfs:label "has event time"@en ;
+    rdfs:comment "Links an event to its valid-time interval. This is distinct from when an article reported the event and from when the graph observed the report."@en .
+
+fj:denotesCanonicalEvent
+    a owl:ObjectProperty ;
+    rdfs:domain fj:EventMention ;
+    rdfs:range fj:CanonicalEvent ;
+    owl:inverseOf fj:hasEventMention ;
+    rdfs:label "denotes canonical event"@en ;
+    rdfs:comment "Links a source-specific event mention to the canonical event identity selected by event-coreference resolution."@en .
+
+fj:hasEventMention
+    a owl:ObjectProperty ;
+    rdfs:domain fj:CanonicalEvent ;
+    rdfs:range fj:EventMention ;
+    rdfs:label "has event mention"@en .
+
+fj:resolutionMention
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:EventResolutionAssertion ;
+    rdfs:range fj:EventMention ;
+    rdfs:label "resolution mention"@en .
+
+fj:resolutionCandidate
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:EventResolutionAssertion ;
+    rdfs:range fj:CanonicalEvent ;
+    rdfs:label "resolution candidate"@en .
+
+fj:comparedEventMention
+    a owl:ObjectProperty ;
+    rdfs:domain fj:EventIdentityComparison ;
+    rdfs:range fj:EventMention ;
+    rdfs:label "compared event mention"@en ;
+    rdfs:comment "Identifies either member of a pairwise event-identity comparison; a complete comparison has exactly two distinct values."@en .
+
+fj:citesPolicy
+    a owl:ObjectProperty ;
+    rdfs:domain fj:NewsArticle ;
+    rdfs:range fj:PolicyInstrument ;
+    rdfs:label "cites policy"@en ;
+    rdfs:comment "A weaker relation than implementsPolicy: the source explicitly mentions the instrument but need not describe its implementation."@en .
+
+fj:annotatesArticle
+    a owl:ObjectProperty ;
+    rdfs:domain fj:ArticleAnnotation ;
+    rdfs:range fj:NewsArticle ;
+    rdfs:label "annotates article"@en .
+
+fj:contextEvent
+    a owl:ObjectProperty ;
+    rdfs:domain fj:RelationAssertion ;
+    rdfs:range fj:Event ;
+    rdfs:label "context event"@en ;
+    rdfs:comment "Retains the event context in which an article-level policy citation was annotated."@en .
+
+fj:occursIn
+    a owl:ObjectProperty ;
+    rdfs:domain fj:Event ;
+    rdfs:range fj:Location ;
+    rdfs:label "occurs in"@en .
+
+fj:partOfLocation
+    a owl:ObjectProperty, owl:TransitiveProperty ;
+    rdfs:domain fj:Location ;
+    rdfs:range fj:Location ;
+    owl:inverseOf fj:containsLocation ;
+    rdfs:label "part of location"@en .
+
+fj:containsLocation
+    a owl:ObjectProperty, owl:TransitiveProperty ;
+    rdfs:domain fj:Location ;
+    rdfs:range fj:Location ;
+    rdfs:label "contains location"@en .
+
+fj:affectsCommodity
+    a owl:ObjectProperty ;
+    rdfs:domain fj:DisruptionEvent ;
+    rdfs:range fj:Commodity ;
+    rdfs:subPropertyOf fj:concernsCommodity ;
+    rdfs:label "affects commodity"@en .
+
+fj:concernsCommodity
+    a owl:ObjectProperty ;
+    rdfs:domain fj:Event ;
+    rdfs:range fj:Commodity ;
+    rdfs:label "concerns commodity"@en .
+
+fj:targetsCommodity
+    a owl:ObjectProperty ;
+    rdfs:domain fj:PolicyInstrument ;
+    rdfs:range fj:Commodity ;
+    rdfs:label "targets commodity"@en .
+
+fj:affectsStage
+    a owl:ObjectProperty ;
+    rdfs:domain fj:Event ;
+    rdfs:range fj:FoodSystemStage ;
+    rdfs:label "affects food-system stage"@en .
+
+fj:hasActor
+    a owl:ObjectProperty ;
+    rdfs:domain fj:Event ;
+    rdfs:range prov:Agent ;
+    rdfs:label "has actor"@en .
+
+fj:hasPolicyTheme
+    a owl:ObjectProperty ;
+    rdfs:domain fj:PolicyInstrument ;
+    rdfs:range fj:PolicyTheme ;
+    rdfs:label "has policy theme"@en .
+
+fj:hasInstrumentType
+    a owl:ObjectProperty ;
+    rdfs:domain fj:PolicyInstrument ;
+    rdfs:range fj:PolicyInstrumentType ;
+    rdfs:label "has instrument type"@en .
+
+fj:appliesTo
+    a owl:ObjectProperty ;
+    rdfs:domain fj:PolicyInstrument ;
+    rdfs:range fj:Location ;
+    rdfs:label "applies to"@en .
+
+fj:amendsPolicy
+    a owl:ObjectProperty ;
+    rdfs:domain fj:PolicyInstrument ;
+    rdfs:range fj:PolicyInstrument ;
+    rdfs:label "amends policy"@en .
+
+fj:supersedesPolicy
+    a owl:ObjectProperty ;
+    rdfs:domain fj:PolicyInstrument ;
+    rdfs:range fj:PolicyInstrument ;
+    rdfs:label "supersedes policy"@en ;
+    rdfs:comment "Use only when the source explicitly establishes replacement or revocation; do not infer it from amendment language alone."@en .
+
+fj:reportedCauseOf
+    a owl:ObjectProperty ;
+    rdfs:domain fj:Event ;
+    rdfs:range fj:Event ;
+    owl:inverseOf fj:hasReportedCause ;
+    rdfs:label "reported cause of"@en ;
+    rdfs:comment "A source-attributed causal claim, not an independently identified causal effect."@en .
+
+fj:hasReportedCause
+    a owl:ObjectProperty ;
+    rdfs:domain fj:Event ;
+    rdfs:range fj:Event ;
+    rdfs:label "has reported cause"@en .
+
+fj:precedes
+    a owl:ObjectProperty ;
+    rdfs:domain fj:Event ;
+    rdfs:range fj:Event ;
+    rdfs:subPropertyOf time:before ;
+    rdfs:label "precedes"@en .
+
+fj:hasEvidence
+    a owl:ObjectProperty ;
+    rdfs:range fj:EvidenceStatement ;
+    rdfs:label "has evidence"@en .
+
+fj:evidenceSource
+    a owl:ObjectProperty ;
+    rdfs:domain fj:EvidenceStatement ;
+    rdfs:range fj:SourceDocument ;
+    rdfs:label "evidence source"@en .
+
+fj:assertionSubject
+    a owl:ObjectProperty ;
+    rdfs:domain fj:RelationAssertion ;
+    rdfs:range prov:Entity ;
+    rdfs:label "assertion subject"@en .
+
+fj:assertionPredicate
+    a owl:ObjectProperty ;
+    rdfs:domain fj:RelationAssertion ;
+    rdfs:range rdf:Property ;
+    rdfs:label "assertion predicate"@en .
+
+fj:assertionObject
+    a owl:ObjectProperty ;
+    rdfs:domain fj:RelationAssertion ;
+    rdfs:range prov:Entity ;
+    rdfs:label "assertion object"@en .
+
+fj:derivedFromAssertion
+    a owl:ObjectProperty ;
+    rdfs:domain fj:RelationAssertion ;
+    rdfs:range fj:RelationAssertion ;
+    rdfs:subPropertyOf prov:wasDerivedFrom ;
+    rdfs:label "derived from assertion"@en ;
+    rdfs:comment "Identifies a direct evidence-bearing assertion used as a premise for a derived relation assertion."@en .
+
+fj:coreferenceBasis
+    a owl:ObjectProperty ;
+    rdfs:domain fj:RelationAssertion ;
+    rdfs:range fj:CanonicalEvent ;
+    rdfs:label "coreference basis"@en ;
+    rdfs:comment "Identifies the canonical event whose cross-document mentions license a relation entailed by event coreference."@en .
+
+fj:corroboratesAssertion
+    a owl:ObjectProperty, owl:SymmetricProperty, owl:IrreflexiveProperty ;
+    rdfs:domain fj:RelationAssertion ;
+    rdfs:range fj:RelationAssertion ;
+    owl:propertyDisjointWith fj:contradictsAssertion ;
+    rdfs:label "corroborates assertion"@en ;
+    rdfs:comment "Indicates that two source relation assertions support the same resolved relation. It does not by itself establish publisher independence or factual truth."@en .
+
+fj:contradictsAssertion
+    a owl:ObjectProperty, owl:SymmetricProperty, owl:IrreflexiveProperty ;
+    rdfs:domain fj:RelationAssertion ;
+    rdfs:range fj:RelationAssertion ;
+    rdfs:label "contradicts assertion"@en ;
+    rdfs:comment "Indicates an explicit evidence-bearing incompatibility between two relation assertions. Distinct-event coreference decisions and missing links are not contradictions."@en .
+
+fj:agreementSubject
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:EvidenceAgreementAssertion ;
+    rdfs:range fj:RelationAssertion ;
+    rdfs:label "agreement subject"@en .
+
+fj:agreementObject
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:EvidenceAgreementAssertion ;
+    rdfs:range fj:RelationAssertion ;
+    rdfs:label "agreement object"@en .
+
+fj:agreementType
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:EvidenceAgreementAssertion ;
+    rdfs:range fj:EvidenceAgreementType ;
+    rdfs:label "agreement type"@en .
+
+fj:agreementBasis
+    a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:EvidenceAgreementAssertion ;
+    rdfs:range fj:RelationAssertion ;
+    rdfs:label "agreement basis"@en ;
+    rdfs:comment "The aggregated or resolved relation assertion for which the compared source assertions provide co-support or conflict."@en .
+
+#################################################################
+# Datatype properties
+#################################################################
+
+fj:eventDate
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:Event ;
+    rdfs:range xsd:date ;
+    rdfs:label "event date"@en ;
+    rdfs:comment "Backward-compatible scalar shortcut for the beginning of hasEventTime. It represents event valid time, not publication or observation time."@en .
+
+fj:eventEndDate
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:Event ;
+    rdfs:range xsd:date ;
+    rdfs:label "event end date"@en .
+
+fj:eventDatePrecision
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:Event ;
+    rdfs:range xsd:string ;
+    rdfs:label "event date precision"@en .
+
+fj:publicationDateTime
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:subPropertyOf fj:reportedAt ;
+    rdfs:domain fj:NewsArticle ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "publication date and time"@en ;
+    rdfs:comment "The source-provided publication timestamp, normalized to Asia/Jakarta. A midnight value may be day-precision only and must be interpreted with reportTimePrecision."@en .
+
+fj:reportedAt
+    a owl:DatatypeProperty ;
+    rdfs:domain prov:Entity ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "reported at"@en ;
+    rdfs:comment "The report timestamp inherited from a source article by an event mention, evidence statement, or relation assertion. Aggregated entities may have more than one value."@en .
+
+fj:firstReportedAt
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "first reported at"@en ;
+    rdfs:comment "Earliest included source-report timestamp supporting an aggregated event or assertion."@en .
+
+fj:lastReportedAt
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "last reported at"@en ;
+    rdfs:comment "Latest included source-report timestamp supporting an aggregated event or assertion."@en .
+
+fj:reportTimePrecision
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "report-time precision"@en ;
+    rdfs:comment "Precision of a reportedAt or publicationDateTime value; currently minute or day."@en .
+
+fj:reportingLagFromEventStartDays
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:EventMention ;
+    rdfs:range xsd:integer ;
+    rdfs:label "reporting lag from event start in days"@en ;
+    rdfs:comment "Publication date minus the normalized event start date. For long-running events this is not a delay from event completion."@en .
+
+fj:enactmentDate
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:PolicyInstrument ;
+    rdfs:range xsd:date ;
+    rdfs:label "enactment date"@en .
+
+fj:validFrom
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:PolicyInstrument ;
+    rdfs:range xsd:date ;
+    rdfs:label "valid from"@en .
+
+fj:validTo
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:PolicyInstrument ;
+    rdfs:range xsd:date ;
+    rdfs:label "valid to"@en .
+
+fj:evidenceText
+    a owl:DatatypeProperty ;
+    rdfs:domain fj:EvidenceStatement ;
+    rdfs:range xsd:string ;
+    rdfs:label "evidence text"@en .
+
+fj:assertionConfidence
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:RelationAssertion ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "assertion confidence"@en ;
+    rdfs:comment "Confidence that the asserted relation is supported under the stated annotation procedure; it is not automatically a calibrated probability of real-world truth."@en .
+
+fj:extractionConfidence
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain prov:Entity ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "extraction confidence"@en ;
+    rdfs:comment "Confidence that a source item was extracted and normalized as represented. Calibration and interpretation must be recorded with confidenceBasis."@en .
+
+fj:confidenceBasis
+    a owl:DatatypeProperty ;
+    rdfs:domain prov:Entity ;
+    rdfs:range xsd:string ;
+    rdfs:label "confidence basis"@en ;
+    rdfs:comment "Methodological interpretation of a confidence value, including whether it is calibrated, aggregated, or copied from an LLM judgment."@en .
+
+fj:extractionMethod
+    a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "extraction method"@en .
+
+fj:labelStatus
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain prov:Entity ;
+    rdfs:range xsd:string ;
+    rdfs:label "label status"@en .
+
+fj:humanVerified
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain prov:Entity ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "human verified"@en .
+
+fj:annotationMethod
+    a owl:DatatypeProperty ;
+    rdfs:domain prov:Entity ;
+    rdfs:range xsd:string ;
+    rdfs:label "annotation method"@en .
+
+fj:articleRelevance
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:ArticleAnnotation ;
+    rdfs:range xsd:string ;
+    rdfs:label "article relevance"@en .
+
+fj:reviewStatus
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:ArticleAnnotation ;
+    rdfs:range xsd:string ;
+    rdfs:label "review status"@en .
+
+fj:reviewFlag
+    a owl:DatatypeProperty ;
+    rdfs:domain fj:ArticleAnnotation ;
+    rdfs:range xsd:string ;
+    rdfs:label "review flag"@en .
+
+fj:annotationNote
+    a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "annotation note"@en .
+
+fj:relationLabel
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:RelationAssertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "relation label"@en .
+
+fj:canonicalId
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "canonical identifier"@en .
+
+fj:resolutionConfidence
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:CanonicalEvent ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "event-resolution confidence"@en .
+
+fj:resolutionMethod
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "event-resolution method"@en .
+
+fj:sameEventProbability
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "same-event probability"@en ;
+    rdfs:comment "The asserted probability that the compared mention or mention-to-canonical assignment represents the same real-world occurrence."@en .
+
+fj:resolutionDecision
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "event-resolution decision"@en .
+
+fj:resolutionDecisionConfidence
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "event-resolution decision confidence"@en .
+
+fj:resolutionRationale
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "event-resolution rationale"@en .
+
+fj:assessmentConfidence
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:EvidenceAgreementAssertion ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "agreement-assessment confidence"@en .
+
+fj:assessmentMethod
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:EvidenceAgreementAssertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "agreement-assessment method"@en .
+
+fj:independenceAssessed
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:EvidenceAgreementAssertion ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "source independence assessed"@en ;
+    rdfs:comment "Whether the assessment established that the supporting reports are editorially independent rather than syndicated, copied, or derived from the same statement."@en .
+
+fj:publisherKey
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:Publisher ;
+    rdfs:range xsd:string ;
+    rdfs:label "publisher key"@en .
+
+fj:sourceChannelKey
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:NewsArticle ;
+    rdfs:range xsd:string ;
+    rdfs:label "source channel key"@en ;
+    rdfs:comment "The channel-specific source identifier retained from news.sqlite, such as kompas_regional or detik_finance."@en .
+
+fj:supportArticleCount
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:label "supporting article count"@en .
+
+fj:supportAssertionCount
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:RelationAssertion ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:label "supporting assertion count"@en .
+
+fj:relationSemantics
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:RelationAssertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "relation semantics"@en .
+
+fj:observationDate
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:range xsd:date ;
+    rdfs:label "observation date"@en ;
+    rdfs:comment "The earliest date on which an extracted entity or assertion was available from the included source corpus."@en .
+
+fj:pricePredictionTarget
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "price prediction target"@en ;
+    rdfs:comment "Whether a dataset is designed to predict commodity prices; false for the FoodJatim event-relation benchmarks."@en .
+
+fj:sourceRecordId
+    a owl:DatatypeProperty ;
+    rdfs:domain fj:PolicyInstrument ;
+    rdfs:range xsd:string ;
+    rdfs:label "source record identifier"@en .
+
+fj:statusAsRecorded
+    a owl:DatatypeProperty ;
+    rdfs:domain fj:PolicyInstrument ;
+    rdfs:range xsd:string ;
+    rdfs:label "status as recorded by source"@en ;
+    rdfs:comment "A source snapshot label; it must not be treated as a historical validity interval."@en .
+
+fj:manualReviewRequired
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "manual review required"@en .
+
+fj:extractionConfidenceLabel
+    a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "extraction confidence label"@en .
+
+fj:broadFoodScope
+    a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:domain fj:PolicyInstrument ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "has broad food scope"@en .
+
+fj:sourceTextExcerpt
+    a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "source text excerpt"@en .
+
+#################################################################
+# Controlled vocabulary: evidence agreement
+#################################################################
+
+fj:Corroboration
+    a fj:EvidenceAgreementType ;
+    skos:prefLabel "Corroboration"@en ;
+    skos:definition "Two evidence-bearing relation assertions provide co-support for the same resolved relation. Source independence requires a separate assessment."@en .
+
+fj:Contradiction
+    a fj:EvidenceAgreementType ;
+    skos:prefLabel "Contradiction"@en ;
+    skos:definition "Two evidence-bearing relation assertions make explicitly incompatible claims under the same event and temporal scope."@en .
+
+#################################################################
+# Controlled vocabulary: locations
+#################################################################
+
+fj:Indonesia
+    a fj:Location ;
+    skos:prefLabel "Indonesia"@en, "Indonesia"@id .
+
+fj:EastJava
+    a fj:Location ;
+    fj:partOfLocation fj:Indonesia ;
+    skos:prefLabel "East Java"@en, "Jawa Timur"@id .
+
+#################################################################
+# Controlled vocabulary: food-system stages
+#################################################################
+
+fj:ProductionStage a fj:FoodSystemStage ; skos:prefLabel "Production"@en, "Produksi"@id .
+fj:ReserveStage a fj:FoodSystemStage ; skos:prefLabel "Reserve management"@en, "Pengelolaan cadangan"@id .
+fj:ProcurementStage a fj:FoodSystemStage ; skos:prefLabel "Procurement"@en, "Pengadaan"@id .
+fj:DistributionStage a fj:FoodSystemStage ; skos:prefLabel "Distribution"@en, "Distribusi"@id .
+fj:TradeStage a fj:FoodSystemStage ; skos:prefLabel "Trade"@en, "Perdagangan"@id .
+fj:AssistanceStage a fj:FoodSystemStage ; skos:prefLabel "Assistance"@en, "Bantuan"@id .
+fj:FoodSafetyStage a fj:FoodSystemStage ; skos:prefLabel "Food safety"@en, "Keamanan pangan"@id .
+fj:GovernanceStage a fj:FoodSystemStage ; skos:prefLabel "Governance"@en, "Tata kelola"@id .
+
+#################################################################
+# Controlled vocabulary: policy themes
+#################################################################
+
+fj:PriceManagementTheme a fj:PolicyTheme ; skos:prefLabel "Price management"@en, "Pengelolaan harga"@id .
+fj:SupplyReserveTheme a fj:PolicyTheme ; skos:prefLabel "Supply and reserves"@en, "Pasokan dan cadangan"@id .
+fj:ProcurementDistributionTheme a fj:PolicyTheme ; skos:prefLabel "Procurement and distribution"@en, "Pengadaan dan distribusi"@id .
+fj:ImportExportTheme a fj:PolicyTheme ; skos:prefLabel "Import and export"@en, "Impor dan ekspor"@id .
+fj:MarketOperationTheme a fj:PolicyTheme ; skos:prefLabel "Market operation"@en, "Operasi pasar"@id .
+fj:ProductionTheme a fj:PolicyTheme ; skos:prefLabel "Production"@en, "Produksi"@id .
+fj:SubsidyAssistanceTheme a fj:PolicyTheme ; skos:prefLabel "Subsidy and assistance"@en, "Subsidi dan bantuan"@id .
+fj:FoodSafetyQualityTheme a fj:PolicyTheme ; skos:prefLabel "Food safety and quality"@en, "Keamanan dan mutu pangan"@id .
+fj:GovernanceAdministrationTheme a fj:PolicyTheme ; skos:prefLabel "Governance and administration"@en, "Tata kelola dan administrasi"@id .
+
+#################################################################
+# Controlled vocabulary: policy instrument types
+#################################################################
+
+fj:Statute a fj:PolicyInstrumentType ; skos:prefLabel "Statute"@en, "Undang-Undang"@id .
+fj:GovernmentRegulation a fj:PolicyInstrumentType ; skos:prefLabel "Government regulation"@en, "Peraturan Pemerintah"@id .
+fj:PresidentialRegulation a fj:PolicyInstrumentType ; skos:prefLabel "Presidential regulation"@en, "Peraturan Presiden"@id .
+fj:BapanasRegulation a fj:PolicyInstrumentType ; skos:prefLabel "National Food Agency regulation"@en, "Peraturan Badan Pangan Nasional"@id .
+
+#################################################################
+# Controlled vocabulary: commodities
+#################################################################
+
+fj:Rice a fj:Commodity ; skos:prefLabel "Rice"@en, "Beras"@id .
+fj:Chili a fj:Commodity ; skos:prefLabel "Chili"@en, "Cabai"@id .
+fj:Shallot a fj:Commodity ; skos:prefLabel "Shallot"@en, "Bawang merah"@id .
+fj:Garlic a fj:Commodity ; skos:prefLabel "Garlic"@en, "Bawang putih"@id .
+fj:Beef a fj:Commodity ; skos:prefLabel "Beef"@en, "Daging sapi"@id .
+fj:BuffaloMeat a fj:Commodity ; skos:prefLabel "Buffalo meat"@en, "Daging kerbau"@id .
+fj:ChickenMeat a fj:Commodity ; skos:prefLabel "Chicken meat"@en, "Daging ayam"@id .
+fj:ChickenEggs a fj:Commodity ; skos:prefLabel "Chicken eggs"@en, "Telur ayam"@id .
+fj:Sugar a fj:Commodity ; skos:prefLabel "Sugar"@en, "Gula"@id .
+fj:CookingOil a fj:Commodity ; skos:prefLabel "Cooking oil"@en, "Minyak goreng"@id .
+fj:Soybean a fj:Commodity ; skos:prefLabel "Soybean"@en, "Kedelai"@id .
+fj:Corn a fj:Commodity ; skos:prefLabel "Corn"@en, "Jagung"@id .
+fj:Wheat a fj:Commodity ; skos:prefLabel "Wheat"@en, "Gandum"@id .
+fj:Fish a fj:Commodity ; skos:prefLabel "Fish"@en, "Ikan"@id .
+fj:Milk a fj:Commodity ; skos:prefLabel "Milk"@en, "Susu"@id .
+fj:BroadFood a fj:Commodity ; skos:prefLabel "Broad food basket"@en, "Pangan umum"@id .
+fj:OtherCommodity a fj:Commodity ; skos:prefLabel "Other commodity"@en, "Komoditas lain"@id .

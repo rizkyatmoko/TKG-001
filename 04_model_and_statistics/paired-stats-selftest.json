@@ -1,0 +1,29 @@
+{
+  "identical_systems": {
+    "pass": true,
+    "p": 1.0
+  },
+  "constant_shift": {
+    "pass": true,
+    "p": 6.1e-05,
+    "ci": [
+      0.2,
+      0.2
+    ]
+  },
+  "exact_matches_brute_force": {
+    "pass": true,
+    "brute": 0.125,
+    "returned": 0.125
+  },
+  "noise_false_positive_rate_n25": {
+    "pass": true,
+    "rate": 0.065,
+    "nominal": 0.05
+  },
+  "pairing_preserved": {
+    "pass": true,
+    "note": "paired effect detected when pairing kept"
+  },
+  "all_pass": true
+}

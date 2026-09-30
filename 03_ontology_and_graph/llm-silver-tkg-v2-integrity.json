@@ -1,0 +1,42 @@
+{
+  "status": "pass",
+  "verified_date": "2026-08-15",
+  "graph": "C:\\Users\\HP\\Documents\\ChatGPT\\News TKG\\data\\derived\\llm-silver-tkg-v2.ttl",
+  "graph_sha256": "bc676f65ba46d0ce17cc2495e3f124ec6248fc1a759419d317143b538f90af8c",
+  "human_verified": false,
+  "price_prediction_target": false,
+  "counts": {
+    "triples": 37821,
+    "articles": 300,
+    "event_mentions": 359,
+    "canonical_events": 16,
+    "event_time_intervals": 375,
+    "publishers": 5,
+    "soft_event_resolution_assertions": 42,
+    "rejected_event_identity_comparisons": 5,
+    "source_assertions": 167,
+    "resolved_assertions": 22,
+    "cross_document_assertions": 34,
+    "all_assertions": 223,
+    "evidence_agreement_assertions": 34,
+    "corroboration_edges": 34,
+    "contradiction_edges": 0
+  },
+  "checks": {
+    "source_articles_and_bodies": "pass",
+    "event_mentions_and_exact_evidence": "pass",
+    "canonical_membership_and_evidence": "pass",
+    "event_valid_time_and_report_time_separated": "pass",
+    "normalized_publisher_provenance": "pass",
+    "soft_event_resolution_probabilities": "pass",
+    "rejected_identity_comparisons_preserved": "pass",
+    "corroboration_assessments_and_no_fabricated_contradictions": "pass",
+    "source_assertion_identity": "pass",
+    "resolved_assertion_premises": "pass",
+    "cross_document_direct_and_coreference_premises": "pass",
+    "all_assertions_have_direct_edges_and_evidence": "pass",
+    "llm_only_silver_provenance": "pass",
+    "price_prediction_excluded": "pass",
+    "report_hash_and_counts": "pass"
+  }
+}

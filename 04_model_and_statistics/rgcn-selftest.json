@@ -1,0 +1,43 @@
+{
+  "gradient_check": {
+    "typed": {
+      "max_relative_error": 4.945363497373511e-08,
+      "pass": "True"
+    },
+    "single": {
+      "max_relative_error": 5.505924793016907e-08,
+      "pass": "True"
+    },
+    "none": {
+      "max_relative_error": 2.4659396266888187e-07,
+      "pass": "True"
+    }
+  },
+  "learnability": {
+    "typed": 1.0,
+    "none": 0.8,
+    "graph_beats_mlp": true
+  },
+  "graph": {
+    "N": 1183,
+    "F": 25,
+    "relations": [
+      "citesPolicy",
+      "concernsCommodity",
+      "denotesCanonicalEvent",
+      "hasActor",
+      "implementsPolicy",
+      "memberOfEpisode",
+      "occursIn",
+      "publishedBy",
+      "reportedCauseOf",
+      "reportedIn",
+      "respondsTo",
+      "sourcePublisher"
+    ],
+    "edges_kept": 2266,
+    "edges_dropped": 2,
+    "edges_excluded_missing_time": 312,
+    "require_both_times": true
+  }
+}

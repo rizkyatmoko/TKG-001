@@ -1,0 +1,28 @@
+{
+  "view_in": "view-with-chat",
+  "view_out": "view-chat-coref",
+  "clusters_in_report": 24,
+  "clusters_applied": 24,
+  "events_before": 1107,
+  "events_after": 1059,
+  "events_absorbed": 48,
+  "merged_nodes": 24,
+  "merged_nodes_multi_publisher": 11,
+  "edges_before": 6491,
+  "edges_after": 6489,
+  "edges_dropped_as_self_loops": 2,
+  "respondsTo_cross_document": 26,
+  "respondsTo_intra_article": 174,
+  "relation_mix": {
+    "concernsCommodity": 1107,
+    "occursIn": 1107,
+    "hasActor": 1107,
+    "reportedIn": 1107,
+    "publishedBy": 955,
+    "sourcePublisher": 773,
+    "respondsTo": 200,
+    "reportedCauseOf": 70,
+    "implementsPolicy": 46,
+    "citesPolicy": 17
+  }
+}

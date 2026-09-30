@@ -1,0 +1,93 @@
+{
+  "guards": {
+    "G1_target_edge_masking": true,
+    "G2_no_evidence_text": true,
+    "G3_chronological_split": true
+  },
+  "runs": {
+    "typed": {
+      "test_accuracy_mean": 1.0,
+      "test_accuracy_sd": 0.0,
+      "test_macro_f1_mean": 0.5,
+      "per_seed_accuracy": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "per_seed_macro_f1": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "test_n": 25,
+      "per_class_f1": {
+        "respondsTo": 1.0,
+        "implementsPolicy": 0.0,
+        "citesPolicy": 0.0,
+        "reportedCauseOf": 1.0
+      },
+      "majority_baseline": 0.92,
+      "edges_removed": 159,
+      "class_counts": {
+        "respondsTo": 130,
+        "reportedCauseOf": 29
+      }
+    },
+    "single": {
+      "test_accuracy_mean": 1.0,
+      "test_accuracy_sd": 0.0,
+      "test_macro_f1_mean": 0.5,
+      "per_seed_accuracy": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "per_seed_macro_f1": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "test_n": 25,
+      "per_class_f1": {
+        "respondsTo": 1.0,
+        "implementsPolicy": 0.0,
+        "citesPolicy": 0.0,
+        "reportedCauseOf": 1.0
+      },
+      "majority_baseline": 0.92,
+      "edges_removed": 159,
+      "class_counts": {
+        "respondsTo": 130,
+        "reportedCauseOf": 29
+      }
+    },
+    "none": {
+      "test_accuracy_mean": 1.0,
+      "test_accuracy_sd": 0.0,
+      "test_macro_f1_mean": 0.5,
+      "per_seed_accuracy": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "per_seed_macro_f1": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "test_n": 25,
+      "per_class_f1": {
+        "respondsTo": 1.0,
+        "implementsPolicy": 0.0,
+        "citesPolicy": 0.0,
+        "reportedCauseOf": 1.0
+      },
+      "majority_baseline": 0.92,
+      "edges_removed": 159,
+      "class_counts": {
+        "respondsTo": 130,
+        "reportedCauseOf": 29
+      }
+    }
+  }
+}

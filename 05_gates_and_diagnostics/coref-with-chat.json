@@ -1,0 +1,562 @@
+{
+  "window_days": 3,
+  "cross_publisher_only": false,
+  "rule": "same subtype + same single district + compatible commodity + precise dates (day/estimated_day, no end date) + different article",
+  "cluster_members": [
+    {
+      "canonical": "ann_0a8ee5070768:llm:event:2",
+      "members": [
+        "ann_0a8ee5070768:llm:event:2",
+        "ann_3af3e0e06e64:llm:event:1",
+        "ann_8f32a0a24900:llm:event:1"
+      ],
+      "articles": [
+        "ann_0a8ee5070768",
+        "ann_3af3e0e06e64",
+        "ann_8f32a0a24900"
+      ],
+      "publishers": [
+        "kompas"
+      ],
+      "subtype": "DistributionDisruption",
+      "district": "lumajang"
+    },
+    {
+      "canonical": "ann_175d6a5dbc05:llm:event:1",
+      "members": [
+        "ann_175d6a5dbc05:llm:event:1",
+        "ann_8da253d23230:llm:event:1"
+      ],
+      "articles": [
+        "ann_175d6a5dbc05",
+        "ann_8da253d23230"
+      ],
+      "publishers": [
+        "beritajatim"
+      ],
+      "subtype": "PestDiseaseEvent",
+      "district": "ponorogo"
+    },
+    {
+      "canonical": "ann_6ddd6a0e3955:llm:event:1",
+      "members": [
+        "ann_6ddd6a0e3955:llm:event:1",
+        "ann_9a48d67e8885:run:expansion_v3_qwen8b:event:3"
+      ],
+      "articles": [
+        "ann_6ddd6a0e3955",
+        "ann_9a48d67e8885"
+      ],
+      "publishers": [
+        "beritajatim",
+        "kompas"
+      ],
+      "subtype": "SupplyShortage",
+      "district": "malang"
+    },
+    {
+      "canonical": "ann_751731e1063f:llm:event:1",
+      "members": [
+        "ann_751731e1063f:llm:event:1",
+        "ann_b06d36d2faf2:llm:event:1"
+      ],
+      "articles": [
+        "ann_751731e1063f",
+        "ann_b06d36d2faf2"
+      ],
+      "publishers": [
+        "kompas"
+      ],
+      "subtype": "SupplyShortage",
+      "district": "gresik"
+    },
+    {
+      "canonical": "ann_751731e1063f:llm:event:2",
+      "members": [
+        "ann_751731e1063f:llm:event:2",
+        "ann_b06d36d2faf2:llm:event:2"
+      ],
+      "articles": [
+        "ann_751731e1063f",
+        "ann_b06d36d2faf2"
+      ],
+      "publishers": [
+        "kompas"
+      ],
+      "subtype": "ProductionDisruption",
+      "district": "gresik"
+    },
+    {
+      "canonical": "ann_7af91de1212e:llm:event:1",
+      "members": [
+        "ann_7af91de1212e:llm:event:1",
+        "ann_f90979de298a:run:expansion_v3_qwen8b:event:1"
+      ],
+      "articles": [
+        "ann_7af91de1212e",
+        "ann_f90979de298a"
+      ],
+      "publishers": [
+        "beritajatim",
+        "kompas"
+      ],
+      "subtype": "DisasterEvent",
+      "district": "pamekasan"
+    },
+    {
+      "canonical": "ann_a2734dacdf93:llm:event:1",
+      "members": [
+        "ann_a2734dacdf93:llm:event:1",
+        "ann_ccfb79c5cbda:llm:event:1"
+      ],
+      "articles": [
+        "ann_a2734dacdf93",
+        "ann_ccfb79c5cbda"
+      ],
+      "publishers": [
+        "kompas"
+      ],
+      "subtype": "DisasterEvent",
+      "district": "trenggalek"
+    },
+    {
+      "canonical": "ann_a62795161118:run:expansion_v3_qwen8b:event:1",
+      "members": [
+        "ann_a62795161118:run:expansion_v3_qwen8b:event:1",
+        "ann_a8d1e499b017:llm:event:1"
+      ],
+      "articles": [
+        "ann_a62795161118",
+        "ann_a8d1e499b017"
+      ],
+      "publishers": [
+        "kompas"
+      ],
+      "subtype": "PestDiseaseEvent",
+      "district": "lumajang"
+    },
+    {
+      "canonical": "ann_07a346b001b7:run:expansion_v3_qwen8b:event:3",
+      "members": [
+        "ann_07a346b001b7:run:expansion_v3_qwen8b:event:3",
+        "ann_0a043959f8a3:run:expansion_v3_qwen8b:event:1",
+        "ann_1dc0b89f2f92:run:expansion_v3_qwen8b:event:3",
+        "ann_272262ea237b:run:expansion_v3_qwen8b:event:1",
+        "ann_3b456444375e:run:expansion_v3_qwen8b:event:2",
+        "ann_4e154dd8b03b:run:expansion_v3_qwen8b:event:3",
+        "ann_5a75640c82cf:run:expansion_v3_qwen8b:event:1",
+        "ann_66bf14a01503:run:expansion_v3_qwen8b:event:3",
+        "ann_6fbff35b22ca:run:expansion_v3_qwen8b:event:3",
+        "ann_797c47bdb5fc:run:expansion_v3_qwen8b:event:3",
+        "ann_a8510027343a:run:expansion_v3_qwen8b:event:3",
+        "ann_c4b9e1dae8e1:llm:event:1",
+        "ann_d1fdc82f8ae5:run:expansion_v3_qwen8b:event:3",
+        "ann_de7f9e5213f9:run:expansion_v3_qwen8b:event:3",
+        "ann_ea7b28639595:run:expansion_v3_qwen8b:event:3",
+        "ann_fc1cd51d3c54:run:expansion_v3_qwen8b:event:2"
+      ],
+      "articles": [
+        "ann_07a346b001b7",
+        "ann_0a043959f8a3",
+        "ann_1dc0b89f2f92",
+        "ann_272262ea237b",
+        "ann_3b456444375e",
+        "ann_4e154dd8b03b",
+        "ann_5a75640c82cf",
+        "ann_66bf14a01503",
+        "ann_6fbff35b22ca",
+        "ann_797c47bdb5fc",
+        "ann_a8510027343a",
+        "ann_c4b9e1dae8e1",
+        "ann_d1fdc82f8ae5",
+        "ann_de7f9e5213f9",
+        "ann_ea7b28639595",
+        "ann_fc1cd51d3c54"
+      ],
+      "publishers": [
+        "beritajatim",
+        "detik",
+        "kompas",
+        "kontan"
+      ],
+      "subtype": "DisasterEvent",
+      "district": "lumajang"
+    },
+    {
+      "canonical": "ann_c5df8a1f2b98:run:expansion_v3_qwen8b:event:3",
+      "members": [
+        "ann_c5df8a1f2b98:run:expansion_v3_qwen8b:event:3",
+        "ann_cb34ce83e89c:llm:event:1",
+        "ann_d776cc908505:run:expansion_v3_qwen8b:event:1",
+        "ann_f72807158b4b:run:expansion_v3_qwen8b:event:1"
+      ],
+      "articles": [
+        "ann_c5df8a1f2b98",
+        "ann_cb34ce83e89c",
+        "ann_d776cc908505",
+        "ann_f72807158b4b"
+      ],
+      "publishers": [
+        "beritajatim",
+        "kompas"
+      ],
+      "subtype": "DisasterEvent",
+      "district": "malang"
+    },
+    {
+      "canonical": "ann_a40097e6126c:llm:event:1",
+      "members": [
+        "ann_a40097e6126c:llm:event:1",
+        "ann_d32b525c5729:llm:event:1",
+        "ann_f9a842c82e39:llm:event:1"
+      ],
+      "articles": [
+        "ann_a40097e6126c",
+        "ann_d32b525c5729",
+        "ann_f9a842c82e39"
+      ],
+      "publishers": [
+        "kompas"
+      ],
+      "subtype": "PestDiseaseEvent",
+      "district": "lumajang"
+    },
+    {
+      "canonical": "ann_2972812e8fbc:run:expansion_v3_qwen8b:event:1",
+      "members": [
+        "ann_2972812e8fbc:run:expansion_v3_qwen8b:event:1",
+        "ann_5ca89bb755cf:run:expansion_v3_qwen8b:event:3",
+        "ann_bb18d05f898c:run:expansion_v3_qwen8b:event:1",
+        "ann_cf6538b71864:run:expansion_v3_qwen8b:event:1",
+        "ann_d506e761ef36:run:expansion_v3_qwen8b:event:1"
+      ],
+      "articles": [
+        "ann_2972812e8fbc",
+        "ann_5ca89bb755cf",
+        "ann_bb18d05f898c",
+        "ann_cf6538b71864",
+        "ann_d506e761ef36"
+      ],
+      "publishers": [
+        "beritajatim",
+        "detik",
+        "kompas"
+      ],
+      "subtype": "DisasterEvent",
+      "district": "pasuruan"
+    },
+    {
+      "canonical": "ann_45e479bdffe0:run:expansion_v3_qwen8b:event:1",
+      "members": [
+        "ann_45e479bdffe0:run:expansion_v3_qwen8b:event:1",
+        "ann_5ce02162b9bb:run:expansion_v3_qwen8b:event:1"
+      ],
+      "articles": [
+        "ann_45e479bdffe0",
+        "ann_5ce02162b9bb"
+      ],
+      "publishers": [
+        "kompas"
+      ],
+      "subtype": "WeatherDisruption",
+      "district": "sumenep"
+    },
+    {
+      "canonical": "ann_49f5c3114a38:run:expansion_v3_qwen8b:event:1",
+      "members": [
+        "ann_49f5c3114a38:run:expansion_v3_qwen8b:event:1",
+        "ann_fe5ac75faca0:run:expansion_v3_qwen8b:event:2"
+      ],
+      "articles": [
+        "ann_49f5c3114a38",
+        "ann_fe5ac75faca0"
+      ],
+      "publishers": [
+        "beritajatim",
+        "kompas"
+      ],
+      "subtype": "DisasterEvent",
+      "district": "lumajang"
+    },
+    {
+      "canonical": "ann_4bc09076c802:run:expansion_v3_qwen8b:event:2",
+      "members": [
+        "ann_4bc09076c802:run:expansion_v3_qwen8b:event:2",
+        "ann_bffa1c5b5d32:run:expansion_v3_qwen8b:event:2"
+      ],
+      "articles": [
+        "ann_4bc09076c802",
+        "ann_bffa1c5b5d32"
+      ],
+      "publishers": [
+        "beritajatim",
+        "kompas"
+      ],
+      "subtype": "DisasterEvent",
+      "district": "malang"
+    },
+    {
+      "canonical": "ann_77b5655a51a5:run:expansion_v3_qwen8b:event:2",
+      "members": [
+        "ann_77b5655a51a5:run:expansion_v3_qwen8b:event:2",
+        "ann_b17bfd14223b:run:expansion_v3_qwen8b:event:1"
+      ],
+      "articles": [
+        "ann_77b5655a51a5",
+        "ann_b17bfd14223b"
+      ],
+      "publishers": [
+        "beritajatim",
+        "kompas"
+      ],
+      "subtype": "SupplyShortage",
+      "district": "pasuruan"
+    },
+    {
+      "canonical": "ann_92b880297d84:run:expansion_v3_qwen8b:event:2",
+      "members": [
+        "ann_92b880297d84:run:expansion_v3_qwen8b:event:2",
+        "ann_f787922c274a:run:expansion_v3_qwen8b:event:2"
+      ],
+      "articles": [
+        "ann_92b880297d84",
+        "ann_f787922c274a"
+      ],
+      "publishers": [
+        "beritajatim",
+        "kompas"
+      ],
+      "subtype": "DistributionDisruption",
+      "district": "sumenep"
+    },
+    {
+      "canonical": "ann_c3e0128c9201:run:expansion_v3_qwen8b:event:1",
+      "members": [
+        "ann_c3e0128c9201:run:expansion_v3_qwen8b:event:1",
+        "ann_f1bc0da3328b:run:expansion_v3_qwen8b:event:1"
+      ],
+      "articles": [
+        "ann_c3e0128c9201",
+        "ann_f1bc0da3328b"
+      ],
+      "publishers": [
+        "beritajatim",
+        "kompas"
+      ],
+      "subtype": "DisasterEvent",
+      "district": "pasuruan"
+    },
+    {
+      "canonical": "ann_daabd86b28b8:run:expansion_v3_qwen8b:event:2",
+      "members": [
+        "ann_daabd86b28b8:run:expansion_v3_qwen8b:event:2",
+        "ann_f787922c274a:run:expansion_v3_qwen8b:event:3"
+      ],
+      "articles": [
+        "ann_daabd86b28b8",
+        "ann_f787922c274a"
+      ],
+      "publishers": [
+        "beritajatim",
+        "kompas"
+      ],
+      "subtype": "WeatherDisruption",
+      "district": "sumenep"
+    },
+    {
+      "canonical": "ann_563cc0bf75be:llm:event:1",
+      "members": [
+        "ann_563cc0bf75be:llm:event:1",
+        "ann_b6a981af16e9:llm:event:1",
+        "ann_b6a981af16e9:llm:event:2",
+        "ann_e624e8fa9b57:run:expansion_v3_qwen8b:event:3"
+      ],
+      "articles": [
+        "ann_563cc0bf75be",
+        "ann_b6a981af16e9",
+        "ann_e624e8fa9b57"
+      ],
+      "publishers": [
+        "beritajatim"
+      ],
+      "subtype": "DisasterEvent",
+      "district": "batu"
+    },
+    {
+      "canonical": "ann_0a3d5c2ffcff:llm:event:1",
+      "members": [
+        "ann_0a3d5c2ffcff:llm:event:1",
+        "ann_0d14074ee24c:llm:event:1"
+      ],
+      "articles": [
+        "ann_0a3d5c2ffcff",
+        "ann_0d14074ee24c"
+      ],
+      "publishers": [],
+      "subtype": "DisasterEvent",
+      "district": "ponorogo"
+    },
+    {
+      "canonical": "ann_1a7389311cb9:llm:event:1",
+      "members": [
+        "ann_1a7389311cb9:llm:event:1",
+        "ann_7b40c89535a3:llm:event:1",
+        "ann_d0fe68a18221:llm:event:1"
+      ],
+      "articles": [
+        "ann_1a7389311cb9",
+        "ann_7b40c89535a3",
+        "ann_d0fe68a18221"
+      ],
+      "publishers": [],
+      "subtype": "DisasterEvent",
+      "district": "lumajang"
+    },
+    {
+      "canonical": "ann_21ccda44c7c7:llm:event:1",
+      "members": [
+        "ann_21ccda44c7c7:llm:event:1",
+        "ann_3f4145aceb4b:llm:event:1"
+      ],
+      "articles": [
+        "ann_21ccda44c7c7",
+        "ann_3f4145aceb4b"
+      ],
+      "publishers": [],
+      "subtype": "PestDiseaseEvent",
+      "district": "ponorogo"
+    },
+    {
+      "canonical": "ann_56b9cd62b2e3:llm:event:1",
+      "members": [
+        "ann_56b9cd62b2e3:llm:event:1",
+        "ann_9e03f58fc23d:llm:event:1"
+      ],
+      "articles": [
+        "ann_56b9cd62b2e3",
+        "ann_9e03f58fc23d"
+      ],
+      "publishers": [],
+      "subtype": "DistributionDisruption",
+      "district": "blitar"
+    }
+  ],
+  "disruption_events": 510,
+  "candidate_pairs_merged": 158,
+  "clusters": 24,
+  "clustered_events": 72,
+  "clusters_spanning_multiple_publishers": 15,
+  "clusters_spanning_pilot_and_expansion": 9,
+  "cluster_size_hist": {
+    "3": 3,
+    "2": 17,
+    "16": 1,
+    "4": 2,
+    "5": 1
+  },
+  "lead_time_days": {
+    "n": 24,
+    "median": 1,
+    "p75": 2,
+    "max": 8,
+    "share_gt_0": 0.708
+  },
+  "validation_vs_llm_ensemble": {
+    "available": true,
+    "judged_pairs": 176,
+    "also_proposed_by_rule": 0,
+    "false_positives_rule_merges_ensemble_says_distinct": 0,
+    "true_positives_both_merge": 0,
+    "false_negatives_ensemble_merges_rule_misses": 1,
+    "fp_examples": [],
+    "fn_examples": [
+      "ann_76b0e0517053:llm:event:1 + ann_8195fc6965e4:llm:event:1 (ens=0.5667)"
+    ]
+  },
+  "largest_clusters": [
+    {
+      "n": 16,
+      "subtype": "DisasterEvent",
+      "district": "lumajang",
+      "dates": [
+        "2021-12-04",
+        "2021-12-05",
+        "2021-12-06",
+        "2021-12-08"
+      ],
+      "publishers": [
+        "beritajatim",
+        "detik",
+        "kompas",
+        "kontan"
+      ]
+    },
+    {
+      "n": 5,
+      "subtype": "DisasterEvent",
+      "district": "pasuruan",
+      "dates": [
+        "2026-03-24",
+        "2026-03-26",
+        "2026-03-27"
+      ],
+      "publishers": [
+        "beritajatim",
+        "detik",
+        "kompas"
+      ]
+    },
+    {
+      "n": 4,
+      "subtype": "DisasterEvent",
+      "district": "malang",
+      "dates": [
+        "2021-04-10",
+        "2021-04-11"
+      ],
+      "publishers": [
+        "beritajatim",
+        "kompas"
+      ]
+    },
+    {
+      "n": 4,
+      "subtype": "DisasterEvent",
+      "district": "batu",
+      "dates": [
+        "2021-11-04",
+        "2021-11-05"
+      ],
+      "publishers": [
+        "",
+        "beritajatim"
+      ]
+    },
+    {
+      "n": 3,
+      "subtype": "DistributionDisruption",
+      "district": "lumajang",
+      "dates": [
+        "2025-07-30",
+        "2025-07-31"
+      ],
+      "publishers": [
+        "",
+        "kompas"
+      ]
+    },
+    {
+      "n": 3,
+      "subtype": "PestDiseaseEvent",
+      "district": "lumajang",
+      "dates": [
+        "2024-07-31",
+        "2024-08-02"
+      ],
+      "publishers": [
+        "",
+        "kompas"
+      ]
+    }
+  ]
+}
